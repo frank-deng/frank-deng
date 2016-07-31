@@ -90,17 +90,16 @@ EXTENSION="${FILENAME##*.}";
 
 <h3 id="gui">如何从终端运行GUI程序，并抑制标准输出和标准错误输出</h3>
 
-<p>Create <code class="highlighter-rouge">/usr/local/bin/xexec</code> with the code below:</p>
+<p>将以下代码添加到<code class="highlighter-rouge">~/.bashrc</code>中:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="nb">exec</span> <span class="nv">$@</span> &amp;&gt;/dev/null &amp;
-<span class="nb">exit </span>0;
+<div class="highlighter-rouge"><pre class="highlight"><code>function xexec(){
+	nohup "$@" &amp;&gt;/dev/null &amp; disown
+}
+complete -cf xexec
 </code></pre>
 </div>
 
-<p>Add <code class="highlighter-rouge">complete -cf xexec</code> to <code class="highlighter-rouge">~/.bashrc</code> for tab completion.</p>
-
-<p>Finally, you can append xexec to the command you’d like to run, so as to run GUI program at background with stdout and stderr supressed.</p>
+<p>然后在命令前添加<code class="highlighter-rouge">xexec</code>，就可以在后台运行GUI程序，并屏蔽标准输出和标准错误输出。</p>
 
 <h3 id="perlrename">如何使用Perl的rename工具</h3>
 

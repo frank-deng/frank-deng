@@ -90,17 +90,16 @@ EXTENSION="${FILENAME##*.}";
 
 <h3 id="launch-gui-program-from-terminal-with-stdout-and-stderr-supressed">Launch GUI program from terminal with stdout and stderr supressed</h3>
 
-<p>Create <code class="highlighter-rouge">/usr/local/bin/xexec</code> with the code below:</p>
+<p>Append the following code into <code class="highlighter-rouge">~/.bashrc</code>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="nb">exec</span> <span class="nv">$@</span> &amp;&gt;/dev/null &amp;
-<span class="nb">exit </span>0;
+<div class="highlighter-rouge"><pre class="highlight"><code>function xexec(){
+	nohup "$@" &amp;&gt;/dev/null &amp; disown
+}
+complete -cf xexec
 </code></pre>
 </div>
 
-<p>Add <code class="highlighter-rouge">complete -cf xexec</code> to <code class="highlighter-rouge">~/.bashrc</code> for tab completion.</p>
-
-<p>Finally, you can append xexec to the command you’d like to run, so as to run GUI program at background with stdout and stderr supressed.</p>
+<p>Then you can append <code class="highlighter-rouge">xexec</code> before your command, so as to run GUI program at background with stdout and stderr supressed.</p>
 
 <h3 id="usage-of-perls-rename-utility">Usage of Perl’s rename utility</h3>
 
@@ -149,7 +148,7 @@ done;
 </code></pre>
 </div>
 
-<p>Press <code class="highlighter-rouge">Ctrl-d</code> to stop timing, and you will get how long the time passed during timing.</p>
+<p>Press <code class="highlighter-rouge">Ctrl-d</code> to stop timing, and you will get how long the time passed.</p>
 
 <h3 id="record-system-output-sound-in-linux">Record system output sound in Linux</h3>
 
