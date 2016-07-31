@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<script type='text/javascript' src='js.cookie.min.js'></script>
+		<script type='text/javascript'>
+/* Game Engine */
+function Tetris(cookie_data){
+	/* Static data */
+	this.BLOCK_ALL = [
+		//O: 0
+		{
+			w: 2, h: 2, rx: 0, ry: 0,
+			map:[
+				1, 1,
+				1, 1,
+			],
+			rotate: 0
+		},
+
+		//I: 1-2
+		{
+			w: 4, h: 1, rx: 2, ry: 0,
+			map:[
+				2, 2, 2, 2,
+			],
+			rotate: 2
+		},
+		{
+			w: 1, h: 4, rx: 0, ry: 2,
+			map:[
+				2,
+				2,
+				2,
+				2,
+			],
+			rotate: 1
+		},
+
+		//S: 3-4
+		{
+			w: 2, h: 3, rx: 0, ry: 1,
+			map:[
+				3, 0,
+				3, 3,
+				0, 3,
+			],
+			rotate: 4
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 1,
+			map:[
+				0, 3, 3,
+				3, 3, 0,
+			],
+			rotate: 3
+		},
+
+		//Z: 5-6
+		{
+			w: 2, h: 3, rx: 0, ry: 1,
+			map:[
+				0, 4, 
+				4, 4, 
+				4, 0,
+			],
+			rotate: 6
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 1,
+			map:[
+				4, 4, 0,
+				0, 4, 4,
+			],
+			rotate: 5
+		},
+
+		//T: 7-10
+		{
+			w: 2, h: 3, rx: 0, ry: 1,
+			map:[
+				5, 0,
+				5, 5,
+				5, 0,
+			],
+			rotate: 8
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 1,
+			map:[
+				0, 5, 0,
+				5, 5, 5,
+			],
+			rotate: 9
+		},
+		{
+			w: 2, h: 3, rx: 1, ry: 1,
+			map:[
+				0, 5,
+				5, 5,
+				0, 5,
+			],
+			rotate: 10
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 0,
+			map:[
+				5, 5, 5,
+				0, 5, 0,
+			],
+			rotate: 7
+		},
+
+		//L: 11-14
+		{
+			w: 2, h: 3, rx: 1, ry: 1,
+			map:[
+				6, 0,
+				6, 0,
+				6, 6,
+			],
+			rotate: 12
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 0,
+			map:[
+				0, 0, 6,
+				6, 6, 6,
+			],
+			rotate: 13
+		},
+		{
+			w: 2, h: 3, rx: 0, ry: 1,
+			map:[
+				6, 6,
+				0, 6,
+				0, 6,
+			],
+			rotate: 14
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 1,
+			map:[
+				6, 6, 6,
+				6, 0, 0,
+			],
+			rotate: 11
+		},
+
+		//J 15-18
+		{
+			w: 2, h: 3, rx: 0, ry: 1,
+			map:[
+				0, 7,
+				0, 7,
+				7, 7,
+			],
+			rotate: 16
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 1,
+			map:[
+				7, 7, 7,
+				0, 0, 7,
+			],
+			rotate: 17
+		},
+		{
+			w: 2, h: 3, rx: 1, ry: 1,
+			map:[
+				7, 7,
+				7, 0,
+				7, 0,
+			],
+			rotate: 18
+		},
+		{
+			w: 3, h: 2, rx: 1, ry: 0,
+			map:[
+				7, 0, 0,
+				7, 7, 7,
+			],
+			rotate: 15
+		}
+	];
+
+	/* Game Data */
+	this.getNextBlock = function(){
+		return this.BLOCK_ALL[Math.floor(Math.random() * this.BLOCK_ALL.length)];
+	}
+	this.stage = [];
+	for (var y = 0; y < 20 ; y++) {
+		var row = new Array();
+		for (var x = 0; x < 10 ; x++) {
+			row.push(0);
+		}
+		this.stage.push(row);
+	}
+	this.next_block = this.getNextBlock();
+	this.block = this.getNextBlock();
+	this.block_x = Math.floor((this.stage[0].length - this.block.w) / 2);
+	this.block_y = 0;
+	this.speed = 0;
+	this.score = 0;
+	this.hiscore = 0;
+
+	/* Init from cookie */
+	try{
+		if (undefined != cookie_data) {
+			var str_array = cookie_data.split(',');
+			this.hiscore = Number(str_array[0]);
+			if (str_array[1] !== undefined) {
+				this.score = Number(str_array[1]);
+				this.next_block = this.BLOCK_ALL[Number(str_array[2])];
+				this.block = this.BLOCK_ALL[Number(str_array[3])];
+				this.block_x = Number(str_array[4]);
+				this.block_y = Number(str_array[5]);
+				var i = 0;
+				for (var y = 0; y < this.stage.length; y++) {
+					for (var x = 0; x < this.stage[0].length; x++) {
+						this.stage[y][x] = Number(str_array[6].charAt(i));
+						i++;
+					}
+				}
+			}
+		}
+	}catch(e){}
+
+	/* Main Functions */
+	this.hitTest = function(block, x0, y0) {
+		for (var y = 0; y < block.h; y++) {
+			for (var x = 0; x < block.w; x++) {
+				if (block.map[x + y * block.w] > 0) {
+					var sx = x0 + x;
+					var sy = y0 + y;
+					if (sx < 0 || sx >= this.stage[0].length || sy >= this.stage.length) {
+						return true;
+					} else if (sy >= 0 && this.stage[sy][sx] > 0) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	this.freeze = function() {
+		for (var y = 0; y < this.block.h; y++) {
+			for (var x = 0; x < this.block.w; x++) {
+				if (this.block.map[x + y * this.block.w] > 0) {
+					this.stage[this.block_y + y][this.block_x + x]
+						= this.block.map[x + y * this.block.w];
+				}
+			}
+		}
+	}
+	this.reduce = function() {
+		var reduced_rows = 0;
+		for (var i = 0; i < this.stage.length; i++) {
+			if (-1 == this.stage[i].indexOf(0)) {
+				this.stage.splice(i, 1);
+				this.stage.splice(0, 0, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+				reduced_rows++;
+			}
+		}
+		return reduced_rows;
+	}
+	this.move = function(dir) {
+		if (!this.hitTest(this.block, this.block_x + dir, this.block_y)) {
+			this.block_x += dir;
+			return true;
+		}
+		return false;
+	}
+	this.rotate = function(){
+		var block = this.BLOCK_ALL[this.block.rotate];
+		var x = this.block_x + this.block.rx - block.rx;
+		var y = this.block_y + this.block.ry - block.ry;
+		if (this.hitTest(block, x, y)) {
+			if (!this.hitTest(block, x - 1, y)) {
+				x--;
+			} else if (!this.hitTest(block, x + 1, y)) {
+				x++;
+			} else {
+				return false;
+			}
+		}
+		this.block = block;
+		this.block_x = x;
+		this.block_y = y;
+		return true;
+	}
+	this.drop = function() {
+		while (!this.hitTest(this.block, this.block_x, this.block_y + 1)) {
+			this.block_y++;
+		}
+	}
+
+	//Main Loop
+	this.mainLoop = function() {
+		//Move down current block
+		if (!this.hitTest(this.block, this.block_x, this.block_y + 1)) {
+			this.block_y++;
+			this.speed = updateSpeed(this.score);
+			return 0;	//Upgrade block only
+		}
+
+		//Freeze & Reduce
+		this.freeze();
+		var reduced = this.reduce();
+		this.score += (1 << reduced);
+		this.hiscore = (this.score > this.hiscore ? this.score : this.hiscore);
+
+		//Check GAME OVER
+		if (this.hitTest(this.next_block,
+			Math.floor((this.stage[0].length - this.block.w) / 2), 0)){
+			this.speed = -1;	//GAME OVER
+			return -1;
+		}
+
+		//Use the next block
+		this.block = this.next_block;
+		this.block_x = Math.floor((this.stage[0].length - this.block.w) / 2);
+		this.block_y = 0;
+
+		//Generate block
+		this.next_block = this.getNextBlock();
+
+		this.speed = updateSpeed(this.score);
+		return 1;	//Upgrade the whole stage
+	}
+	this.toString = function() {
+		var str_stage = '';
+		for (var y = 0; y < this.stage.length; y++) {
+			for (var x = 0; x < this.stage[0].length; x++) {
+				str_stage += String(this.stage[y][x]);
+			}
+		}
+		return String(this.hiscore) + ','
+			+ String(this.score) + ','
+			+ String(this.BLOCK_ALL.indexOf(this.next_block)) + ','
+			+ String(this.BLOCK_ALL.indexOf(this.block)) + ','
+			+ String(this.block_x) + ','
+			+ String(this.block_y) + ','
+			+ str_stage;
+	}
+};
+var updateSpeed = function(score) {
+	if (score > 1000) {
+		return 50;
+	} else if (score > 800) {
+		return 100;
+	} else if (score > 600) {
+		return 200;
+	} else if (score > 400) {
+		return 400;
+	} else if (score > 200) {
+		return 800;
+	} else {
+		return 1600;
+	}
+}
+
+/* Game UI */
+var Display = function(tetris){
+	this.tetrisColor = [
+		'col1',
+		'col2',
+		'col3',
+		'col4',
+		'col5',
+		'col6',
+		'col7',
+	],
+
+	/* Initialize */
+	this.e_stage = document.getElementById('stage');
+	this.e_next_block = document.getElementById('nextblock');
+	for (var i = 0; i < tetris.stage.length; i++) {
+		var new_row = this.e_stage.insertRow();
+		for (var j = 0; j < tetris.stage[0].length; j++) {
+			new_row.insertCell();
+		}
+	}
+
+	/* Functions */
+	this.drawCell = function(x, y, img_idx) {
+		var rows = this.e_stage.rows.length;
+		var cols = this.e_stage.rows[0].cells.length;
+		if (x >= 0 && x < cols && y >= 0 && y < rows) {
+			this.e_stage.rows[y].cells[x].className = this.tetrisColor[img_idx - 1];
+		}
+	}
+	this.clearCell = function(x, y) {
+		var rows = this.e_stage.rows.length;
+		var cols = this.e_stage.rows[0].cells.length;
+		if (x >= 0 && x < cols && y >= 0 && y < rows) {
+			this.e_stage.rows[y].cells[x].className = '';
+		}
+	}
+
+	this.clearBlock = function(block, x0, y0){
+		//if (undefined == block) {return;}
+		for (var y = 0; y < block.h; y++) {
+			for (var x = 0; x < block.w; x++) {
+				if (block.map[x + y * block.w] > 0) {
+					this.clearCell(x0 + x, y0 + y);
+				}
+			}
+		}
+	}
+	this.drawBlock = function(block, x0, y0) {
+		for (var y = 0; y < block.h; y++) {
+			for (var x = 0; x < block.w; x++) {
+				var val = block.map[x + y * block.w];
+				if (val > 0) {
+					this.drawCell(x0 + x, y0 + y, val);
+				}
+			}
+		}
+	}
+	this.drawNextBlock = function(block) {
+		var rows_orig = this.e_next_block.rows.length;
+		for (var i = rows_orig - 1; i >= 0; i--) {
+			this.e_next_block.deleteRow(i);
+		}
+		for (var y = 0; y < block.h; y++) {
+			var row = this.e_next_block.insertRow();
+			for (var x = 0; x < block.w; x++) {
+				row.insertCell();
+			}
+		}
+		for (var y = 0; y < block.h; y++) {
+			for (var x = 0; x < block.w; x++) {
+				var cell = this.e_next_block.rows[y].cells[x];
+				var val = block.map[x + y * block.w];
+				cell.className = (val > 0 ? this.tetrisColor[val - 1] : '');
+			}
+		}
+	}
+	this.drawStage = function(stage) {
+		var rows = stage.length, cols = stage[0].length;
+		for (var y = 0; y < rows; y++) {
+			for (var x = 0; x < cols; x++) {
+				var val = stage[y][x];
+				if (val > 0) {
+					this.drawCell(x, y, val);
+				} else {
+					this.clearCell(x, y);
+				}
+			}
+		}
+	}
+
+	this.drawPause = function(pause) {
+		document.getElementById('pause_indicator').style.visibility = (pause ? 'visible' : 'hidden');
+	}
+	this.drawScore = function(score, hiscore) {
+		document.getElementById('score').innerHTML = score;
+		document.getElementById('highscore').innerHTML = hiscore;
+	}
+	this.drawGameOver = function() {
+		document.getElementById('gameover').style.display = 'block';
+	}
+	this.reset = function() {
+		document.getElementById('gameover').style.display = 'none';
+	}
+
+	this.reset();
+}
+
+var Game = function(){
+	this.tetris = new Tetris(Cookies.get('Frank_Tetris'));
+	this.display = new Display(this.tetris);
+	this.paused = false;
+
+	this.display.reset();
+	this.display.drawPause(this.paused);
+	this.display.drawStage(this.tetris.stage);
+	this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+	this.display.drawNextBlock(this.tetris.next_block);
+	this.display.drawScore(this.tetris.score, this.tetris.hiscore);
+
+	/* Functions */
+	this.moveLeft = function() {
+		if (this.tetris.speed < 0) {
+			return;
+		}
+		this.display.clearBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.tetris.move(-1);
+		this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.paused = false;
+		this.display.drawPause(this.paused);
+	}
+	this.moveRight = function() {
+		if (this.tetris.speed < 0) {
+			return;
+		}
+		this.display.clearBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.tetris.move(1);
+		this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.paused = false;
+		this.display.drawPause(this.paused);
+	}
+	this.rotate = function() {
+		if (this.tetris.speed < 0) {
+			return;
+		}
+		this.display.clearBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.tetris.rotate();
+		this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.paused = false;
+		this.display.drawPause(this.paused);
+	}
+	this.drop = function() {
+		if (this.tetris.speed < 0) {
+			return;
+		}
+		this.display.clearBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.tetris.drop();
+		this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.paused = false;
+		this.display.drawPause(this.paused);
+	}
+	this.togglePause = function(doPause){
+		if (this.speed < 0) {
+			return;
+		}
+		this.paused = (doPause === undefined ? !(this.paused) : doPause);
+		this.display.drawPause(this.paused);
+		if (this.paused) {
+			Cookies.set('Frank_Tetris', this.tetris.toString(), {expires:3650});
+		}
+	}
+	this.gameOver = function() {
+		Cookies.set('Frank_Tetris', this.tetris.hiscore, {expires:3650});
+		this.display.drawGameOver();
+	}
+
+	this.newGame = function() {
+		this.tetris = new Tetris(Cookies.get('Frank_Tetris'));
+
+		this.display.reset();
+		this.display.drawPause(this.paused);
+		this.display.drawStage(this.tetris.stage);
+		this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+		this.display.drawNextBlock(this.tetris.next_block);
+		this.display.drawScore(this.tetris.score, this.tetris.hiscore);
+	}
+	this.restart = function() {
+		if (this.tetris.speed < 0) {
+			this.newGame();
+		}
+	}
+	this.mainLoop = function() {
+		if (this.tetris.speed < 0) {
+			return;
+		}
+		if (!this.paused) {
+			this.speed = this.tetris.speed;
+			this.display.clearBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+			switch (this.tetris.mainLoop()){
+				case 1:
+					this.display.drawStage(this.tetris.stage);
+					this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+					this.display.drawNextBlock(this.tetris.next_block);
+					this.display.drawScore(this.tetris.score, this.tetris.hiscore);
+				break;
+				case -1:
+					this.display.drawStage(this.tetris.stage);
+					this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+					this.display.drawNextBlock(this.tetris.next_block);
+					this.display.drawScore(this.tetris.score, this.tetris.hiscore);
+					this.gameOver();
+				break;
+				default:
+					this.display.drawBlock(this.tetris.block, this.tetris.block_x, this.tetris.block_y);
+				break;
+			}
+		}
+	}
+}
+
+if (!Array.prototype.indexOf) {
+	Array.prototype.indexOf = function(elt /*, from*/) {
+		var len = this.length >>> 0;
+
+		var from = Number(arguments[1]) || 0;
+		from = (from < 0) ? Math.ceil(from) : Math.floor(from);
+		if (from < 0) {
+			from += len;
+		}
+
+		for (; from < len; from++) {
+			if (from in this && this[from] === elt) {
+				return from;
+			}
+		}
+		return -1;
+	};
+}
+		</script>
+		<title>Tetris</title>
+		<style type='text/css'>
+body {
+	font-family:sans,arial,"微软雅黑";
+	-moz-user-select:none;
+	-webkit-user-select:none;
+	cursor: default;
+	min-width: 320px;
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	background-color: #CCCCCC;
+	font-family: "sans";
+	overflow: hidden;
+	text-align: center;
+}
+div:focus{outline:none;}
+p{margin:0;margin-top:8px;padding:0;}
+#pause_indicator{height:40px;line-height:40px;text-align:center;font-weight:bold;visibility:hidden;}
+#stage_container{position:relative;display:inline-block;}
+#stage{border:1px solid #000000;background-color:#777;border-collapse:separate;border-spacing:1px;border-radius:4px;}
+td{width:16px;height:16px;background:none;border-radius:2px;}
+td.col1{background-color:#CCCC00;}
+td.col2{background-color:#00CCCC;}
+td.col3{background-color:#00CC00;}
+td.col4{background-color:#CC00CC;}
+td.col5{background-color:#CC0000;}
+td.col6{background-color:#0000CC;}
+td.col7{background-color:#FF8800;}
+#gameover{position:absolute;width:150px;line-height:30px;background-color:#000000;color:white;margin:-15px -75px;left:50%;top:50%;}
+.nextblock-container{display:table;width:80px;height:80px;margin:0 auto;border:1px solid #000000;background-color:#777;border-radius:4px;overflow:hidden;}
+.nextblock-inner{display:table-cell;width:100%;height:100%;text-align:center;vertical-align:middle;}
+#nextblock{display:inline-block;border-collapse:separate;border-spacing:1px;}
+.help{margin-left:10px;margin-right:10px;font-size:70%;text-align:left;}
+div#info{display:inline-block;vertical-align:top;width:120px;}
+#controls{display:none;position:fixed;left:0;right:0;bottom:10%;opacity:0.3;z-index:100;}
+#controls table{margin:0 auto;border-collapse:collapse;}
+#controls td{text-align:center;vertical-align:middle;padding:8px 2px;}
+#controls div{background-color:#FFFFFF;border:3px solid black;border-radius:100%;width:60px;height:60px;display:inline-block;}
+#controls #btn_left{background-color:#FF0000;}
+#controls #btn_up{background-color:#FFFF00;}
+#controls #btn_right{background-color:#00FF00;}
+#controls #btn_down{background-color:#0000FF;}
+		</style>
+	</head>
+	<body oncontextmenu='return false'  
+		ondragstart='return false'   
+		onselectstart ='return false'   
+		onselect='document.selection.empty()'   
+		oncopy='document.selection.empty()'   
+		onbeforecopy='return false'   
+		unselectable='on'>
+		<div id='stage_container'>
+			<table id='stage'></table>
+			<div id='gameover' hidden='hidden'><b>Game Over</b></div>
+		</div>
+		<div id='info'>
+			<p style='margin-top:0'>Next</p>
+			<div class='nextblock-container'><div class='nextblock-inner'>
+				<table id='nextblock'></table>
+			</div></div>
+			<p><b>Score</b><br/><span id='score'>0</span></p>
+			<p><b>Best</b><br/><span id='highscore'>0</span></p>
+			<p id='pause_indicator'>Paused</p>
+			<p class='help'><b>Tips:</b></p>
+			<div id='help_pc'>
+				<p class='help'>Use Arrow keys, W/A/S/D to play this game, P to toggle pause.</p>
+				<p class='help'>Minimizing browser window will pause the game.</p>
+			</div>
+			<div id='help_touch'>
+				<p class='help'>Use the 4 color buttons at the bottom of the screen to play this game.</p>
+				<p class='help'>Minimizing browser window will pause the game.</p>
+			</div>
+		</div>
+		<div id='controls'><table>
+			<tr>
+				<td rowspan='2'><div id='btn_left'></div></td>
+				<td><div id='btn_up'></div></td>
+				<td rowspan='2'><div id='btn_right'></div></td>
+			</tr>
+			<tr><td><div id='btn_down'></div></td></tr>
+		</table></div>
+	</body>
+	<script type='text/javascript'>
+window.onload = function(){
+	var game = new Game();
+
+	window.setTimeout(function(){
+		try{
+			game.mainLoop();
+		}catch(e){}
+		window.setTimeout(arguments.callee, game.tetris.speed);
+	}, game.tetris.speed);
+
+	var kbdHandler = function(e) {
+		var e = e || event;
+		game.restart();
+		switch (e.keyCode) {
+			case 37:	//Left
+			case 65:	//A
+				game.moveLeft();
+			break;
+			case 38:	//Up
+			case 87:	//W
+				game.rotate();
+			break;
+			case 39:	//Right
+			case 68:	//D
+				game.moveRight();
+			break;
+			case 40:	//Down
+			case 83:	//S
+				game.drop();
+			break;
+			case 80:	//P: Pause
+				game.togglePause();
+			break;
+		}
+	}
+	if (window.onkeydown) {
+		window.onkeydown = kbdHandler;
+	} else {
+		document.onkeydown = kbdHandler;
+	}
+
+	/* Pause game when window minimized */
+	(function(){
+		var hidden, visibilityChange; 
+		if (typeof document.hidden !== "undefined") {
+			hidden = "hidden";
+			visibilityChange = "visibilitychange";
+		} else if (typeof document.mozHidden !== "undefined") {
+			hidden = "mozHidden";
+			visibilityChange = "mozvisibilitychange";
+		} else if (typeof document.msHidden !== "undefined") {
+			hidden = "msHidden";
+			visibilityChange = "msvisibilitychange";
+		} else if (typeof document.webkitHidden !== "undefined") {
+			hidden = "webkitHidden";
+			visibilityChange = "webkitvisibilitychange";
+		}
+
+		if (typeof document.addEventListener !== "undefined" && typeof document[hidden] !== "undefined") {
+			document.addEventListener(visibilityChange, function(){
+				if (document[hidden]) {
+					game.togglePause(true);
+				}
+			}, false);
+		}
+	})();
+
+	/* Handle mobile events */
+	if (/iphone|ipad|android/i.test(window.navigator.userAgent)) {
+		document.getElementById('help_pc').style.display = 'none';
+		document.getElementById('controls').style.display = 'block';
+		document.getElementById('btn_left').addEventListener('touchstart', function(){
+			game.restart();
+			game.moveLeft();
+		});
+		document.getElementById('btn_right').addEventListener('touchstart', function(){
+			game.restart();
+			game.moveRight();
+		});
+		document.getElementById('btn_up').addEventListener('touchstart', function(){
+			game.restart();
+			game.rotate();
+		});
+		document.getElementById('btn_down').addEventListener('touchstart', function(){
+			game.restart();
+			game.drop();
+		});
+	} else {
+		document.getElementById('help_touch').style.display = 'none';
+	}
+}
+	</script>
+</html>
+
