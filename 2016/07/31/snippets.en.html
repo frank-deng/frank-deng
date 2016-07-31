@@ -59,7 +59,7 @@ return int(float(result_c) / 1000.0);
 </code></pre>
 </div>
 
-<h3 id="fetch-nvidia-gpu-temperature-using-nvidia-smi-via-python">Fetch NVIDIA GPU temperature using nvidia-smi via Python</h3>
+<h3 id="fetch-nvidia-gpu-temperature-using-nvidia-smi-via-python">Fetch NVIDIA GPU temperature using <code class="highlighter-rouge">nvidia-smi</code> via Python</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import subprocess, xml.etree.ElementTree as ET;
 nvidia_smi = subprocess.Popen(['nvidia-smi', '-q', '-x'], stdout=subprocess.PIPE);
@@ -81,7 +81,7 @@ return int(result_c.replace(' C', ''));
 </code></pre>
 </div>
 
-<h3 id="extract-basename-and-extension-of-a-filename">Extract basename and extension of a filename</h3>
+<h3 id="extract-basename-and-extension-of-a-filename-under-bash-shell">Extract basename and extension of a filename under bash shell</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>BASENAME="${FILENAME%.*}";
 EXTENSION="${FILENAME##*.}";
@@ -110,9 +110,9 @@ EXTENSION="${FILENAME##*.}";
 </code></pre>
 </div>
 
-<p>Change filenames into lower case</p>
+<p>Convert filenames into lower case</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.jpeg$/\.jpg/' *.jpeg
+<div class="highlighter-rouge"><pre class="highlight"><code>rename 'y/A-Z/a-z/' *
 </code></pre>
 </div>
 

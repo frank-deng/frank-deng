@@ -40,17 +40,17 @@ str.replace(/(\s*$)/g,'');	//rtrim()
 </code></pre>
 </div>
 
-<p>This function returns <code class="highlighter-rouge">mobile</code> for mobile browsers, <code class="highlighter-rouge">pad</code> for tablet browsers. <code class="highlighter-rouge">undefined</code> for PC browsers or browsers of other type.</p>
+<p>手机浏览器返回<code class="highlighter-rouge">mobile</code>，平板浏览器返回<code class="highlighter-rouge">pad</code>，PC浏览器和其它类型的浏览器返回<code class="highlighter-rouge">undefined</code>。</p>
 
-<h3 id="chrome-for-android-change-address-bar-color">Chrome for Android: Change address bar color.</h3>
+<h3 id="chrome-for-android">Chrome for Android中更改地址栏的颜色</h3>
 
-<p>Add the following meta tag into HTML to change address bar color in Chrome for Android.</p>
+<p>将以下标签加到HTML的head标签中，就可以改变Chrome for Android的地址栏颜色了。</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;meta name="theme-color" content="#db5945"/&gt;
 </code></pre>
 </div>
 
-<h3 id="fetch-cpu-temperature-via-python">Fetch CPU temperature via python</h3>
+<h3 id="pythoncpu">Python获取CPU温度</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>fp = open('/sys/class/thermal/thermal_zone0/temp', 'r');
 result_c = fp.readline();
@@ -59,7 +59,7 @@ return int(float(result_c) / 1000.0);
 </code></pre>
 </div>
 
-<h3 id="fetch-nvidia-gpu-temperature-using-nvidia-smi-via-python">Fetch NVIDIA GPU temperature using nvidia-smi via Python</h3>
+<h3 id="pythongpunvidia-smi">Python获取GPU温度（使用<code class="highlighter-rouge">nvidia-smi</code>）</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import subprocess, xml.etree.ElementTree as ET;
 nvidia_smi = subprocess.Popen(['nvidia-smi', '-q', '-x'], stdout=subprocess.PIPE);
@@ -69,26 +69,26 @@ return int(result_c.replace(' C', ''));
 </code></pre>
 </div>
 
-<h3 id="convert-video-into-html5-compatible-format">Convert video into HTML5 compatible format</h3>
+<h3 id="html5">将视频转换成兼容HTML5的格式</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>avconv -i INPUT_FILE -c:v libx264 -crf 18 -c:a aac -q:a 100 -strict experimental OUTPUT.mp4
 </code></pre>
 </div>
 
-<h3 id="convert-audio-into-320k-mp3">Convert audio into 320k MP3</h3>
+<h3 id="k-mp3">将声音转换成320k MP3格式</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>avconv -i INPUT_FILE -acodec libmp3lame -ab 320k OUTPUT.mp3
 </code></pre>
 </div>
 
-<h3 id="extract-basename-and-extension-of-a-filename">Extract basename and extension of a filename</h3>
+<h3 id="bash-shell">Bash shell从给定文件名中获取基本名和扩展名</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>BASENAME="${FILENAME%.*}";
 EXTENSION="${FILENAME##*.}";
 </code></pre>
 </div>
 
-<h3 id="launch-gui-program-from-terminal-with-stdout-and-stderr-supressed">Launch GUI program from terminal with stdout and stderr supressed</h3>
+<h3 id="gui">如何从终端运行GUI程序，并抑制标准输出和标准错误输出</h3>
 
 <p>Create <code class="highlighter-rouge">/usr/local/bin/xexec</code> with the code below:</p>
 
@@ -102,27 +102,27 @@ EXTENSION="${FILENAME##*.}";
 
 <p>Finally, you can append xexec to the command you’d like to run, so as to run GUI program at background with stdout and stderr supressed.</p>
 
-<h3 id="usage-of-perls-rename-utility">Usage of Perl’s rename utility</h3>
+<h3 id="perlrename">如何使用Perl的rename工具</h3>
 
-<p>Replace the file extension from <code class="highlighter-rouge">.jpeg</code> to <code class="highlighter-rouge">.jpg</code></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.jpeg$/\.jpg/' *.jpeg
-</code></pre>
-</div>
-
-<p>Change filenames into lower case</p>
+<p>将扩展名从<code class="highlighter-rouge">.jpeg</code>替换成<code class="highlighter-rouge">.jpg</code></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.jpeg$/\.jpg/' *.jpeg
 </code></pre>
 </div>
 
-<p>Add prefix to <code class="highlighter-rouge">.txt</code> files</p>
+<p>将文件名转换成小写</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>rename 'y/A-Z/a-z/' *
+</code></pre>
+</div>
+
+<p>为<code class="highlighter-rouge">.txt</code>文件添加前缀</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
 </code></pre>
 </div>
 
-<h3 id="enumerate-records-separated-by-newlines">Enumerate records separated by newlines</h3>
+<h3 id="bash-shell-1">Bash Shell按行遍历标准输出</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
 for LINE in `ls`; do
@@ -131,7 +131,7 @@ done;
 </code></pre>
 </div>
 
-<h3 id="enumerate-arguments-with-space-characters">Enumerate arguments with space characters</h3>
+<h3 id="bash-shell-2">Bash Shell遍历带空格的命令行参数</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>while [ -n "${1}" ]; do
 	FILENAME="${1}";
