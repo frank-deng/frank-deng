@@ -9,23 +9,6 @@
 	<body>
 		<h1 id="section">一些好用的代码片段</h1>
 
-<h3 id="javascripthtmlspecialchars">用JavaScript实现<code class="highlighter-rouge">htmlspecialchars()</code></h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
-	var M={'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#039;'};
-	return s.replace(/[&amp;&lt;&gt;"']/g,function(m){return M[m]});
-}
-</code></pre>
-</div>
-
-<h3 id="javascripttrim-ltrim-rtrim">用JavaScript实现<code class="highlighter-rouge">trim()</code>, <code class="highlighter-rouge">ltrim()</code>, <code class="highlighter-rouge">rtrim()</code></h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>str.replace(/(^\s*)|(\s*$)/g,'');	//trim()
-str.replace(/(^\s*)/g,'');	//ltrim()
-str.replace(/(\s*$)/g,'');	//rtrim()
-</code></pre>
-</div>
-
 <h3 id="user-agent">通过User Agent获取浏览器类型</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>function deviceType() {

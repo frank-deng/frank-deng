@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Implement htmlspecialchars() in JavaScript</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1>Implement htmlspecialchars() in JavaScript</h1>
+		<div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
+	var M={'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#039;'};
+	return s.replace(/[&amp;&lt;&gt;"']/g,function(m){return M[m]});
+}
+</code></pre>
+</div>
+
+
+	</body>
+</html>
+
