@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Wifi Configuration Without Network Manager</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1 id="wifi-configuration-without-network-manager">Wifi Configuration Without Network Manager</h1>
+
+<p>Use <code class="highlighter-rouge">ifconfig -a</code> to show all the network interfaces.</p>
+
+<p>Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following lines:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>network={
+	ssid="WLAN_AP_1"
+	key_mgmt=WPA-PSK
+	psk="WLAN_AP_PSK_1"
+	priority=1
+}
+network={
+	ssid="WLAN_AP_2"
+	key_mgmt=WPA-PSK
+	psk="WLAN_AP_PSK_2"
+	priority=2
+}
+</code></pre>
+</div>
+
+<p>Add the following lines to <code class="highlighter-rouge">/etc/network/interfaces</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
+iface wlan0 inet dhcp
+	wpa-conf /etc/network/wpa_supplicant.conf
+</code></pre>
+</div>
+
+	</body>
+</html>
+

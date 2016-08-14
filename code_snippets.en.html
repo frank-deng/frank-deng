@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Code Snippets</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1 id="code-snippets">Code Snippets</h1>
+
+<h3 id="improve-sound-quality-for-alsa">Improve Sound Quality for ALSA</h3>
+
+<p>Edit <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code> and change line <code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code> to <code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>.</p>
+
+<h3 id="change-the-behaviour-when-closing-laptop">Change The Behaviour When Closing Laptop</h3>
+
+<p>Edit <code class="highlighter-rouge">/etc/systemd/login.conf</code> and change the following settings:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>HandleLidSwitch=ignore
+HandleSuspendKey=hibernate
+</code></pre>
+</div>
+
+<h3 id="prevent-firefox-from-creating-directories-automatically">Prevent FireFox From Creating Directories Automatically</h3>
+
+<p>Create or modify <code class="highlighter-rouge">~/.config/user-dirs.dirs</code> with the following configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>XDG_DESKTOP_DIR="$HOME/"
+XDG_DOWNLOAD_DIR="$HOME/"
+XDG_TEMPLATES_DIR="$HOME/"
+XDG_PUBLICSHARE_DIR="$HOME/"
+XDG_DOCUMENTS_DIR="$HOME/"
+XDG_MUSIC_DIR="$HOME/"
+XDG_PICTURES_DIR="$HOME/"
+XDG_VIDEOS_DIR="$HOME/"
+</code></pre>
+</div>
+
+<h3 id="notes-for-virtualbox">Notes for VirtualBox</h3>
+
+<p>Execute the following command on the host machine when you’re unable to use USB devices in guest machines:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gpasswd -a frank vboxusers
+</code></pre>
+</div>
+
+<p>Fix unbootable EFI-based Debian/Ubuntu guests:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /boot/efi/EFI
+mkdir boot
+cp ubuntu/grubx64.efi boot/bootx64.efi #For Ubuntu 
+cp debian/grubx64.efi boot/bootx64.efi #For Debian
+</code></pre>
+</div>
+
+<h3 id="adjust-tab-size-for-vim">Adjust Tab Size For VIM</h3>
+
+<p>Add the following lines to <code class="highlighter-rouge">/etc/vim/vimrc</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+</code></pre>
+</div>
+
+<h3 id="change-timezone">Change timezone</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo dpkg-reconfigure tzdata.
+</code></pre>
+</div>
+
+<h3 id="change-current-time">Change current time</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>date -s MM/DD/YYYY
+date -s hh:mm:ss
+</code></pre>
+</div>
+
+<h3 id="add-support-for-other-locales">Add support for other locales</h3>
+
+<ol>
+  <li>Edit <code class="highlighter-rouge">/etc/locale.gen</code> and uncomment locales you’d like to support.</li>
+  <li>Run locale-gen.</li>
+  <li>
+    <p>Change environment variable <code class="highlighter-rouge">LANG</code> and <code class="highlighter-rouge">LC_ALL</code>. Following is an example:</p>
+
+    <p>export LC_ALL=zh_CN.UTF-8
+ export LANG=zh_CN.UTF-8</p>
+  </li>
+</ol>
+
+
+	</body>
+</html>
+

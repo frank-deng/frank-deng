@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Launch GUI program from terminal with stdout and stderr supressed</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1 id="launch-gui-program-from-terminal-with-stdout-and-stderr-supressed">Launch GUI program from terminal with stdout and stderr supressed</h1>
+
+<p>Append the following code into <code class="highlighter-rouge">~/.bashrc</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function xexec(){
+	nohup "$@" &amp;&gt;/dev/null &amp;
+	disown
+}
+complete -cf xexec
+</code></pre>
+</div>
+
+<p>Then you can append <code class="highlighter-rouge">xexec</code> before your command, so as to run GUI program at background with stdout and stderr supressed.</p>
+
+
+	</body>
+</html>
+

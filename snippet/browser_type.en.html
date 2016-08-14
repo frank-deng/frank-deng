@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Get browser type based on User Agent</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1>Get browser type based on User Agent</h1>
+		<div class="highlighter-rouge"><pre class="highlight"><code>function deviceType() {
+	var ua = window.navigator.userAgent;
+	if (/iphone|android.*mobile/i.test(ua)) {
+		return 'mobile';
+	} else if (/ipad|android/i.test(ua)) {
+		return 'pad';
+	}
+	return undefined;
+}
+</code></pre>
+</div>
+
+<p>This function returns <code class="highlighter-rouge">mobile</code> for mobile browsers, <code class="highlighter-rouge">pad</code> for tablet browsers. <code class="highlighter-rouge">undefined</code> for PC browsers or browsers of other type.</p>
+
+
+	</body>
+</html>
+

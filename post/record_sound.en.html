@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Record system output sound in Linux</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_06_05.0.analog-stereo.monitor | sox -t raw -r 44100 -s -L -b 16 -c 2 - output.wav
+pacat --record -d alsa_output.pci-0000_06_05.0.analog-stereo.monitor | avconv -f s16le -ar 44.1k -ac 2 -i pipe:0 record.wav
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">alsa_output.pci-0000_06_05.0.analog-stereo.monitor</code> is the device name corresponding to the soundcard to be monitored. Use command <code class="highlighter-rouge">pacmd list | grep ".monitor"</code> to get the correct device name.</p>
+
+	</body>
+</html>
+

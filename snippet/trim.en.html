@@ -8,10 +8,9 @@
 	</head>
 	<body>
 		<h1>Implement trim(), ltrim(), rtrim() in JavaScript</h1>
-		<div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
-	var M={'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#039;'};
-	return s.replace(/[&amp;&lt;&gt;"']/g,function(m){return M[m]});
-}
+		<div class="highlighter-rouge"><pre class="highlight"><code>str.replace(/(^\s*)|(\s*$)/g,'');	//trim()
+str.replace(/(^\s*)/g,'');	//ltrim()
+str.replace(/(\s*$)/g,'');	//rtrim()
 </code></pre>
 </div>
 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Bash Shell按行遍历标准输出</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1>Bash Shell按行遍历标准输出</h1>
+		<div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
+for LINE in `ls`; do
+	#Do some works on "${LINE}"
+done;
+</code></pre>
+</div>
+
+	</body>
+</html>
+

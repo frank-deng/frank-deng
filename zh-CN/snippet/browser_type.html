@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>通过User Agent获取浏览器类型</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1>通过User Agent获取浏览器类型</h1>
+		<div class="highlighter-rouge"><pre class="highlight"><code>function deviceType() {
+	var ua = window.navigator.userAgent;
+	if (/iphone|android.*mobile/i.test(ua)) {
+		return 'mobile';
+	} else if (/ipad|android/i.test(ua)) {
+		return 'pad';
+	}
+	return undefined;
+}
+</code></pre>
+</div>
+
+<p>手机浏览器返回<code class="highlighter-rouge">mobile</code>，平板浏览器返回<code class="highlighter-rouge">pad</code>，PC浏览器和其它类型的浏览器返回<code class="highlighter-rouge">undefined</code>。</p>
+
+
+	</body>
+</html>
+

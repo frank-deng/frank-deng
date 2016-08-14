@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>如何从终端运行GUI程序，并抑制标准输出和标准错误输出</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1 id="gui">如何从终端运行GUI程序，并抑制标准输出和标准错误输出</h1>
+
+<p>将以下代码添加到<code class="highlighter-rouge">~/.bashrc</code>中:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>function xexec(){
+	nohup "$@" &amp;&gt;/dev/null &amp;
+	disown
+}
+complete -cf xexec
+</code></pre>
+</div>
+
+<p>然后在命令前添加<code class="highlighter-rouge">xexec</code>，就可以在后台运行GUI程序，并屏蔽标准输出和标准错误输出。</p>
+
+	</body>
+</html>
+

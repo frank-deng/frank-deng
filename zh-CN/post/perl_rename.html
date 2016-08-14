@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>如何使用Perl的rename工具</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1 id="perlrename">如何使用Perl的rename工具</h1>
+
+<p>将扩展名从<code class="highlighter-rouge">.jpeg</code>替换成<code class="highlighter-rouge">.jpg</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.jpeg$/\.jpg/' *.jpeg
+</code></pre>
+</div>
+
+<p>将文件名转换成小写</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>rename 'y/A-Z/a-z/' *
+</code></pre>
+</div>
+
+<p>为<code class="highlighter-rouge">.txt</code>文件加前缀</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
+</code></pre>
+</div>
+
+	</body>
+</html>
+
