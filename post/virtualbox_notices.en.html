@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Notices on VirtualBox</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1 id="notices-on-virtualbox">Notices on VirtualBox</h1>
+
+<p>Before using USB devices in guest machines on a Linux host, you must add current user to group <code class="highlighter-rouge">vboxusers</code> on the Linux host.</p>
+
+<p>Fix unbootable EFI-based Debian/Ubuntu guests:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /boot/efi/EFI
+mkdir boot
+cp ubuntu/grubx64.efi boot/bootx64.efi #For Ubuntu 
+cp debian/grubx64.efi boot/bootx64.efi #For Debian
+</code></pre>
+</div>
+
+	</body>
+</html>
+

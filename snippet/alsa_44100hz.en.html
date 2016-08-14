@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Improve Sound Quality for ALSA</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1>Improve Sound Quality for ALSA</h1>
+		<p>Open <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code></p>
+
+<p>Find out the following line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>defaults.pcm.dmix.rate 48000
+</code></pre>
+</div>
+
+<p>Then change the line to:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>defaults.pcm.dmix.rate 44100
+</code></pre>
+</div>
+
+	</body>
+</html>
+

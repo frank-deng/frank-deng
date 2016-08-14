@@ -7,8 +7,15 @@
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
 	<body>
-		<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_06_05.0.analog-stereo.monitor | sox -t raw -r 44100 -s -L -b 16 -c 2 - output.wav
-pacat --record -d alsa_output.pci-0000_06_05.0.analog-stereo.monitor | avconv -f s16le -ar 44.1k -ac 2 -i pipe:0 record.wav
+		<h1 id="record-system-output-sound-in-linux">Record system output sound in Linux</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_06_05.0.analog-stereo.monitor | sox -t raw -r 44100 -s -L -b 16 -c 2 - output.wav
+</code></pre>
+</div>
+
+<p>or</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_06_05.0.analog-stereo.monitor | avconv -f s16le -ar 44.1k -ac 2 -i pipe:0 record.wav
 </code></pre>
 </div>
 

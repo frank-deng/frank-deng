@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Change Date/Time/Timezone Under Linux</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1>Change Date/Time/Timezone Under Linux</h1>
+		<p>Change date:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>date -s MM/DD/YYYY
+</code></pre>
+</div>
+
+<p>Change time:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>date -s hh:mm:ss
+</code></pre>
+</div>
+
+<p>Change timezone:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo dpkg-reconfigure tzdata
+</code></pre>
+</div>
+
+	</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Linux下更改日期、时间、时区</title>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<h1>Linux下更改日期、时间、时区</h1>
+		<p>更改日期：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>date -s MM/DD/YYYY
+</code></pre>
+</div>
+
+<p>更改时间：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>date -s hh:mm:ss
+</code></pre>
+</div>
+
+<p>更改时区：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo dpkg-reconfigure tzdata
+</code></pre>
+</div>
+
+	</body>
+</html>
+

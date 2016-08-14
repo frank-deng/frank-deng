@@ -3,11 +3,11 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Usage of Perl's rename utility</title>
+		<title>Batch Renaming Using Perl's Rename Utility</title>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
 	<body>
-		<h1 id="usage-of-perls-rename-utility">Usage of Perl’s rename utility</h1>
+		<h1 id="batch-renaming-using-perls-rename-utility">Batch Renaming Using Perl’s Rename Utility</h1>
 
 <p>Replace the file extension from <code class="highlighter-rouge">.jpeg</code> to <code class="highlighter-rouge">.jpg</code></p>
 
@@ -26,6 +26,8 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
 </code></pre>
 </div>
+
+<p>On ArchLinux, you must install package <code class="highlighter-rouge">perl-rename</code> for this utility.</p>
 
 	</body>
 </html>
