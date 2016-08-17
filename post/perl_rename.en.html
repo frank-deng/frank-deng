@@ -17,11 +17,11 @@
 
 <p>Convert filenames into lower case</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rename 'y/A-Z/a-z/' *
+<div class="highlighter-rouge"><pre class="highlight"><code>prename 'y/A-Z/a-z/' *
 </code></pre>
 </div>
 
-<p>Add prefix to <code class="highlighter-rouge">.txt</code> files</p>
+<p>Add prefix for <code class="highlighter-rouge">.txt</code> files</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
 </code></pre>

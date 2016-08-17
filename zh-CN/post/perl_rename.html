@@ -17,7 +17,7 @@
 
 <p>将文件名转换成小写</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>rename 'y/A-Z/a-z/' *
+<div class="highlighter-rouge"><pre class="highlight"><code>prename 'y/A-Z/a-z/' *
 </code></pre>
 </div>
 
@@ -26,6 +26,9 @@
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
 </code></pre>
 </div>
+
+<p>ArchLinux上需要安装<code class="highlighter-rouge">perl-rename</code>包来获得该工具。</p>
+
 
 	</body>
 </html>
