@@ -3,15 +3,32 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Wifi Configuration Without Network Manager</title>
+		<title>Wifi Configuration Under Linux Command Line</title>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
 	<body>
-		<h1 id="wifi-configuration-without-network-manager">Wifi Configuration Without Network Manager</h1>
+		<h1 id="wifi-configuration-under-linux-command-line">Wifi Configuration Under Linux Command Line</h1>
 
-<p>Use <code class="highlighter-rouge">ifconfig -a</code> to show all the network interfaces.</p>
+<h2 id="preparation">Preparation</h2>
 
-<p>Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following lines:</p>
+<p>Use <code class="highlighter-rouge">ifconfig -a</code> to show all the network interfaces available.</p>
+
+<h2 id="solution-1-when-connect-to-one-ap-only">Solution 1 (When connect to one AP only)</h2>
+
+<p>Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
+iface wlan0 inet dhcp
+	wpa-ssid "WLAN_SSID"
+	wpa-psk "12345678"
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
+
+<h2 id="solution-2-connect-to-different-aps-based-on-signal-strength">Solution 2 (Connect to different APs based on signal strength)</h2>
+
+<p>Step 1: Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following configuration:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>network={
 	ssid="WLAN_AP_1"
@@ -28,13 +45,15 @@ network={
 </code></pre>
 </div>
 
-<p>Add the following lines to <code class="highlighter-rouge">/etc/network/interfaces</code></p>
+<p>Step 2: Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
 iface wlan0 inet dhcp
 	wpa-conf /etc/network/wpa_supplicant.conf
 </code></pre>
 </div>
+
+<p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
 
 	</body>
 </html>
