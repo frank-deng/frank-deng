@@ -2,7 +2,7 @@ body{max-width:800px;margin:0 auto;padding:10px;font-family:serif;}
 h1{text-align:center;}
 h2{border-bottom:1px solid black;margin:10px 0;}
 h3{margin:10px 0;}
-hr{display:none;page-break-before:always;}
+hr{page-break-before:always;}
 ul,ol{padding-left:24px;}
 .expression{display:inline-block;}
 code,pre.highlight{background-color:#F9F9F9;border:1px solid #DDD;border-radius:2px;}
