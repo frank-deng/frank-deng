@@ -28,7 +28,7 @@ iface wlan0 inet dhcp
 
 <h2 id="solution-2-connect-to-different-aps-based-on-signal-strength">Solution 2 (Connect to different APs based on signal strength)</h2>
 
-<p>Step 1: Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following configuration:</p>
+<p><strong>Step 1:</strong> Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following configuration:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>network={
 	ssid="WLAN_AP_1"
@@ -45,7 +45,7 @@ network={
 </code></pre>
 </div>
 
-<p>Step 2: Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code></p>
+<p><strong>Step 2:</strong> Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
 iface wlan0 inet dhcp

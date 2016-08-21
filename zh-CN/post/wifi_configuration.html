@@ -28,7 +28,7 @@ iface wlan0 inet dhcp
 
 <h2 id="section-2">方案2（针对需要根据信号强度连接不同路由器的情况）</h2>
 
-<p>第1步：创建<code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code>，并添加以下配置：</p>
+<p><strong>第1步：</strong>创建<code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code>，并添加以下配置：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>network={
 	ssid="WLAN_SSID_1"
@@ -45,7 +45,7 @@ network={
 </code></pre>
 </div>
 
-<p>第2步：将以下配置加入到<code class="highlighter-rouge">/etc/network/interfaces</code>中：</p>
+<p><strong>第2步：</strong>将以下配置加入到<code class="highlighter-rouge">/etc/network/interfaces</code>中：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
 iface wlan0 inet dhcp
@@ -54,7 +54,6 @@ iface wlan0 inet dhcp
 </div>
 
 <p>其中<code class="highlighter-rouge">wlan0</code>需要换成需要使用的Wifi设备。</p>
-
 
 	</body>
 </html>
