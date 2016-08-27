@@ -1,263 +1,354 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  	<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
-	<meta charset='UTF-8'>
-  	<title>我的空间</title>
-  	<style type='text/css'>
-body{cursor:default;max-width:640px;padding:10px;background-color:#FFFFFF;font-family:sans,arial,"微软雅黑";margin:0 auto;}h1{margin:0 0 10px 0;padding:0 10px;font-size:24px;border-bottom:1px solid #000;}
-a{text-decoration:none;}
-a:hover{text-decoration:underline;}
-ul{padding-left:28px;}
-li{margin:10px 0;}
-	</style>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'>
+		<title>Frank的空间</title>
+		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
+		<style type='text/css'>
+.page-switcher{
+	display: block;
+	margin: 0;
+	margin-bottom: 14px;
+	padding: 0;
+	list-style-type:none;
+	overflow:auto;
+}
+.page-switcher li{
+	float: left;
+	margin-right: 10px;
+	padding: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid #27ae60;
+	color: #27ae60;
+}
+.page-switcher li.selected{
+	background-color: #27ae60;
+	color: #ffffff;
+}
+
+.page h2 {
+	font-size: 20px;
+	margin: 0;
+	font-weight: normal;
+}
+.page ul{
+	padding-left: 1px;
+	list-style-type:none;
+}
+.page li{
+	margin: 10px 0;
+}
+.page{
+	box-sizing: border-box;
+	display:none;
+	width: 100%;
+}
+.page-display {
+	display: block;
+}
+.page-posts {
+	padding-right: 10px;
+}
+@media screen and (min-width: 640px) {
+	.page-posts, .page-snippets{
+		display: block;
+	}
+	.page-posts{
+		float: left;
+		width: 59%;
+		padding-right: 0;
+	}
+	.page-snippets {
+		float: right;
+		width: 39%;
+	}
+	.page-switcher{
+		display: none;
+	}
+}
+
+.tag-area{
+	font-size: 12px;
+	color: #7f8c8d;
+	padding: 3px 0;
+}
+.tag-area .tag {
+	padding: 4px;
+	border-radius: 4px;
+	display: inline-block;
+	margin-right: 4px;
+	background-color: #16A085;
+	color: #ffffff;
+}
+		</style>
+		<script type='text/javascript' src='/js/js.cookie.min.js'></script>
 	</head>
-  <body>
-    <h1>我的空间</h1>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				<h1>
+<a class='site-title' href='/zh-CN/'>Frank的空间</a>
 
-<p><a href='/'>English</a> | <a href='/zh-CN/'>中文</a></p>
+</h1>
+				<div class='lang-sel'><a href='/'>English</a> | <a href='/zh-CN/'>中文</a></div>
+			</div>
+		</div>
+		<div class='main-content'>
+			<ul class='page-switcher'>
+				<li id='switch_posts' class='selected'>我的博客</li>
+				<li id='switch_snippets'>一些好用的代码片</li>
+			</ul>
 
-<h2>我的博客</h2>
-<ul>
-  
-    
-    <li><a href="/zh-CN/post/xexec.html">如何从终端运行GUI程序，并抑制标准输出和标准错误输出</a></li>
-    
-  
-    
-    <li><a href="/zh-CN/post/wifi_configuration.html">Linux命令行下配置Wifi</a></li>
-    
-  
-    
-    <li><a href="/zh-CN/post/virtualbox_notices.html">使用VirtualBox时的一些注意事项</a></li>
-    
-  
-    
-    <li><a href="/zh-CN/post/record_sound.html">Linux命令行下捕获系统声音</a></li>
-    
-  
-    
-    <li><a href="/zh-CN/post/ralink_wifi_fix.html">Debian/Ubuntu下修复华硕笔记本的Wifi</a></li>
-    
-  
-    
-    <li><a href="/zh-CN/post/perl_rename.html">如何使用Perl的rename工具进行批量重命名</a></li>
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-</ul>
+			<div class='page page-posts page-display'>
+				<h2>我的博客</h2>
+				<ul>
+				  
+					
+					<li><a href="/zh-CN/post/xexec.html">如何从终端运行GUI程序，并抑制标准输出和标准错误输出</a></li>
+					
+				  
+					
+					<li><a href="/zh-CN/post/wifi_configuration.html">Linux命令行下配置Wifi</a></li>
+					
+				  
+					
+					<li><a href="/zh-CN/post/virtualbox_notices.html">使用VirtualBox时的一些注意事项</a></li>
+					
+				  
+					
+					<li><a href="/zh-CN/post/record_sound.html">Linux命令行下捕获系统声音</a></li>
+					
+				  
+					
+					<li><a href="/zh-CN/post/ralink_wifi_fix.html">Debian/Ubuntu下修复华硕笔记本的Wifi</a></li>
+					
+				  
+					
+					<li><a href="/zh-CN/post/perl_rename.html">如何使用Perl的rename工具进行批量重命名</a></li>
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+				</ul>
+			</div>
 
-<h2>一些好用的代码片</h2>
-<ul>
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/change_time.html">Linux下更改日期、时间、时区</a>
-			<div>标签：
-				
-				<span>Linux</span>&nbsp;
-				
+			<div class='page page-snippets'>
+				<h2>一些好用的代码片</h2>
+				<ul>
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/change_time.html">Linux下更改日期、时间、时区</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Linux</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/vim_tabsize.html">调整VIM的制表符宽度</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Linux</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/console_autologin.html">为Linux命令行配置自动登录</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Linux</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/alsa_44100hz.html">提升ALSA播放时的音质</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Linux</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/handlelidswitch.html">防止笔记本合上后进入休眠状态</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Linux</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/enum_args.html">Bash Shell遍历带空格的命令行参数</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Shell</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/enum_lines.html">Bash Shell按行遍历标准输出</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Shell</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/filename_parse.html">Bash shell从给定文件名中获取基本名和扩展名</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Shell</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/html5_video_conv.html">将视频转换成兼容HTML5的格式</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Shell</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/crontab_reboot.html">使用crontab实现开机自动运行脚本</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>Linux</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/address_bar_color.html">Chrome for Android中更改地址栏的颜色</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>HTML</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/browser_type.html">通过User Agent获取浏览器类型</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/trim.html">trim(), ltrim(), rtrim()的JavaScript实现</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+								</div>
+						</li>
+					
+				  
+					
+						<li>
+							<a href="/zh-CN/snippet/htmlspecialchars.html">htmlspecialchars()的JavaScript实现</a>
+								<div class='tag-area'>
+									标签：
+									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+								</div>
+						</li>
+					
+				  
+				</ul>
 			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/vim_tabsize.html">调整VIM的制表符宽度</a>
-			<div>标签：
-				
-				<span>Linux</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/console_autologin.html">为Linux命令行配置自动登录</a>
-			<div>标签：
-				
-				<span>Linux</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/alsa_44100hz.html">提升ALSA播放时的音质</a>
-			<div>标签：
-				
-				<span>Linux</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/handlelidswitch.html">防止笔记本合上后进入休眠状态</a>
-			<div>标签：
-				
-				<span>Linux</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/enum_args.html">Bash Shell遍历带空格的命令行参数</a>
-			<div>标签：
-				
-				<span>Shell</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/enum_lines.html">Bash Shell按行遍历标准输出</a>
-			<div>标签：
-				
-				<span>Shell</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/filename_parse.html">Bash shell从给定文件名中获取基本名和扩展名</a>
-			<div>标签：
-				
-				<span>Shell</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/html5_video_conv.html">将视频转换成兼容HTML5的格式</a>
-			<div>标签：
-				
-				<span>Shell</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/crontab_reboot.html">使用crontab实现开机自动运行脚本</a>
-			<div>标签：
-				
-				<span>Linux</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/address_bar_color.html">Chrome for Android中更改地址栏的颜色</a>
-			<div>标签：
-				
-				<span>HTML</span>&nbsp;
-				
-				<span>JS</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/browser_type.html">通过User Agent获取浏览器类型</a>
-			<div>标签：
-				
-				<span>HTML</span>&nbsp;
-				
-				<span>JavaScript</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/trim.html">trim(), ltrim(), rtrim()的JavaScript实现</a>
-			<div>标签：
-				
-				<span>HTML</span>&nbsp;
-				
-				<span>JavaScript</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-    
-		<li>
-			<a href="/zh-CN/snippet/htmlspecialchars.html">htmlspecialchars()的JavaScript实现</a>
-			<div>标签：
-				
-				<span>HTML</span>&nbsp;
-				
-				<span>JavaScript</span>&nbsp;
-				
-			</div>
-		</li>
-    
-  
-</ul>
+		</div>
+	</body>
+	<script type='text/javascript'>
+var switches = document.querySelectorAll('.page-switcher li');
+var pages = document.querySelectorAll('.page');
+var displayPage = function(idx){
+	for (var i = 0; i < switches.length; i++) {
+		switches[i].classList.remove('selected');
+	}
+	for (var i = 0; i < pages.length; i++) {
+		pages[i].classList.remove('page-display');
+	}
+	if (undefined != pages[idx] && undefined != switches[idx]) {
+		switches[idx].classList.add('selected');
+		pages[idx].classList.add('page-display');
+		Cookies.set('LastViewPage', idx);
+		return true;
+	}
+	return false;
+}
+switches[0].addEventListener('click', function(){
+	displayPage(0);
+});
+switches[1].addEventListener('click', function(){
+	displayPage(1);
+});
 
-<h2>我的作品</h2>
-<ul>
-	<li><a href="/works/tetris.html">Tetris</a></li>
-	<li><a href="/works/2048.html">2048</a></li>
-</ul>
-
-  </body>
+var lastViewPage = Cookies.get('LastViewPage');
+if (lastViewPage != undefined) {
+	displayPage(lastViewPage);
+}
+	</script>
 </html>
+

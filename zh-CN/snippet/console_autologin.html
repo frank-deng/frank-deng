@@ -3,12 +3,22 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>为Linux命令行配置自动登录</title>
+		<title>为Linux命令行配置自动登录 - Frank的空间</title>
+		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
 	<body>
-		<h1>为Linux命令行配置自动登录</h1>
-		<p>运行<code class="highlighter-rouge">systemctl edit getty@tty1</code>，然后将以下配置贴入到打开的编辑器中，需要将<code class="highlighter-rouge">username</code>替换成自动登录时使用的用户名：</p>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/zh-CN/'>Frank的空间</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h1>为Linux命令行配置自动登录</h1>
+			<p>运行<code class="highlighter-rouge">systemctl edit getty@tty1</code>，然后将以下配置贴入到打开的编辑器中，需要将<code class="highlighter-rouge">username</code>替换成自动登录时使用的用户名：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Service]
 ExecStart=
@@ -18,6 +28,7 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
 
 <p>保存，然后重启。</p>
 
+		</div>
 	</body>
 </html>
 

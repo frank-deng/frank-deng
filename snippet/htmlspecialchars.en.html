@@ -3,12 +3,22 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Implement htmlspecialchars() in JavaScript</title>
+		<title>Implement htmlspecialchars() in JavaScript - Frank's Space</title>
+		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
 	<body>
-		<h1>Implement htmlspecialchars() in JavaScript</h1>
-		<div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Space</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h1>Implement htmlspecialchars() in JavaScript</h1>
+			<div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
 	var M={'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#039;'};
 	return s.replace(/[&amp;&lt;&gt;"']/g,function(m){return M[m]});
 }
@@ -16,6 +26,7 @@
 </div>
 
 
+		</div>
 	</body>
 </html>
 

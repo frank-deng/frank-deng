@@ -3,12 +3,22 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Bash Shell遍历带空格的命令行参数</title>
+		<title>Bash Shell遍历带空格的命令行参数 - Frank的空间</title>
+		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
 	<body>
-		<h1>Bash Shell遍历带空格的命令行参数</h1>
-		<div class="highlighter-rouge"><pre class="highlight"><code>while [ -n "${1}" ]; do
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/zh-CN/'>Frank的空间</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h1>Bash Shell遍历带空格的命令行参数</h1>
+			<div class="highlighter-rouge"><pre class="highlight"><code>while [ -n "${1}" ]; do
 	FILENAME="${1}";
 	#Do some works on "${FILENAME}"
 	shift 1;
@@ -16,6 +26,7 @@ done;
 </code></pre>
 </div>
 
+		</div>
 	</body>
 </html>
 

@@ -3,18 +3,29 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Enumerate records separated by newlines</title>
+		<title>Enumerate records separated by newlines - Frank's Space</title>
+		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
 	<body>
-		<h1>Enumerate records separated by newlines</h1>
-		<div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Space</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h1>Enumerate records separated by newlines</h1>
+			<div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
 for LINE in `ls`; do
 	#Do some works on "${LINE}"
 done;
 </code></pre>
 </div>
 
+		</div>
 	</body>
 </html>
 

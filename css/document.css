@@ -1,6 +1,5 @@
-body{max-width:800px;margin:0 auto;padding:10px;font-family:serif;}
-h1{text-align:center;}
-h2{border-bottom:1px solid black;margin:10px 0;}
+h1{font-weight: normal; font-size: 24px;}
+h2{font-weight: normal; font-size: 20px; border-bottom:1px solid black;margin:10px 0;}
 h3{margin:10px 0;}
 hr{page-break-before:always;}
 ul,ol{padding-left:24px;}
@@ -12,6 +11,4 @@ pre{padding:6px;-moz-tab-size:4;-o-tab-size:4;tab-size:4;overflow:auto;}
 table{border-collapse:collapse;}
 table th{text-align:left;padding-right:10px;}
 table td{padding-right:10px;}
-.warning{color:#FF0000;font-weight:bold;}
 .math{font-family:serif;font-weight:normal;border:none;font-size:100%;vertical-align:baseline;}
-@media print {.demo{display:none;}}
