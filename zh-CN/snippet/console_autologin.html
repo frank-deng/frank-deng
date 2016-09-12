@@ -18,7 +18,9 @@
 		</div>
 		<div class='main-content'>
 			<h1>为Linux命令行配置自动登录</h1>
-			<p>运行<code class="highlighter-rouge">systemctl edit getty@tty1</code>，然后将以下配置贴入到打开的编辑器中，需要将<code class="highlighter-rouge">username</code>替换成自动登录时使用的用户名：</p>
+			<p>新建目录<code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code>（如果该目录不存在）</p>
+
+<p>然后创建文件<code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/autologin.conf</code>，文件内容如下：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Service]
 ExecStart=
@@ -27,6 +29,7 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
 </div>
 
 <p>保存，然后重启。</p>
+
 
 		</div>
 	</body>

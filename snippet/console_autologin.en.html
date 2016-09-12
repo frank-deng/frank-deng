@@ -18,7 +18,9 @@
 		</div>
 		<div class='main-content'>
 			<h1>Configure autologin for Linux console using systemd</h1>
-			<p>Run <code class="highlighter-rouge">systemctl edit getty@tty1</code>, then put the following configuration into the editor opened, replace <code class="highlighter-rouge">username</code> with the one used for autologin:</p>
+			<p>Firstly, Create directory <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code> if not exist.</p>
+
+<p>Then create file <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/autologin.conf</code> with the following content:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[Service]
 ExecStart=
@@ -27,6 +29,7 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
 </div>
 
 <p>Then save and reboot.</p>
+
 
 		</div>
 	</body>
