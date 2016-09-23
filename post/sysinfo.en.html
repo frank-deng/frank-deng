@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Fetch System Information Using Python3 - Frank's Space</title>
+		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Space</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h1 id="fetch-system-information-using-python3">Fetch System Information Using Python3</h1>
+
+<h2 id="get-cpu-temperature">Get CPU Temperature</h2>
+
+<p>Read numeric value from file <code class="highlighter-rouge">/sys/class/thermal/thermal_zone0/temp</code>, then divide the number read by 1000, and you’ll get the CPU Temperature in Celsius degree.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Linux</li>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>fp = open('/sys/class/thermal/thermal_zone0/temp', 'r');
+result_c = fp.readline();
+fp.close();
+cpu_temp = int(float(result_c) / 1000.0); #Get CPU temperature
+</code></pre>
+</div>
+
+<h2 id="get-nvidia-gpu-temperature">Get Nvidia GPU Temperature</h2>
+
+<p>Run command <code class="highlighter-rouge">nvidia-smi -q -x</code>, then parse the stdout as XML, and you’ll get the GPU Temperature in Celsius degree.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Windows (Require official Nvidia driver)</li>
+  <li>Linux (Require official Nvidia driver)</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import subprocess;
+import xml.etree.ElementTree as ET;
+nvidia_smi = subprocess.Popen(['nvidia-smi', '-q', '-x'], stdout=subprocess.PIPE);
+tree = ET.fromstring(nvidia_smi.communicate()[0]);
+result_c = tree.findall('./gpu/temperature/gpu_temp')[0].text;
+gpu_temp = int(result_c.replace(' C', '')); #Get GPU temperature
+</code></pre>
+</div>
+
+<h2 id="get-battery-level-of-an-android-phone">Get Battery Level of an Android Phone</h2>
+
+<p>Get battery level using SL4A’s <a href="http://www.mithril.com.au/android/doc/BatteryManagerFacade.html">BatteryManagerFacade</a> API.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import android;
+droid = android.Android();
+droid.batteryStartMonitoring();
+battery_level = droid.batteryGetLevel()[1]; #Get battery level
+droid.batteryStopMonitoring();
+</code></pre>
+</div>
+
+<h2 id="get-cpu-usage">Get CPU Usage</h2>
+
+<p>Get CPU usage in percentage using <a href="http://pythonhosted.org/psutil/">psutil</a>.</p>
+
+<p>You must install <a href="https://pypi.python.org/pypi/psutil">psutil</a> before using this function.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Windows</li>
+  <li>Linux</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+cpu_usage = psutil.cpu_percent(0.1);
+</code></pre>
+</div>
+
+<h2 id="get-memory-usage">Get Memory Usage</h2>
+
+<p>Get memory usage in percentage using <a href="http://pythonhosted.org/psutil/">psutil</a>.</p>
+
+<p>You must install <a href="https://pypi.python.org/pypi/psutil">psutil</a> before using this function.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Windows</li>
+  <li>Linux</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+meminfo = psutil.virtual_memory();
+mem_usage = (meminfo.total - meminfo.available) / meminfo.total * 100;
+</code></pre>
+</div>
+
+<h2 id="get-boot-time">Get Boot Time</h2>
+
+<p>Get boot time using <a href="http://pythonhosted.org/psutil/">psutil</a>.</p>
+
+<p>You must install <a href="https://pypi.python.org/pypi/psutil">psutil</a> before using this function.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Windows</li>
+  <li>Linux</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+boot_time = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%dT%H:%M:%S');
+</code></pre>
+</div>
+
+
+		</div>
+	</body>
+</html>
+

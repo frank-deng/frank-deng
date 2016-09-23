@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>使用Python3获取系统信息 - Frank的空间</title>
+		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
+		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/zh-CN/'>Frank的空间</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h1 id="python3">使用Python3获取系统信息</h1>
+
+<h2 id="cpu">获取CPU温度</h2>
+
+<p>读取<code class="highlighter-rouge">/sys/class/thermal/thermal_zone0/temp</code>文件中的内容，除以1000后，即可获得CPU的温度，单位为摄氏度。</p>
+
+<p>适用环境：</p>
+
+<ul>
+  <li>Linux</li>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>fp = open('/sys/class/thermal/thermal_zone0/temp', 'r');
+result_c = fp.readline();
+fp.close();
+cpu_temp = int(float(result_c) / 1000.0); #获取CPU温度
+</code></pre>
+</div>
+
+<h2 id="nvidia-gpu">获取Nvidia GPU温度</h2>
+
+<p>运行<code class="highlighter-rouge">nvidia-smi -q -x</code>命令，并将该命令的标准输出作为XML进行解析，即可获得GPU的温度，单位为摄氏度。</p>
+
+<p>适用环境：</p>
+
+<ul>
+  <li>Windows（需要安装Nvidia官方驱动）</li>
+  <li>Linux（需要安装Nvidia官方驱动）</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import subprocess;
+import xml.etree.ElementTree as ET;
+nvidia_smi = subprocess.Popen(['nvidia-smi', '-q', '-x'], stdout=subprocess.PIPE);
+tree = ET.fromstring(nvidia_smi.communicate()[0]);
+result_c = tree.findall('./gpu/temperature/gpu_temp')[0].text;
+gpu_temp = int(result_c.replace(' C', '')); #获取GPU温度
+</code></pre>
+</div>
+
+<h2 id="android">获取Android手机电池电量</h2>
+
+<p>使用SL4A的<a href="http://www.mithril.com.au/android/doc/BatteryManagerFacade.html">BatteryManagerFacade</a> API获取手机电池电量。</p>
+
+<p>适用环境：</p>
+
+<ul>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import android;
+droid = android.Android();
+droid.batteryStartMonitoring();
+battery_level = droid.batteryGetLevel()[1]; #获取Android手机电池电量
+droid.batteryStopMonitoring();
+</code></pre>
+</div>
+
+<h2 id="cpu-1">获取CPU使用率</h2>
+
+<p>使用<a href="http://pythonhosted.org/psutil/">psutil</a>提供的API获取CPU使用率，单位为百分比。</p>
+
+<p>使用该功能前需要安装<a href="https://pypi.python.org/pypi/psutil">psutil</a>模块。</p>
+
+<p>适用环境：</p>
+
+<ul>
+  <li>Windows</li>
+  <li>Linux</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+cpu_usage = psutil.cpu_percent(0.1);
+</code></pre>
+</div>
+
+<h2 id="section">获取内存使用率</h2>
+
+<p>使用<a href="http://pythonhosted.org/psutil/">psutil</a>提供的API获取内存使用率。</p>
+
+<p>使用该功能前需要安装<a href="https://pypi.python.org/pypi/psutil">psutil</a>模块。</p>
+
+<p>适用环境：</p>
+
+<ul>
+  <li>Windows</li>
+  <li>Linux</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+meminfo = psutil.virtual_memory();
+mem_usage = (meminfo.total - meminfo.available) / meminfo.total * 100;
+</code></pre>
+</div>
+
+<h2 id="section-1">获取开机时间</h2>
+
+<p>使用<a href="http://pythonhosted.org/psutil/">psutil</a>提供的API获取服务器的开机时间。</p>
+
+<p>使用该功能前需要安装<a href="https://pypi.python.org/pypi/psutil">psutil</a>模块。</p>
+
+<p>适用环境：</p>
+
+<ul>
+  <li>Windows</li>
+  <li>Linux</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+boot_time = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%dT%H:%M:%S');
+</code></pre>
+</div>
+
+
+		</div>
+	</body>
+</html>
+
