@@ -23,8 +23,14 @@
 	border: 1px solid #27ae60;
 	color: #27ae60;
 }
+.page-switcher li a{
+	color: #27ae60;
+}
 .page-switcher li.selected{
 	background-color: #27ae60;
+	color: #ffffff;
+}
+.page-switcher li.selected a{
 	color: #ffffff;
 }
 
@@ -83,7 +89,6 @@
 	color: #ffffff;
 }
 		</style>
-		<script type='text/javascript' src='/js/js.cookie.min.js'></script>
 	</head>
 	<body>
 		<div class='header-wrapper'>
@@ -97,8 +102,8 @@
 		</div>
 		<div class='main-content'>
 			<ul class='page-switcher'>
-				<li id='switch_posts' class='selected'>Posts</li>
-				<li id='switch_snippets'>Code Snippets</li>
+				<li id='switch_posts' class='selected'><a href='?page=posts'>Posts</a></li>
+				<li id='switch_snippets'><a href='?page=snippets'>Code Snippets</a></li>
 			</ul>
 
 			<div class='page page-posts page-display'>
@@ -339,21 +344,15 @@ var displayPage = function(idx){
 	if (undefined != pages[idx] && undefined != switches[idx]) {
 		switches[idx].classList.add('selected');
 		pages[idx].classList.add('page-display');
-		Cookies.set('LastViewPage', idx);
 		return true;
 	}
 	return false;
 }
-switches[0].addEventListener('click', function(){
-	displayPage(0);
-});
-switches[1].addEventListener('click', function(){
-	displayPage(1);
-});
 
-var lastViewPage = Cookies.get('LastViewPage');
-if (lastViewPage != undefined) {
-	displayPage(lastViewPage);
+if (/(\?|&)page=snippets(&|$)/.test(window.location.search)) {
+	displayPage(1);
+} else {
+	displayPage(0);
 }
 	</script>
 </html>

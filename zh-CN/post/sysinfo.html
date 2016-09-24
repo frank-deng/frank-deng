@@ -137,7 +137,7 @@ mem_usage = (meminfo.total - meminfo.available) / meminfo.total * 100;
 
 <p>代码示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+<div class="highlighter-rouge"><pre class="highlight"><code>import datetime, psutil;
 boot_time = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%dT%H:%M:%S');
 </code></pre>
 </div>
