@@ -105,7 +105,7 @@ def cpu_usage(sample_interval):
     return float(sum(info1[0:3]) - sum(info0[0:3])) / float(sum(info1) - sum(info0));
 
 # Call function cpu_usage()
-print(cpu_usage(0.01));
+print(cpu_usage(0.1));
 </code></pre>
 </div>
 
@@ -148,7 +148,7 @@ def cpu_usage_each(sample_interval):
     return result;
 
 # Call function cpu_usage_each()
-print(cpu_usage_each(0.01));
+print(cpu_usage_each(0.1));
 </code></pre>
 </div>
 
