@@ -32,9 +32,8 @@
 
 <p>Example Code:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>fp = open('/sys/class/thermal/thermal_zone0/temp', 'r');
-result_c = fp.readline();
-fp.close();
+<div class="highlighter-rouge"><pre class="highlight"><code>with open('/sys/class/thermal/thermal_zone0/temp', 'r') as fp:
+    result_c = fp.readline();
 cpu_temp = int(float(result_c) / 1000.0); #Get CPU temperature
 </code></pre>
 </div>
@@ -81,31 +80,142 @@ droid.batteryStopMonitoring();
 </code></pre>
 </div>
 
-<h2 id="get-cpu-usage">Get CPU Usage</h2>
+<h2 id="get-overall-cpu-usage">Get Overall CPU Usage</h2>
 
-<p>Get CPU usage in percentage using <a href="http://pythonhosted.org/psutil/">psutil</a>.</p>
-
-<p>You must install <a href="https://pypi.python.org/pypi/psutil">psutil</a> before using this function.</p>
+<p>Get overall CPU usage by analyzing file <code class="highlighter-rouge">/proc/stat</code>.</p>
 
 <p>Supported Platforms:</p>
 
 <ul>
-  <li>Windows</li>
   <li>Linux</li>
+  <li>Android + QPython3</li>
 </ul>
 
 <p>Example Code:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
-cpu_usage = psutil.cpu_percent(0.1);
+<div class="highlighter-rouge"><pre class="highlight"><code>import time;
+def cpu_usage(sample_interval):
+    with open('/proc/stat', 'r') as fp:
+        info0 = fp.readline();
+    time.sleep(sample_interval);
+    with open('/proc/stat', 'r') as fp:
+        info1 = fp.readline();
+    info0 = [int(n) for n in info0.split()[1:]];
+    info1 = [int(n) for n in info1.split()[1:]];
+    return float(sum(info1[0:3]) - sum(info0[0:3])) / float(sum(info1) - sum(info0));
+
+# Call function cpu_usage()
+print(cpu_usage(0.01));
+</code></pre>
+</div>
+
+<h2 id="get-cpu-usage-for-each-cpu">Get CPU Usage for Each CPU</h2>
+
+<p>Get CPU usage for each CPU by analyzing file <code class="highlighter-rouge">/proc/stat</code>.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Linux</li>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import time, re;
+__re_cpu = re.compile(r'cpu\d+');
+def cpu_usage_each(sample_interval):
+    with open('/proc/stat', 'r') as fp:
+        lines0 = fp.readlines();
+    time.sleep(sample_interval);
+    with open('/proc/stat', 'r') as fp:
+        lines1 = fp.readlines();
+    lines0 = [l.split() for l in lines0];
+    lines1 = [l.split() for l in lines1];
+    info0, info1, result = [], [], [];
+    for l in lines0:
+        if None != __re_cpu.match(l[0]):
+            info0.append([int(n) for n in l[1:]]);
+    for l in lines1:
+        if None != __re_cpu.match(l[0]):
+            info1.append([int(n) for n in l[1:]]);
+    for i in range(len(info0)):
+        total = sum(info1[i]) - sum(info0[i]);
+        if 0 == total:
+            result.append(0.0);
+        else:
+            result.append(float(sum(info1[i][0:3]) - sum(info0[i][0:3])) / float(total));
+    return result;
+
+# Call function cpu_usage_each()
+print(cpu_usage_each(0.01));
 </code></pre>
 </div>
 
 <h2 id="get-memory-usage">Get Memory Usage</h2>
 
-<p>Get memory usage in percentage using <a href="http://pythonhosted.org/psutil/">psutil</a>.</p>
+<p>Get memory usage by analyzing file <code class="highlighter-rouge">/proc/meminfo</code>.</p>
 
-<p>You must install <a href="https://pypi.python.org/pypi/psutil">psutil</a> before using this function.</p>
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Linux</li>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import re;
+__re_mem_total = re.compile(r'MemTotal:\s*(\d+)');
+__re_mem_avail = re.compile(r'MemAvailable:\s*(\d+)');
+def mem_usage():
+    with open('/proc/meminfo', 'r') as fp:
+        meminfo = fp.readlines();
+    total = avail = None;
+    for line in meminfo:
+        m_total = __re_mem_total.match(line);
+        m_avail = __re_mem_avail.match(line);
+        if None != m_total:
+            total = int(m_total.groups()[0]);
+        elif None != m_avail:
+            avail = int(m_avail.groups()[0]);
+    return float(total-avail)/float(total);
+
+# Call function mem_usage()
+print(mem_usage());
+</code></pre>
+</div>
+
+<h2 id="get-boot-time">Get Boot Time</h2>
+
+<p>Get seconds from boot time to now by analyzing file <code class="highlighter-rouge">/proc/uptime</code>.</p>
+
+<p>Supported Platforms:</p>
+
+<ul>
+  <li>Linux</li>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>Example Code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>from datetime import datetime, timedelta;
+def boot_time():
+    with open('/proc/uptime', 'r') as fp:
+        uptime = fp.readline();
+    uptime = float(uptime.split()[0]);
+    return (datetime.now() - timedelta(0, uptime));
+
+# Call function boot_time()
+print(boot_time().strftime('%Y-%m-%dT%H:%M:%S'));
+</code></pre>
+</div>
+
+<h2 id="get-overall-cpu-usage-memory-usage-boot-time-via-psutil">Get Overall CPU Usage, Memory Usage, Boot Time via <code class="highlighter-rouge">psutil</code></h2>
+
+<p>Get CPU usage in percentage, memory usage in percentage, boot time using <a href="http://pythonhosted.org/psutil/">psutil</a>.</p>
+
+<p><a href="https://pypi.python.org/pypi/psutil">psutil</a> should be installed manually before using the example code here.</p>
 
 <p>Supported Platforms:</p>
 
@@ -117,31 +227,19 @@ cpu_usage = psutil.cpu_percent(0.1);
 <p>Example Code:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+from datetime import datetime;
+
+# Get overall cpu usage
+cpu_usage = psutil.cpu_percent(0.1);
+
+# Get memory usage
 meminfo = psutil.virtual_memory();
 mem_usage = (meminfo.total - meminfo.available) / meminfo.total * 100;
+
+# Get boot time
+boot_time = datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%dT%H:%M:%S');
 </code></pre>
 </div>
-
-<h2 id="get-boot-time">Get Boot Time</h2>
-
-<p>Get boot time using <a href="http://pythonhosted.org/psutil/">psutil</a>.</p>
-
-<p>You must install <a href="https://pypi.python.org/pypi/psutil">psutil</a> before using this function.</p>
-
-<p>Supported Platforms:</p>
-
-<ul>
-  <li>Windows</li>
-  <li>Linux</li>
-</ul>
-
-<p>Example Code:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>import datetime, psutil;
-boot_time = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%dT%H:%M:%S');
-</code></pre>
-</div>
-
 
 		</div>
 	</body>

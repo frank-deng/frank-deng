@@ -32,9 +32,8 @@
 
 <p>代码示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>fp = open('/sys/class/thermal/thermal_zone0/temp', 'r');
-result_c = fp.readline();
-fp.close();
+<div class="highlighter-rouge"><pre class="highlight"><code>with open('/sys/class/thermal/thermal_zone0/temp', 'r') as fp:
+    result_c = fp.readline();
 cpu_temp = int(float(result_c) / 1000.0); #获取CPU温度
 </code></pre>
 </div>
@@ -81,52 +80,142 @@ droid.batteryStopMonitoring();
 </code></pre>
 </div>
 
-<h2 id="cpu-1">获取CPU使用率</h2>
+<h2 id="cpu-1">获取总CPU使用率</h2>
 
-<p>使用<a href="http://pythonhosted.org/psutil/">psutil</a>提供的API获取CPU使用率，单位为百分比。</p>
-
-<p>使用该功能前需要安装<a href="https://pypi.python.org/pypi/psutil">psutil</a>模块。</p>
+<p>通过分析<code class="highlighter-rouge">/proc/stat</code>文件中的内容获取CPU使用率。</p>
 
 <p>适用环境：</p>
 
 <ul>
-  <li>Windows</li>
   <li>Linux</li>
+  <li>Android + QPython3</li>
 </ul>
 
 <p>代码示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
-cpu_usage = psutil.cpu_percent(0.1);
+<div class="highlighter-rouge"><pre class="highlight"><code>import time;
+def cpu_usage(sample_interval):
+    with open('/proc/stat', 'r') as fp:
+        info0 = fp.readline();
+    time.sleep(sample_interval);
+    with open('/proc/stat', 'r') as fp:
+        info1 = fp.readline();
+    info0 = [int(n) for n in info0.split()[1:]];
+    info1 = [int(n) for n in info1.split()[1:]];
+    return float(sum(info1[0:3]) - sum(info0[0:3])) / float(sum(info1) - sum(info0));
+
+# 调用cpu_usage()函数
+print(cpu_usage(0.01));
+</code></pre>
+</div>
+
+<h2 id="cpu-2">获取每个CPU的使用率</h2>
+
+<p>通过分析<code class="highlighter-rouge">/proc/stat</code>文件中的内容获取CPU数量，以及每个CPU的使用率。</p>
+
+<p>适用环境：</p>
+
+<ul>
+  <li>Linux</li>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import time, re;
+__re_cpu = re.compile(r'cpu\d+');
+def cpu_usage_each(sample_interval):
+    with open('/proc/stat', 'r') as fp:
+        lines0 = fp.readlines();
+    time.sleep(sample_interval);
+    with open('/proc/stat', 'r') as fp:
+        lines1 = fp.readlines();
+    lines0 = [l.split() for l in lines0];
+    lines1 = [l.split() for l in lines1];
+    info0, info1, result = [], [], [];
+    for l in lines0:
+        if None != __re_cpu.match(l[0]):
+            info0.append([int(n) for n in l[1:]]);
+    for l in lines1:
+        if None != __re_cpu.match(l[0]):
+            info1.append([int(n) for n in l[1:]]);
+    for i in range(len(info0)):
+        total = sum(info1[i]) - sum(info0[i]);
+        if 0 == total:
+            result.append(0.0);
+        else:
+            result.append(float(sum(info1[i][0:3]) - sum(info0[i][0:3])) / float(total));
+    return result;
+
+# 调用cpu_usage_each()函数
+print(cpu_usage_each(0.01));
 </code></pre>
 </div>
 
 <h2 id="section">获取内存使用率</h2>
 
-<p>使用<a href="http://pythonhosted.org/psutil/">psutil</a>提供的API获取内存使用率。</p>
-
-<p>使用该功能前需要安装<a href="https://pypi.python.org/pypi/psutil">psutil</a>模块。</p>
+<p>通过分析<code class="highlighter-rouge">/proc/meminfo</code>文件中的内容获取内存使用率。</p>
 
 <p>适用环境：</p>
 
 <ul>
-  <li>Windows</li>
   <li>Linux</li>
+  <li>Android + QPython3</li>
 </ul>
 
 <p>代码示例：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
-meminfo = psutil.virtual_memory();
-mem_usage = (meminfo.total - meminfo.available) / meminfo.total * 100;
+<div class="highlighter-rouge"><pre class="highlight"><code>import re;
+__re_mem_total = re.compile(r'MemTotal:\s*(\d+)');
+__re_mem_avail = re.compile(r'MemAvailable:\s*(\d+)');
+def mem_usage():
+    with open('/proc/meminfo', 'r') as fp:
+        meminfo = fp.readlines();
+    total = avail = None;
+    for line in meminfo:
+        m_total = __re_mem_total.match(line);
+        m_avail = __re_mem_avail.match(line);
+        if None != m_total:
+            total = int(m_total.groups()[0]);
+        elif None != m_avail:
+            avail = int(m_avail.groups()[0]);
+    return float(total-avail)/float(total);
+
+# 调用mem_usage()函数
+print(mem_usage());
 </code></pre>
 </div>
 
 <h2 id="section-1">获取开机时间</h2>
 
-<p>使用<a href="http://pythonhosted.org/psutil/">psutil</a>提供的API获取服务器的开机时间。</p>
+<p>通过分析<code class="highlighter-rouge">/proc/uptime</code>文件中的内容获取从开机到现在的秒数。</p>
 
-<p>使用该功能前需要安装<a href="https://pypi.python.org/pypi/psutil">psutil</a>模块。</p>
+<p>适用环境：</p>
+
+<ul>
+  <li>Linux</li>
+  <li>Android + QPython3</li>
+</ul>
+
+<p>代码示例：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>from datetime import datetime, timedelta;
+def boot_time():
+    with open('/proc/uptime', 'r') as fp:
+        uptime = fp.readline();
+    uptime = float(uptime.split()[0]);
+    return (datetime.now() - timedelta(0, uptime));
+
+# 调用boot_time()函数
+print(boot_time().strftime('%Y-%m-%dT%H:%M:%S'));
+</code></pre>
+</div>
+
+<h2 id="psutilcpu">使用<code class="highlighter-rouge">psutil</code>获取CPU使用率、内存使用率、开机时间</h2>
+
+<p>使用<a href="http://pythonhosted.org/psutil/"><code class="highlighter-rouge">psutil</code></a>提供的API获取CPU使用率（单位为百分比）、内存使用率（单位为百分比）、开机时间。</p>
+
+<p>需要另外安装<a href="https://pypi.python.org/pypi/psutil"><code class="highlighter-rouge">psutil</code></a>模块。</p>
 
 <p>适用环境：</p>
 
@@ -135,13 +224,22 @@ mem_usage = (meminfo.total - meminfo.available) / meminfo.total * 100;
   <li>Linux</li>
 </ul>
 
-<p>代码示例：</p>
+<p>代码示例（获取CPU使用率）：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>import datetime, psutil;
-boot_time = datetime.datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%dT%H:%M:%S');
+<div class="highlighter-rouge"><pre class="highlight"><code>import psutil;
+from datetime import datetime;
+
+#获取总CPU使用率
+cpu_usage = psutil.cpu_percent(0.1);
+
+#获取内存使用率
+meminfo = psutil.virtual_memory();
+mem_usage = (meminfo.total - meminfo.available) / meminfo.total * 100;
+
+#获取开机时间
+boot_time = datetime.fromtimestamp(psutil.boot_time()).strftime('%Y-%m-%dT%H:%M:%S');
 </code></pre>
 </div>
-
 
 		</div>
 	</body>
