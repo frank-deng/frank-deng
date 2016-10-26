@@ -40,7 +40,7 @@ cpu_temp = int(float(result_c) / 1000.0); #Get CPU temperature
 
 <h2 id="get-nvidia-gpu-temperature">Get Nvidia GPU Temperature</h2>
 
-<p>Run command <code class="highlighter-rouge">nvidia-smi -q -x</code>, then parse the stdout as XML, and you’ll get the GPU Temperature in Celsius degree.</p>
+<p>Run command <code class="highlighter-rouge">nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits</code>, the stdout is GPU Temperature in Celsius degree.</p>
 
 <p>Supported Platforms:</p>
 
@@ -52,11 +52,8 @@ cpu_temp = int(float(result_c) / 1000.0); #Get CPU temperature
 <p>Example Code:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import subprocess;
-import xml.etree.ElementTree as ET;
-nvidia_smi = subprocess.Popen(['nvidia-smi', '-q', '-x'], stdout=subprocess.PIPE);
-tree = ET.fromstring(nvidia_smi.communicate()[0]);
-result_c = tree.findall('./gpu/temperature/gpu_temp')[0].text;
-gpu_temp = int(result_c.replace(' C', '')); #Get GPU temperature
+p = subprocess.Popen(['nvidia-smi', '--query-gpu=temperature.gpu', '--format=csv,noheader,nounits'], stdout=subprocess.PIPE);
+gpu_temp = int(p.communicate()[0]);  #Get GPU temperature
 </code></pre>
 </div>
 

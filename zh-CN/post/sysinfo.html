@@ -40,7 +40,7 @@ cpu_temp = int(float(result_c) / 1000.0); #获取CPU温度
 
 <h2 id="nvidia-gpu">获取Nvidia GPU温度</h2>
 
-<p>运行<code class="highlighter-rouge">nvidia-smi -q -x</code>命令，并将该命令的标准输出作为XML进行解析，即可获得GPU的温度，单位为摄氏度。</p>
+<p>运行<code class="highlighter-rouge">nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits</code>命令，该命令的标准输出即为GPU的温度，单位为摄氏度。</p>
 
 <p>适用环境：</p>
 
@@ -52,11 +52,8 @@ cpu_temp = int(float(result_c) / 1000.0); #获取CPU温度
 <p>代码示例：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import subprocess;
-import xml.etree.ElementTree as ET;
-nvidia_smi = subprocess.Popen(['nvidia-smi', '-q', '-x'], stdout=subprocess.PIPE);
-tree = ET.fromstring(nvidia_smi.communicate()[0]);
-result_c = tree.findall('./gpu/temperature/gpu_temp')[0].text;
-gpu_temp = int(result_c.replace(' C', '')); #获取GPU温度
+p = subprocess.Popen(['nvidia-smi', '--query-gpu=temperature.gpu', '--format=csv,noheader,nounits'], stdout=subprocess.PIPE);
+gpu_temp = int(p.communicate()[0]);  #获取GPU温度
 </code></pre>
 </div>
 
