@@ -167,18 +167,26 @@ print(cpu_usage_each(0.1));
 
 <div class="highlighter-rouge"><pre class="highlight"><code>import re;
 __re_mem_total = re.compile(r'MemTotal:\s*(\d+)');
-__re_mem_avail = re.compile(r'MemAvailable:\s*(\d+)');
+__re_mem_free = re.compile(r'MemFree:\s*(\d+)');
+__re_mem_buffers = re.compile(r'Buffers:\s*(\d+)');
+__re_mem_cache = re.compile(r'Cached:\s*(\d+)');
 def mem_usage():
     with open('/proc/meminfo', 'r') as fp:
         meminfo = fp.readlines();
-    total = avail = None;
+    total, avail = 1, 0;
     for line in meminfo:
         m_total = __re_mem_total.match(line);
-        m_avail = __re_mem_avail.match(line);
+        m_free = __re_mem_free.match(line);
+        m_buffers = __re_mem_buffers.match(line);
+        m_cache = __re_mem_cache.match(line);
         if None != m_total:
             total = int(m_total.groups()[0]);
-        elif None != m_avail:
-            avail = int(m_avail.groups()[0]);
+        elif None != m_free:
+            avail += int(m_free.groups()[0]);
+        elif None != m_buffers:
+            avail += int(m_buffers.groups()[0]);
+        elif None != m_cache:
+            avail += int(m_cache.groups()[0]);
     return float(total-avail)/float(total);
 
 # 调用mem_usage()函数
