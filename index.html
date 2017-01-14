@@ -5,6 +5,36 @@
 		<meta charset='UTF-8'>
 		<title>Frank's Space</title>
 		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
+		<script type='text/javascript' src='/js/js.cookie.min.js'></script>
+
+		<script type='text/javascript'>
+var getLocale = function(availLang){
+	var userLang;
+	if (navigator.languages) {
+		for(var i=0; i<navigator.languages.length; i++){
+			userLang = navigator.languages[i].slice(0,2);
+			if (availLang.indexOf(userLang) >= 0) {
+				return userLang;
+			}
+		}
+		return 'en';
+	} else {
+		if (navigator.language) {
+			userLang = navigator.language.slice(0,2);
+		} else if (navigator.userLanguage) {
+			userLang = navigator.userLanguage.slice(0,2);
+		} else if (navigator.browserLanguage) {
+			userLang = navigator.browserLanguage.slice(0,2);
+		}
+		return availLang.indexOf(userLang) >= 0 ? userLang : 'en';
+	}
+}
+var lang = Cookies.get('language_preferred');
+if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
+	window.location = '/zh-CN/';
+}
+		</script>
+
 		<style type='text/css'>
 .page-switcher{
 	display: block;
@@ -97,7 +127,7 @@
 <a class='site-title' href='/'>Frank's Space</a>
 
 </h1>
-				<div class='lang-sel'><a href='/'>English</a> | <a href='/zh-CN/'>中文</a></div>
+				<div class='lang-sel'><a id='select_lang_english' href='/'>English</a> | <a id='select_lang_chinese' href='/zh-CN/'>中文</a></div>
 			</div>
 		</div>
 		<div class='main-content'>
@@ -356,6 +386,13 @@
 		</div>
 	</body>
 	<script type='text/javascript'>
+document.getElementById('select_lang_english').onclick = function(){
+	Cookies.set('language_preferred', 'en');
+}
+document.getElementById('select_lang_chinese').onclick = function(){
+	Cookies.set('language_preferred', 'zh');
+}
+
 var switches = document.querySelectorAll('.page-switcher li');
 var pages = document.querySelectorAll('.page');
 var displayPage = function(idx){
