@@ -32,8 +32,10 @@ body{
 	font-size:24px;
 }
 .lang-sel{
+	position:relative;
+	z-index:1000;
 	float:right;
-	margin-right:80px;
+	margin-right:70px;
 }
 @media screen and (max-width:450px) {
 	.lang-sel{
@@ -53,11 +55,10 @@ body{
 }
 #fork_me_on_github{
 	display:block;
-	position:fixed;
+	position:absolute;
+	z-index:1;
 	top:0;
 	right:0;
-}
-#fork_me_on_github img{
 	width:100px;
 	height:100px;
 }
