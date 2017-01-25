@@ -8,75 +8,18 @@
 		<script type='text/javascript' src='/js/js.cookie.min.js'></script>
 
 		<style type='text/css'>
-.page-switcher{
-	display: block;
-	margin: 0;
-	margin-bottom: 14px;
-	padding: 0;
-	list-style-type:none;
-	overflow:auto;
-}
-.page-switcher li{
-	float: left;
-	margin-right: 10px;
-	padding: 4px;
-	border-radius: 4px;
-	cursor: pointer;
-	border: 1px solid #27ae60;
-	color: #27ae60;
-}
-.page-switcher li a{
-	color: #27ae60;
-}
-.page-switcher li.selected{
-	background-color: #27ae60;
-	color: #ffffff;
-}
-.page-switcher li.selected a{
-	color: #ffffff;
-}
-
-.page h2 {
+.main-content h2 {
 	font-size: 20px;
 	margin: 0;
 	font-weight: normal;
 }
-.page ul{
+.main-content ul{
 	padding-left: 1px;
 	list-style-type:none;
 }
-.page li{
+.main-content li{
 	margin: 10px 0;
 }
-.page{
-	box-sizing: border-box;
-	display:none;
-	width: 100%;
-}
-.page-display {
-	display: block;
-}
-.page-posts {
-	padding-right: 10px;
-}
-@media screen and (min-width: 640px) {
-	.page-posts, .page-snippets{
-		display: block;
-	}
-	.page-posts{
-		float: left;
-		width: 59%;
-		padding-right: 0;
-	}
-	.page-snippets {
-		float: right;
-		width: 39%;
-	}
-	.page-switcher{
-		display: none;
-	}
-}
-
 .tag-area{
 	font-size: 12px;
 	color: #7f8c8d;
@@ -115,234 +58,209 @@
 			</div>
 		</div>
 		<div class='main-content'>
-			<ul class='page-switcher'>
-				<li id='switch_posts' class='selected'><a href='?page=posts'>我的博客</a></li>
-				<li id='switch_snippets'><a href='?page=snippets'>一些好用的代码片</a></li>
+			<ul>
+			  
+				<li>
+					<a href="/zh-CN/post/qpython_websocket.html">QPython安装并测试WebSocket服务器ws4py</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Android</span><span class='tag'>Python</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/post/other_works.html">一些有趣的HTML/Javascript作品</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>HTML</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/post/wifi_configuration.html">Linux命令行下配置Wifi</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/post/record_sound.html">Linux命令行下捕获系统声音</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/post/ralink_wifi_fix.html">Debian/Ubuntu下修复华硕笔记本的Wifi</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/post/perl_rename.html">如何使用Perl的rename工具进行批量重命名</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/change_time.html">Linux下更改日期、时间、时区</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/vim_tabsize.html">调整VIM的制表符宽度</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/console_autologin.html">为Linux命令行配置自动登录</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/alsa_44100hz.html">提升ALSA播放时的音质</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/handlelidswitch.html">防止笔记本合上后进入休眠状态</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/enum_args.html">Bash Shell遍历带空格的命令行参数</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/enum_lines.html">Bash Shell按行遍历标准输出</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/filename_parse.html">Bash shell从给定文件名中获取基本名和扩展名</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/html5_video_conv.html">将视频转换成兼容HTML5的格式</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/crontab_reboot.html">使用crontab实现开机自动运行脚本</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/address_bar_color.html">Chrome for Android中更改地址栏的颜色</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>HTML</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/browser_type.html">通过User Agent获取浏览器类型</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/trim.html">trim(), ltrim(), rtrim()的JavaScript实现</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/zh-CN/snippet/htmlspecialchars.html">htmlspecialchars()的JavaScript实现</a>
+						<div class='tag-area'>
+							标签：
+							
+							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							
+						</div>
+				</li>
+			  
 			</ul>
-
-			<div class='page page-posts page-display'>
-				<h2>我的博客</h2>
-				<ul>
-				  
-					
-					<li><a href="/zh-CN/post/qpython_websocket.html">QPython安装并测试WebSocket服务器`ws4py`</a></li>
-					
-				  
-					
-					<li><a href="/zh-CN/post/other_works.html">一些有趣的HTML/Javascript作品</a></li>
-					
-				  
-					
-					<li><a href="/zh-CN/post/xexec.html">如何从终端运行GUI程序，并抑制标准输出和标准错误输出</a></li>
-					
-				  
-					
-					<li><a href="/zh-CN/post/wifi_configuration.html">Linux命令行下配置Wifi</a></li>
-					
-				  
-					
-					<li><a href="/zh-CN/post/record_sound.html">Linux命令行下捕获系统声音</a></li>
-					
-				  
-					
-					<li><a href="/zh-CN/post/ralink_wifi_fix.html">Debian/Ubuntu下修复华硕笔记本的Wifi</a></li>
-					
-				  
-					
-					<li><a href="/zh-CN/post/perl_rename.html">如何使用Perl的rename工具进行批量重命名</a></li>
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-				</ul>
-			</div>
-
-			<div class='page page-snippets'>
-				<h2>一些好用的代码片</h2>
-				<ul>
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/change_time.html">Linux下更改日期、时间、时区</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/vim_tabsize.html">调整VIM的制表符宽度</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/console_autologin.html">为Linux命令行配置自动登录</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/alsa_44100hz.html">提升ALSA播放时的音质</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/handlelidswitch.html">防止笔记本合上后进入休眠状态</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/enum_args.html">Bash Shell遍历带空格的命令行参数</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/enum_lines.html">Bash Shell按行遍历标准输出</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/filename_parse.html">Bash shell从给定文件名中获取基本名和扩展名</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/html5_video_conv.html">将视频转换成兼容HTML5的格式</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/crontab_reboot.html">使用crontab实现开机自动运行脚本</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/address_bar_color.html">Chrome for Android中更改地址栏的颜色</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>HTML</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/browser_type.html">通过User Agent获取浏览器类型</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/trim.html">trim(), ltrim(), rtrim()的JavaScript实现</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/zh-CN/snippet/htmlspecialchars.html">htmlspecialchars()的JavaScript实现</a>
-								<div class='tag-area'>
-									标签：
-									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
-								</div>
-						</li>
-					
-				  
-				</ul>
-			</div>
 		</div>
 	</body>
 	<script type='text/javascript'>
@@ -351,29 +269,6 @@ document.getElementById('select_lang_english').onclick = function(){
 }
 document.getElementById('select_lang_chinese').onclick = function(){
 	Cookies.set('language_preferred', 'zh');
-}
-
-var switches = document.querySelectorAll('.page-switcher li');
-var pages = document.querySelectorAll('.page');
-var displayPage = function(idx){
-	for (var i = 0; i < switches.length; i++) {
-		switches[i].classList.remove('selected');
-	}
-	for (var i = 0; i < pages.length; i++) {
-		pages[i].classList.remove('page-display');
-	}
-	if (undefined != pages[idx] && undefined != switches[idx]) {
-		switches[idx].classList.add('selected');
-		pages[idx].classList.add('page-display');
-		return true;
-	}
-	return false;
-}
-
-if (/(\?|&)page=snippets(&|$)/.test(window.location.search)) {
-	displayPage(1);
-} else {
-	displayPage(0);
 }
 	</script>
 </html>

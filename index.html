@@ -36,75 +36,18 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		</script>
 
 		<style type='text/css'>
-.page-switcher{
-	display: block;
-	margin: 0;
-	margin-bottom: 14px;
-	padding: 0;
-	list-style-type:none;
-	overflow:auto;
-}
-.page-switcher li{
-	float: left;
-	margin-right: 10px;
-	padding: 4px;
-	border-radius: 4px;
-	cursor: pointer;
-	border: 1px solid #27ae60;
-	color: #27ae60;
-}
-.page-switcher li a{
-	color: #27ae60;
-}
-.page-switcher li.selected{
-	background-color: #27ae60;
-	color: #ffffff;
-}
-.page-switcher li.selected a{
-	color: #ffffff;
-}
-
-.page h2 {
+.main-content h2 {
 	font-size: 20px;
 	margin: 0;
 	font-weight: normal;
 }
-.page ul{
+.main-content ul{
 	padding-left: 1px;
 	list-style-type:none;
 }
-.page li{
+.main-content li{
 	margin: 10px 0;
 }
-.page{
-	box-sizing: border-box;
-	display:none;
-	width: 100%;
-}
-.page-display {
-	display: block;
-}
-.page-posts {
-	padding-right: 10px;
-}
-@media screen and (min-width: 640px) {
-	.page-posts, .page-snippets{
-		display: block;
-	}
-	.page-posts{
-		float: left;
-		width: 59%;
-		padding-right: 0;
-	}
-	.page-snippets {
-		float: right;
-		width: 39%;
-	}
-	.page-switcher{
-		display: none;
-	}
-}
-
 .tag-area{
 	font-size: 12px;
 	color: #7f8c8d;
@@ -143,234 +86,209 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 			</div>
 		</div>
 		<div class='main-content'>
-			<ul class='page-switcher'>
-				<li id='switch_posts' class='selected'><a href='?page=posts'>Posts</a></li>
-				<li id='switch_snippets'><a href='?page=snippets'>Code Snippets</a></li>
+			<ul>
+			  
+				<li>
+					<a href="/post/qpython_websocket.en.html">Install and Test QPython WebSocket module ws4py</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Android</span><span class='tag'>Python</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/post/other_works.en.html">Some Interesting Works Based On HTML/Javascript</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>HTML</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/post/wifi_configuration.en.html">Wifi Configuration Under Linux Command Line</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/post/record_sound.en.html">Record System Output Sound In Linux</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/post/ralink_wifi_fix.en.html">Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/post/perl_rename.en.html">Batch Renaming Using Perl's Rename Utility</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/change_time.en.html">Change Date/Time/Timezone Under Linux</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/vim_tabsize.en.html">Adjust Tab Size For VIM</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/console_autologin.en.html">Configure autologin for Linux console using systemd</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/alsa_44100hz.en.html">Improve Sound Quality for ALSA</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/handlelidswitch.en.html">Keep Laptop Running When Closing Lid</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/enum_args.en.html">Enumerate command line arguments with space characters</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/enum_lines.en.html">Enumerate records separated by newlines</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/filename_parse.en.html">Extract basename and extension of a filename under bash shell</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/html5_video_conv.en.html">Convert video into HTML5 compatible format</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Shell</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/crontab_reboot.en.html">Run program at startup via crontab</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>Linux</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/address_bar_color.en.html">Chrome for Android: Change address bar color</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>HTML</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/browser_type.en.html">Get browser type based on User Agent</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/trim.en.html">Implement trim(), ltrim(), rtrim() in JavaScript</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							
+						</div>
+				</li>
+			  
+				<li>
+					<a href="/snippet/htmlspecialchars.en.html">Implement htmlspecialchars() in JavaScript</a>
+						<div class='tag-area'>
+							Tags: 
+							
+							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							
+						</div>
+				</li>
+			  
 			</ul>
-
-			<div class='page page-posts page-display'>
-				<h2>Posts</h2>
-				<ul>
-				  
-					
-					<li><a href="/post/qpython_websocket.en.html">Install and Test QPython WebSocket module `ws4py`</a></li>
-					
-				  
-					
-					<li><a href="/post/other_works.en.html">Some Interesting Works Based On HTML/Javascript</a></li>
-					
-				  
-					
-					<li><a href="/post/xexec.en.html">Launch GUI program from terminal with stdout and stderr supressed</a></li>
-					
-				  
-					
-					<li><a href="/post/wifi_configuration.en.html">Wifi Configuration Under Linux Command Line</a></li>
-					
-				  
-					
-					<li><a href="/post/record_sound.en.html">Record System Output Sound In Linux</a></li>
-					
-				  
-					
-					<li><a href="/post/ralink_wifi_fix.en.html">Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu</a></li>
-					
-				  
-					
-					<li><a href="/post/perl_rename.en.html">Batch Renaming Using Perl's Rename Utility</a></li>
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-				</ul>
-			</div>
-
-			<div class='page page-snippets'>
-				<h2>Code Snippets</h2>
-				<ul>
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-				  
-					
-						<li>
-							<a href="/snippet/change_time.en.html">Change Date/Time/Timezone Under Linux</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/vim_tabsize.en.html">Adjust Tab Size For VIM</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/console_autologin.en.html">Configure autologin for Linux console using systemd</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/alsa_44100hz.en.html">Improve Sound Quality for ALSA</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/handlelidswitch.en.html">Keep Laptop Running When Closing Lid</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/enum_args.en.html">Enumerate command line arguments with space characters</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/enum_lines.en.html">Enumerate records separated by newlines</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/filename_parse.en.html">Extract basename and extension of a filename under bash shell</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/html5_video_conv.en.html">Convert video into HTML5 compatible format</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Shell</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/crontab_reboot.en.html">Run program at startup via crontab</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>Linux</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/address_bar_color.en.html">Chrome for Android: Change address bar color</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>HTML</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/browser_type.en.html">Get browser type based on User Agent</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/trim.en.html">Implement trim(), ltrim(), rtrim() in JavaScript</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
-								</div>
-						</li>
-					
-				  
-					
-						<li>
-							<a href="/snippet/htmlspecialchars.en.html">Implement htmlspecialchars() in JavaScript</a>
-								<div class='tag-area'>
-									Tags: 
-									<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
-								</div>
-						</li>
-					
-				  
-				</ul>
-			</div>
 		</div>
 	</body>
 	<script type='text/javascript'>
@@ -379,29 +297,6 @@ document.getElementById('select_lang_english').onclick = function(){
 }
 document.getElementById('select_lang_chinese').onclick = function(){
 	Cookies.set('language_preferred', 'zh');
-}
-
-var switches = document.querySelectorAll('.page-switcher li');
-var pages = document.querySelectorAll('.page');
-var displayPage = function(idx){
-	for (var i = 0; i < switches.length; i++) {
-		switches[i].classList.remove('selected');
-	}
-	for (var i = 0; i < pages.length; i++) {
-		pages[i].classList.remove('page-display');
-	}
-	if (undefined != pages[idx] && undefined != switches[idx]) {
-		switches[idx].classList.add('selected');
-		pages[idx].classList.add('page-display');
-		return true;
-	}
-	return false;
-}
-
-if (/(\?|&)page=snippets(&|$)/.test(window.location.search)) {
-	displayPage(1);
-} else {
-	displayPage(0);
 }
 	</script>
 </html>

@@ -30,9 +30,15 @@
 		</div>
 		<div class='main-content'>
 			<h1>Implement trim(), ltrim(), rtrim() in JavaScript</h1>
-			<div class="highlighter-rouge"><pre class="highlight"><code>str.replace(/(^\s*)|(\s*$)/g,'');	//trim()
-str.replace(/(^\s*)/g,'');	//ltrim()
-str.replace(/(\s*$)/g,'');	//rtrim()
+			<div class="highlighter-rouge"><pre class="highlight"><code>function trim(s){
+	return str.replace(/(^\s*)|(\s*$)/g,'');
+}
+function ltrim(s){
+	return str.replace(/(^\s*)/g,'');
+}
+function rtrim(s){
+	return str.replace(/(\s*$)/g,'');
+}
 </code></pre>
 </div>
 
