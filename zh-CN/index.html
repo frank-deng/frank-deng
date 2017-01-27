@@ -33,28 +33,90 @@
 	background-color: #16A085;
 	color: #ffffff;
 }
+.menu-btn {
+	position:relative;
+	float:right;
+	width:50px;
+	height:50px;
+	cursor:pointer;
+}
+.menu-btn-bars{
+	position:absolute;
+	left:10px;right:10px;
+	top:12px;bottom:12px;
+}
+.menu-btn .bar{
+	width:100%;
+	height:4px;
+	background-color:#ffffff;
+	position:absolute;
+	margin-left:-15px;
+	left:50%;
+	border-radius:3px;
+}
+.menu-btn .bar1{top:0;}
+.menu-btn .bar2{top:50%;margin-top:-2px;}
+.menu-btn .bar3{bottom:0;}
+
+.menu-wrapper {
+	position:absolute;
+	left:0;top:51px;right:0;
+}
+.menu-wrapper-inner {
+	width:100%;
+	max-width:1024px;
+	margin:0 auto;
+}
+.menu {
+	display:none;
+	background:#ffffff;
+	list-style-type:none;
+	width:100%;
+	max-width:200px;
+	float:right;
+	margin:0;
+	padding:0;
+}
+.menu-display {
+	display:block;
+}
+.menu a{
+	display:block;
+	text-align:center;
+	padding:10px 10px;
+}
+.menu a:hover{
+	background:#eeeeee;
+}
 		</style>
 	</head>
-	<body><img
-	id='fork_me_on_github'
-	alt='Fork me on GitHub'
-	src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67'
-	data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
-	usemap='#map_fork_me_on_github'
-	unselectable='on'
-	draggable='false'
-	/>
-<map name='map_fork_me_on_github' id='map_fork_me_on_github'>
-	<area shape='polygon' coords='15,0,149,0,149,134,15,0' href='https://github.com/frank-deng/' target='_blank' alt='Fork me on GitHub'/>
-</map>
+	<body>
+		<div class='menu-wrapper'>
+	<div class='menu-wrapper-inner'>
+		<ul class='menu' id='main_menu'>
+			<li><a id='select_lang_english' href='/'>English</a></li>
+			<li><a id='select_lang_chinese' href='/zh-CN/'>中文</a></li>
+			<li><a href='/tetris.html'> 俄罗斯方块</a></li>
+			<li><a href='/2048.html'>2048</a></li>
+			<li><a href='/gambler_ruin.html'>Gambler's Ruin</a></li>
+			<li><a href='https://github.com/frank-deng/'>View Me On Github</a></li>
+		</ul>
+	</div>
+</div>
 
 		<div class='header-wrapper'>
 			<div class='header'>
+				<div class='menu-btn' id='menu_btn'>
+					<div class='menu-btn-bars'>
+						<div class='bar bar1'></div>
+						<div class='bar bar2'></div>
+						<div class='bar bar3'></div>
+					</div>
+				</div>
 				<h1>
 <a class='site-title' href='/zh-CN/'>Frank的空间</a>
 
 </h1>
-				<div class='lang-sel'><a id='select_lang_english' href='/'>English</a> | <a id='select_lang_chinese' href='/zh-CN/'>中文</a></div>
 			</div>
 		</div>
 		<div class='main-content'>
@@ -66,16 +128,6 @@
 							标签：
 							
 							<span class='tag'>Android</span><span class='tag'>Python</span>
-							
-						</div>
-				</li>
-			  
-				<li>
-					<a href="/zh-CN/post/other_works.html">一些有趣的HTML/Javascript作品</a>
-						<div class='tag-area'>
-							标签：
-							
-							<span class='tag'>HTML</span>
 							
 						</div>
 				</li>
@@ -269,6 +321,10 @@ document.getElementById('select_lang_english').onclick = function(){
 }
 document.getElementById('select_lang_chinese').onclick = function(){
 	Cookies.set('language_preferred', 'zh');
+}
+var main_menu = document.getElementById('main_menu');
+document.getElementById('menu_btn').onclick = function(){
+	main_menu.classList.toggle('menu-display');
 }
 	</script>
 </html>
