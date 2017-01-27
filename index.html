@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
@@ -36,31 +35,6 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		</script>
 
 		<style type='text/css'>
-.main-content h2 {
-	font-size: 20px;
-	margin: 0;
-	font-weight: normal;
-}
-.main-content ul{
-	padding-left: 1px;
-	list-style-type:none;
-}
-.main-content li{
-	margin: 10px 0;
-}
-.tag-area{
-	font-size: 12px;
-	color: #7f8c8d;
-	padding: 3px 0;
-}
-.tag-area .tag {
-	padding: 4px;
-	border-radius: 4px;
-	display: inline-block;
-	margin-right: 4px;
-	background-color: #16A085;
-	color: #ffffff;
-}
 .menu-btn {
 	position:relative;
 	float:right;
@@ -71,7 +45,7 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 .menu-btn-bars{
 	position:absolute;
 	left:10px;right:10px;
-	top:12px;bottom:12px;
+	top:13px;bottom:13px;
 }
 .menu-btn .bar{
 	width:100%;
@@ -86,44 +60,100 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 .menu-btn .bar2{top:50%;margin-top:-2px;}
 .menu-btn .bar3{bottom:0;}
 
-.menu-wrapper {
-	position:absolute;
-	left:0;top:51px;right:0;
+.main-content h2 {
+	font-size: 20px;
+	margin: 0;
+	font-weight: normal;
 }
-.menu-wrapper-inner {
-	width:100%;
-	max-width:1024px;
-	margin:0 auto;
-}
-.menu {
-	display:none;
-	background:#ffffff;
+.main-content ul{
+	padding-left: 1px;
 	list-style-type:none;
-	width:100%;
-	max-width:200px;
-	float:right;
-	margin:0;
-	padding:0;
 }
-.menu-display {
-	display:block;
+.main-content li{
+	margin: 10px 0;
+	border-radius:3px;
 }
-.menu a{
-	display:block;
-	text-align:center;
-	padding:10px 10px;
+.main-content li:hover{
+	background:rgba(255,255,255,0.8);
+	opacity:0.8;
 }
-.menu a:hover{
-	background:#eeeeee;
+.tag-area{
+	font-size: 12px;
+	color: #7f8c8d;
+	padding: 3px 0;
+}
+.tag-area .tag {
+	padding: 4px;
+	border-radius: 4px;
+	display: inline-block;
+	margin-right: 4px;
+	background-color: #16A085;
+	color: #ffffff;
+	cursor:pointer;
 }
 		</style>
 	</head>
 	<body>
-		<div class='menu-wrapper'>
+		<style type='text/css'>
+	#menu_bg {
+		position:fixed;
+		z-index:1;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+	}
+	.menu-wrapper {
+		display:none;
+		position:absolute;
+		left:0;top:51px;right:0;
+	}
+	.menu-display {
+		display:block;
+	}
+	.menu-wrapper-inner {
+		width:100%;
+		max-width:1024px;
+		margin:0 auto;
+	}
+	.menu {
+		position:relative;
+		z-index:1000;
+		background:#27ae60;
+		list-style-type:none;
+		width:100%;
+		max-width:200px;
+		float:right;
+		margin:0;
+		padding:0;
+		box-shadow: 0 0 10px #888888;
+		color:#ecf0f1;
+	}
+	.menu .separator{
+		text-align:center;
+		padding:5px 10px;
+		background-color:#16a085;
+		color:#ecf0f1;
+	}
+	.menu a{
+		color:#ecf0f1;
+		display:block;
+		text-align:center;
+		padding:10px 10px;
+	}
+	.menu a:hover{
+		background:#2ecc71;
+		color:#ffffff;
+	}
+</style>
+<div class='menu-wrapper' id='main_menu'>
+	<div id='menu_bg'></div>
 	<div class='menu-wrapper-inner'>
-		<ul class='menu' id='main_menu'>
+		<ul class='menu'>
+			<li class='separator'>Select Language</li>
 			<li><a id='select_lang_english' href='/'>English</a></li>
 			<li><a id='select_lang_chinese' href='/zh-CN/'>中文</a></li>
+			<li class='separator'>More</li>
 			<li><a href='/tetris.html'>Tetris</a></li>
 			<li><a href='/2048.html'>2048</a></li>
 			<li><a href='/gambler_ruin.html'>Gambler's Ruin</a></li>
@@ -149,197 +179,216 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		</div>
 		<div class='main-content'>
 			<ul>
-			  
+			
 				<li>
-					<a href="/post/qpython_websocket.en.html">Install and Test QPython WebSocket module ws4py</a>
+					<a href="/post/qpython_websocket.en.html">Install and Test QPython WebSocket module ws4py
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Android</span><span class='tag'>Python</span>
+							Tags: 
+							<span class='tag' tag='Android'>Android</span><span class='tag' tag='Python'>Python</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/post/wifi_configuration.en.html">Wifi Configuration Under Linux Command Line</a>
+					<a href="/post/wifi_configuration.en.html">Wifi Configuration Under Linux Command Line
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/post/record_sound.en.html">Record System Output Sound In Linux</a>
+					<a href="/post/record_sound.en.html">Record System Output Sound In Linux
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/post/ralink_wifi_fix.en.html">Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu</a>
+					<a href="/post/ralink_wifi_fix.en.html">Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/post/perl_rename.en.html">Batch Renaming Using Perl's Rename Utility</a>
+					<a href="/post/perl_rename.en.html">Batch Renaming Using Perl's Rename Utility
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Shell</span>
+							Tags: 
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/change_time.en.html">Change Date/Time/Timezone Under Linux</a>
+					<a href="/snippet/change_time.en.html">Change Date/Time/Timezone Under Linux
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/vim_tabsize.en.html">Adjust Tab Size For VIM</a>
+					<a href="/snippet/vim_tabsize.en.html">Adjust Tab Size For VIM
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/console_autologin.en.html">Configure autologin for Linux console using systemd</a>
+					<a href="/snippet/console_autologin.en.html">Configure autologin for Linux console using systemd
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/alsa_44100hz.en.html">Improve Sound Quality for ALSA</a>
+					<a href="/snippet/alsa_44100hz.en.html">Improve Sound Quality for ALSA
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/handlelidswitch.en.html">Keep Laptop Running When Closing Lid</a>
+					<a href="/snippet/handlelidswitch.en.html">Keep Laptop Running When Closing Lid
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/enum_args.en.html">Enumerate command line arguments with space characters</a>
+					<a href="/snippet/enum_args.en.html">Enumerate command line arguments with space characters
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Shell</span>
+							Tags: 
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/enum_lines.en.html">Enumerate records separated by newlines</a>
+					<a href="/snippet/enum_lines.en.html">Enumerate records separated by newlines
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Shell</span>
+							Tags: 
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/filename_parse.en.html">Extract basename and extension of a filename under bash shell</a>
+					<a href="/snippet/filename_parse.en.html">Extract basename and extension of a filename under bash shell
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Shell</span>
+							Tags: 
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/html5_video_conv.en.html">Convert video into HTML5 compatible format</a>
+					<a href="/snippet/html5_video_conv.en.html">Convert video into HTML5 compatible format
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Shell</span>
+							Tags: 
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/crontab_reboot.en.html">Run program at startup via crontab</a>
+					<a href="/snippet/crontab_reboot.en.html">Run program at startup via crontab
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>Linux</span>
+							Tags: 
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/address_bar_color.en.html">Chrome for Android: Change address bar color</a>
+					<a href="/snippet/address_bar_color.en.html">Chrome for Android: Change address bar color
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>HTML</span>
+							Tags: 
+							<span class='tag' tag='HTML'>HTML</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/browser_type.en.html">Get browser type based on User Agent</a>
+					<a href="/snippet/browser_type.en.html">Get browser type based on User Agent
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							Tags: 
+							<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/trim.en.html">Implement trim(), ltrim(), rtrim() in JavaScript</a>
+					<a href="/snippet/trim.en.html">Implement trim(), ltrim(), rtrim() in JavaScript
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							Tags: 
+							<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/snippet/htmlspecialchars.en.html">Implement htmlspecialchars() in JavaScript</a>
+					<a href="/snippet/htmlspecialchars.en.html">Implement htmlspecialchars() in JavaScript
 						<div class='tag-area'>
-							Tags: 
 							
-							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							Tags: 
+							<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 			</ul>
 		</div>
 	</body>
@@ -351,8 +400,12 @@ document.getElementById('select_lang_chinese').onclick = function(){
 	Cookies.set('language_preferred', 'zh');
 }
 var main_menu = document.getElementById('main_menu');
+var menu_bg = document.getElementById('menu_bg');
 document.getElementById('menu_btn').onclick = function(){
 	main_menu.classList.toggle('menu-display');
+}
+menu_bg.onclick = function(){
+	main_menu.classList.remove('menu-display');
 }
 	</script>
 </html>

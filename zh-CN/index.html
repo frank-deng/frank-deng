@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
@@ -8,31 +7,6 @@
 		<script type='text/javascript' src='/js/js.cookie.min.js'></script>
 
 		<style type='text/css'>
-.main-content h2 {
-	font-size: 20px;
-	margin: 0;
-	font-weight: normal;
-}
-.main-content ul{
-	padding-left: 1px;
-	list-style-type:none;
-}
-.main-content li{
-	margin: 10px 0;
-}
-.tag-area{
-	font-size: 12px;
-	color: #7f8c8d;
-	padding: 3px 0;
-}
-.tag-area .tag {
-	padding: 4px;
-	border-radius: 4px;
-	display: inline-block;
-	margin-right: 4px;
-	background-color: #16A085;
-	color: #ffffff;
-}
 .menu-btn {
 	position:relative;
 	float:right;
@@ -43,7 +17,7 @@
 .menu-btn-bars{
 	position:absolute;
 	left:10px;right:10px;
-	top:12px;bottom:12px;
+	top:13px;bottom:13px;
 }
 .menu-btn .bar{
 	width:100%;
@@ -58,44 +32,100 @@
 .menu-btn .bar2{top:50%;margin-top:-2px;}
 .menu-btn .bar3{bottom:0;}
 
-.menu-wrapper {
-	position:absolute;
-	left:0;top:51px;right:0;
+.main-content h2 {
+	font-size: 20px;
+	margin: 0;
+	font-weight: normal;
 }
-.menu-wrapper-inner {
-	width:100%;
-	max-width:1024px;
-	margin:0 auto;
-}
-.menu {
-	display:none;
-	background:#ffffff;
+.main-content ul{
+	padding-left: 1px;
 	list-style-type:none;
-	width:100%;
-	max-width:200px;
-	float:right;
-	margin:0;
-	padding:0;
 }
-.menu-display {
-	display:block;
+.main-content li{
+	margin: 10px 0;
+	border-radius:3px;
 }
-.menu a{
-	display:block;
-	text-align:center;
-	padding:10px 10px;
+.main-content li:hover{
+	background:rgba(255,255,255,0.8);
+	opacity:0.8;
 }
-.menu a:hover{
-	background:#eeeeee;
+.tag-area{
+	font-size: 12px;
+	color: #7f8c8d;
+	padding: 3px 0;
+}
+.tag-area .tag {
+	padding: 4px;
+	border-radius: 4px;
+	display: inline-block;
+	margin-right: 4px;
+	background-color: #16A085;
+	color: #ffffff;
+	cursor:pointer;
 }
 		</style>
 	</head>
 	<body>
-		<div class='menu-wrapper'>
+		<style type='text/css'>
+	#menu_bg {
+		position:fixed;
+		z-index:1;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+	}
+	.menu-wrapper {
+		display:none;
+		position:absolute;
+		left:0;top:51px;right:0;
+	}
+	.menu-display {
+		display:block;
+	}
+	.menu-wrapper-inner {
+		width:100%;
+		max-width:1024px;
+		margin:0 auto;
+	}
+	.menu {
+		position:relative;
+		z-index:1000;
+		background:#27ae60;
+		list-style-type:none;
+		width:100%;
+		max-width:200px;
+		float:right;
+		margin:0;
+		padding:0;
+		box-shadow: 0 0 10px #888888;
+		color:#ecf0f1;
+	}
+	.menu .separator{
+		text-align:center;
+		padding:5px 10px;
+		background-color:#16a085;
+		color:#ecf0f1;
+	}
+	.menu a{
+		color:#ecf0f1;
+		display:block;
+		text-align:center;
+		padding:10px 10px;
+	}
+	.menu a:hover{
+		background:#2ecc71;
+		color:#ffffff;
+	}
+</style>
+<div class='menu-wrapper' id='main_menu'>
+	<div id='menu_bg'></div>
 	<div class='menu-wrapper-inner'>
-		<ul class='menu' id='main_menu'>
+		<ul class='menu'>
+			<li class='separator'>选择语言</li>
 			<li><a id='select_lang_english' href='/'>English</a></li>
 			<li><a id='select_lang_chinese' href='/zh-CN/'>中文</a></li>
+			<li class='separator'>更多精彩</li>
 			<li><a href='/tetris.html'> 俄罗斯方块</a></li>
 			<li><a href='/2048.html'>2048</a></li>
 			<li><a href='/gambler_ruin.html'>Gambler's Ruin</a></li>
@@ -121,197 +151,216 @@
 		</div>
 		<div class='main-content'>
 			<ul>
-			  
+			
 				<li>
-					<a href="/zh-CN/post/qpython_websocket.html">QPython安装并测试WebSocket服务器ws4py</a>
+					<a href="/zh-CN/post/qpython_websocket.html">QPython安装并测试WebSocket服务器ws4py
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Android</span><span class='tag'>Python</span>
+							标签：
+							<span class='tag' tag='Android'>Android</span><span class='tag' tag='Python'>Python</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/post/wifi_configuration.html">Linux命令行下配置Wifi</a>
+					<a href="/zh-CN/post/wifi_configuration.html">Linux命令行下配置Wifi
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/post/record_sound.html">Linux命令行下捕获系统声音</a>
+					<a href="/zh-CN/post/record_sound.html">Linux命令行下捕获系统声音
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/post/ralink_wifi_fix.html">Debian/Ubuntu下修复华硕笔记本的Wifi</a>
+					<a href="/zh-CN/post/ralink_wifi_fix.html">Debian/Ubuntu下修复华硕笔记本的Wifi
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/post/perl_rename.html">如何使用Perl的rename工具进行批量重命名</a>
+					<a href="/zh-CN/post/perl_rename.html">如何使用Perl的rename工具进行批量重命名
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Shell</span>
+							标签：
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/change_time.html">Linux下更改日期、时间、时区</a>
+					<a href="/zh-CN/snippet/change_time.html">Linux下更改日期、时间、时区
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/vim_tabsize.html">调整VIM的制表符宽度</a>
+					<a href="/zh-CN/snippet/vim_tabsize.html">调整VIM的制表符宽度
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/console_autologin.html">为Linux命令行配置自动登录</a>
+					<a href="/zh-CN/snippet/console_autologin.html">为Linux命令行配置自动登录
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/alsa_44100hz.html">提升ALSA播放时的音质</a>
+					<a href="/zh-CN/snippet/alsa_44100hz.html">提升ALSA播放时的音质
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/handlelidswitch.html">防止笔记本合上后进入休眠状态</a>
+					<a href="/zh-CN/snippet/handlelidswitch.html">防止笔记本合上后进入休眠状态
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/enum_args.html">Bash Shell遍历带空格的命令行参数</a>
+					<a href="/zh-CN/snippet/enum_args.html">Bash Shell遍历带空格的命令行参数
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Shell</span>
+							标签：
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/enum_lines.html">Bash Shell按行遍历标准输出</a>
+					<a href="/zh-CN/snippet/enum_lines.html">Bash Shell按行遍历标准输出
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Shell</span>
+							标签：
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/filename_parse.html">Bash shell从给定文件名中获取基本名和扩展名</a>
+					<a href="/zh-CN/snippet/filename_parse.html">Bash shell从给定文件名中获取基本名和扩展名
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Shell</span>
+							标签：
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/html5_video_conv.html">将视频转换成兼容HTML5的格式</a>
+					<a href="/zh-CN/snippet/html5_video_conv.html">将视频转换成兼容HTML5的格式
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Shell</span>
+							标签：
+							<span class='tag' tag='Shell'>Shell</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/crontab_reboot.html">使用crontab实现开机自动运行脚本</a>
+					<a href="/zh-CN/snippet/crontab_reboot.html">使用crontab实现开机自动运行脚本
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>Linux</span>
+							标签：
+							<span class='tag' tag='Linux'>Linux</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/address_bar_color.html">Chrome for Android中更改地址栏的颜色</a>
+					<a href="/zh-CN/snippet/address_bar_color.html">Chrome for Android中更改地址栏的颜色
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>HTML</span>
+							标签：
+							<span class='tag' tag='HTML'>HTML</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/browser_type.html">通过User Agent获取浏览器类型</a>
+					<a href="/zh-CN/snippet/browser_type.html">通过User Agent获取浏览器类型
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							标签：
+							<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/trim.html">trim(), ltrim(), rtrim()的JavaScript实现</a>
+					<a href="/zh-CN/snippet/trim.html">trim(), ltrim(), rtrim()的JavaScript实现
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							标签：
+							<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 				<li>
-					<a href="/zh-CN/snippet/htmlspecialchars.html">htmlspecialchars()的JavaScript实现</a>
+					<a href="/zh-CN/snippet/htmlspecialchars.html">htmlspecialchars()的JavaScript实现
 						<div class='tag-area'>
-							标签：
 							
-							<span class='tag'>HTML</span><span class='tag'>JavaScript</span>
+							标签：
+							<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 							
 						</div>
+					</a>
 				</li>
-			  
+			
 			</ul>
 		</div>
 	</body>
@@ -323,8 +372,12 @@ document.getElementById('select_lang_chinese').onclick = function(){
 	Cookies.set('language_preferred', 'zh');
 }
 var main_menu = document.getElementById('main_menu');
+var menu_bg = document.getElementById('menu_bg');
 document.getElementById('menu_btn').onclick = function(){
 	main_menu.classList.toggle('menu-display');
+}
+menu_bg.onclick = function(){
+	main_menu.classList.remove('menu-display');
 }
 	</script>
 </html>
