@@ -3,7 +3,7 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>如何使用Perl的rename工具进行批量重命名 - Frank的空间</title>
+		<title>如何使用Perl的rename工具进行批量重命名 - Frank的笔记</title>
 		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
@@ -11,26 +11,26 @@
 		<div class='header-wrapper'>
 			<div class='header'>
 				
-<a class='site-title' href='/zh-CN/'>Frank的空间</a>
+<a class='site-title' href='/zh-CN/'>Frank的笔记</a>
 
 
 			</div>
 		</div>
 		<div class='main-content'>
 			<h1>如何使用Perl的rename工具进行批量重命名</h1>
-			<p>将扩展名从<code class="highlighter-rouge">.jpeg</code>替换成<code class="highlighter-rouge">.jpg</code></p>
+			<p>去除<code class="highlighter-rouge">.bak</code>扩展名：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.jpeg$/\.jpg/' *.jpeg
+<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.bak$//' *
 </code></pre>
 </div>
 
-<p>将文件名转换成小写</p>
+<p>将文件名转换成小写：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 'y/A-Z/a-z/' *
 </code></pre>
 </div>
 
-<p>为<code class="highlighter-rouge">.txt</code>文件加前缀</p>
+<p>为<code class="highlighter-rouge">.txt</code>文件加前缀：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
 </code></pre>

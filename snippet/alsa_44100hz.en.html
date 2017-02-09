@@ -3,7 +3,7 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Improve Sound Quality for ALSA - Frank's Space</title>
+		<title>Improve Sound Quality for ALSA - Frank's Notes</title>
 		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
@@ -11,26 +11,14 @@
 		<div class='header-wrapper'>
 			<div class='header'>
 				
-<a class='site-title' href='/'>Frank's Space</a>
+<a class='site-title' href='/'>Frank's Notes</a>
 
 
 			</div>
 		</div>
 		<div class='main-content'>
 			<h1>Improve Sound Quality for ALSA</h1>
-			<p>Open <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code></p>
-
-<p>Find out the following line:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults.pcm.dmix.rate 48000
-</code></pre>
-</div>
-
-<p>Then change the line to:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>defaults.pcm.dmix.rate 44100
-</code></pre>
-</div>
+			<p>Open <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code>, then change <code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code> into <code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>.</p>
 
 		</div>
 	</body>

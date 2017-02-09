@@ -3,7 +3,7 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Get browser type based on User Agent - Frank's Space</title>
+		<title>通过User Agent获取浏览器类型 - Frank的笔记</title>
 		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
@@ -11,13 +11,13 @@
 		<div class='header-wrapper'>
 			<div class='header'>
 				
-<a class='site-title' href='/'>Frank's Space</a>
+<a class='site-title' href='/zh-CN/'>Frank的笔记</a>
 
 
 			</div>
 		</div>
 		<div class='main-content'>
-			<h1>Get browser type based on User Agent</h1>
+			<h1>通过User Agent获取浏览器类型</h1>
 			<div class="highlighter-rouge"><pre class="highlight"><code>function deviceType() {
 	var ua = window.navigator.userAgent;
 	if (/iphone|android.*mobile/i.test(ua)) {
@@ -30,7 +30,7 @@
 </code></pre>
 </div>
 
-<p>This function returns <code class="highlighter-rouge">mobile</code> for mobile browsers, <code class="highlighter-rouge">pad</code> for tablet browsers. <code class="highlighter-rouge">undefined</code> for PC browsers or browsers of other type.</p>
+<p>手机浏览器返回<code class="highlighter-rouge">mobile</code>，平板浏览器返回<code class="highlighter-rouge">pad</code>，PC浏览器和其它类型的浏览器返回<code class="highlighter-rouge">undefined</code>。</p>
 
 
 		</div>

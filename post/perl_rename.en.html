@@ -3,7 +3,7 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Batch Renaming Using Perl's Rename Utility - Frank's Space</title>
+		<title>Batch Renaming Using Perl's Rename Utility - Frank's Notes</title>
 		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
@@ -11,26 +11,26 @@
 		<div class='header-wrapper'>
 			<div class='header'>
 				
-<a class='site-title' href='/'>Frank's Space</a>
+<a class='site-title' href='/'>Frank's Notes</a>
 
 
 			</div>
 		</div>
 		<div class='main-content'>
 			<h1>Batch Renaming Using Perl's Rename Utility</h1>
-			<p>Replace the file extension from <code class="highlighter-rouge">.jpeg</code> to <code class="highlighter-rouge">.jpg</code></p>
+			<p>Replace the file extension from <code class="highlighter-rouge">.jpeg</code> to <code class="highlighter-rouge">.jpg</code>:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.jpeg$/\.jpg/' *.jpeg
 </code></pre>
 </div>
 
-<p>Convert filenames into lower case</p>
+<p>Convert filenames into lower case:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 'y/A-Z/a-z/' *
 </code></pre>
 </div>
 
-<p>Add prefix for <code class="highlighter-rouge">.txt</code> files</p>
+<p>Add prefix for <code class="highlighter-rouge">.txt</code> files:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
 </code></pre>

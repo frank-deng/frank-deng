@@ -3,7 +3,7 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Wifi Configuration Under Linux Command Line - Frank's Space</title>
+		<title>Wifi Configuration Under Linux Command Line - Frank's Notes</title>
 		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
@@ -11,18 +11,18 @@
 		<div class='header-wrapper'>
 			<div class='header'>
 				
-<a class='site-title' href='/'>Frank's Space</a>
+<a class='site-title' href='/'>Frank's Notes</a>
 
 
 			</div>
 		</div>
 		<div class='main-content'>
 			<h1>Wifi Configuration Under Linux Command Line</h1>
-			<h2 id="preparation">Preparation</h2>
+			<h3 id="preparation">Preparation</h3>
 
 <p>Use <code class="highlighter-rouge">ifconfig -a</code> to show all the network interfaces available.</p>
 
-<h2 id="solution-1-when-connect-to-one-ap-only">Solution 1 (When connect to one AP only)</h2>
+<h3 id="solution-1-connect-to-one-ap-only">Solution 1 (Connect to one AP only)</h3>
 
 <p>Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code>:</p>
 
@@ -35,7 +35,7 @@ iface wlan0 inet dhcp
 
 <p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
 
-<h2 id="solution-2-connect-to-different-aps-based-on-signal-strength">Solution 2 (Connect to different APs based on signal strength)</h2>
+<h3 id="solution-2-connect-to-different-aps-based-on-signal-strength">Solution 2 (Connect to different APs based on signal strength)</h3>
 
 <p><strong>Step 1:</strong> Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following configuration:</p>
 

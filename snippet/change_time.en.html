@@ -3,7 +3,7 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>Change Date/Time/Timezone Under Linux - Frank's Space</title>
+		<title>Change Date/Time/Timezone Under Linux - Frank's Notes</title>
 		<link rel='stylesheet' type='text/css' href='/css/common.css'/>
 		<link rel='stylesheet' type='text/css' href='/css/document.css'/>
 	</head>
@@ -11,30 +11,18 @@
 		<div class='header-wrapper'>
 			<div class='header'>
 				
-<a class='site-title' href='/'>Frank's Space</a>
+<a class='site-title' href='/'>Frank's Notes</a>
 
 
 			</div>
 		</div>
 		<div class='main-content'>
 			<h1>Change Date/Time/Timezone Under Linux</h1>
-			<p>Change date:</p>
+			<p>Change date: <code class="highlighter-rouge">date -s MM/DD/YYYY</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>date -s MM/DD/YYYY
-</code></pre>
-</div>
+<p>Change time: <code class="highlighter-rouge">date -s hh:mm:ss</code></p>
 
-<p>Change time:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>date -s hh:mm:ss
-</code></pre>
-</div>
-
-<p>Change timezone:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo dpkg-reconfigure tzdata
-</code></pre>
-</div>
+<p>Change timezone: <code class="highlighter-rouge">sudo dpkg-reconfigure tzdata</code></p>
 
 		</div>
 	</body>
