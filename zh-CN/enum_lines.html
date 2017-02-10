@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Bash Shell按行遍历标准输出 - Frank的笔记</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/zh-CN/'>Frank的笔记</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Bash Shell按行遍历标准输出</h2>
+			<div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
+for LINE in `ls`; do
+	#Do some works on "${LINE}"
+done;
+</code></pre>
+</div>
+
+		</div>
+	</body>
+</html>
+

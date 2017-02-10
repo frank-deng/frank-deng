@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Linux命令行下捕获系统声音 - Frank的笔记</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/zh-CN/'>Frank的笔记</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Linux命令行下捕获系统声音</h2>
+			<p>当pulseaudio被用于管理系统声音时，可以在命令行环境下使用<code class="highlighter-rouge">pacat</code>命令捕获系统声音。</p>
+
+<h3 id="section">步骤1：找到用于捕获系统声音的设备</h3>
+
+<p>使用以下命令找到用于捕获系统声音的设备：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pacmd list | grep "\.monitor"
+</code></pre>
+</div>
+
+<p>当看到如下输出时：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	name: &lt;alsa_output.pci-0000_00_1b.0.analog-stereo.monitor&gt;
+	alsa_output.pci-0000_00_1b.0.analog-stereo.monitor/#0: Monitor of Built-in Audio Analog Stereo
+</code></pre>
+</div>
+
+<p>就可以找到用于捕获系统声音的设备了。在上述输出内容中，可以找到设备名如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>alsa_output.pci-0000_00_1b.0.analog-stereo.monitor
+</code></pre>
+</div>
+
+<h3 id="section-1">步骤2：开始捕获系统声音</h3>
+
+<p>以下例子描述了如何将系统声音拷贝到<code class="highlighter-rouge">.wav</code>文件中，并使用CD音质。</p>
+
+<p>使用<code class="highlighter-rouge">sox</code>的命令:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_00_1b.0.analog-stereo.monitor | sox -t raw -r 44100 -s -L -b 16 -c 2 - output.wav
+</code></pre>
+</div>
+
+<p>使用<code class="highlighter-rouge">ffmpeg</code>的命令:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_00_1b.0.analog-stereo.monitor | ffmpeg -f s16le -ar 44.1k -ac 2 -i pipe:0 record.wav
+</code></pre>
+</div>
+
+		</div>
+	</body>
+</html>
+

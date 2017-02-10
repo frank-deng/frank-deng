@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Configure autologin for Linux console using systemd - Frank's Notes</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Notes</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Configure autologin for Linux console using systemd</h2>
+			<p>Firstly, Create directory <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code> if not exist.</p>
+
+<p>Then create file <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/autologin.conf</code> with the following content:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
+</code></pre>
+</div>
+
+<p>Then save and reboot.</p>
+
+
+		</div>
+	</body>
+</html>
+

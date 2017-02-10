@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Wifi Configuration Under Linux Command Line - Frank's Notes</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Notes</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Wifi Configuration Under Linux Command Line</h2>
+			<h3 id="preparation">Preparation</h3>
+
+<p>Use <code class="highlighter-rouge">ifconfig -a</code> to show all the network interfaces available.</p>
+
+<h3 id="solution-1-connect-to-one-ap-only">Solution 1 (Connect to one AP only)</h3>
+
+<p>Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
+iface wlan0 inet dhcp
+	wpa-ssid "WLAN_SSID"
+	wpa-psk "12345678"
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
+
+<h3 id="solution-2-connect-to-different-aps-based-on-signal-strength">Solution 2 (Connect to different APs based on signal strength)</h3>
+
+<p><strong>Step 1:</strong> Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>network={
+	ssid="WLAN_AP_1"
+	key_mgmt=WPA-PSK
+	psk="WLAN_AP_PSK_1"
+	priority=1
+}
+network={
+	ssid="WLAN_AP_2"
+	key_mgmt=WPA-PSK
+	psk="WLAN_AP_PSK_2"
+	priority=2
+}
+</code></pre>
+</div>
+
+<p><strong>Step 2:</strong> Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
+iface wlan0 inet dhcp
+	wpa-conf /etc/network/wpa_supplicant.conf
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
+
+		</div>
+	</body>
+</html>
+

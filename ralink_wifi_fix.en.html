@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu - Frank's Notes</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Notes</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu</h2>
+			<p>When using Ralink Wifi controller on Asus laptop, you may found that Wifi gets unavailable after installing Debian/Ubuntu. When running command <code class="highlighter-rouge">sudo rfkill list all</code> in terminal, you’ll get the following output:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>0: phy0: Wireless LAN
+	Soft blocked: no
+	Hard blocked: yes
+1: asus-wlan: Wireless LAN
+	Soft blocked: no
+	Hard blocked: no
+</code></pre>
+</div>
+
+<h3 id="how-to-fix-wifi">How to fix Wifi</h3>
+
+<p>Create <code class="highlighter-rouge">/etc/modprobe.d/asus.conf</code> with the following configuration:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>options asus_nb_wmi wapf=4
+</code></pre>
+</div>
+
+<p>Then reboot.</p>
+
+		</div>
+	</body>
+</html>
+

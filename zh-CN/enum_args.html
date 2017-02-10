@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Bash Shell遍历带空格的命令行参数 - Frank的笔记</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/zh-CN/'>Frank的笔记</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Bash Shell遍历带空格的命令行参数</h2>
+			<div class="highlighter-rouge"><pre class="highlight"><code>while [ -n "${1}" ]; do
+	FILENAME="${1}";
+	#Do some works on "${FILENAME}"
+	shift 1;
+done;
+</code></pre>
+</div>
+
+		</div>
+	</body>
+</html>
+

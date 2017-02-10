@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Enumerate records separated by newlines - Frank's Notes</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Notes</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Enumerate records separated by newlines</h2>
+			<div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
+for LINE in `ls`; do
+	#Do some works on "${LINE}"
+done;
+</code></pre>
+</div>
+
+		</div>
+	</body>
+</html>
+
