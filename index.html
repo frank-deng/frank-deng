@@ -36,11 +36,17 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 
 	</head>
 	<body>
+		<svg display="none" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+	<g id="chevron_down" fill="#000000">
+		<path d="M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"/>
+	</g>
+</svg>
+
 		<div class='menu-wrapper' id='main_menu'>
 	<div id='menu_bg'></div>
 	<div class='menu-wrapper-inner'>
 		<ul class='menu'>
-			<li class='separator'>Select Language</li>
+			<li class='separator'>选择语言<br/>Select Language</li>
 			<li><a id='select_lang_english' href='/'>English</a></li>
 			<li><a id='select_lang_chinese' href='/zh-CN/'>中文</a></li>
 			<li class='separator'>More</li>
@@ -124,7 +130,10 @@ iface wlan0 inet dhcp
 
 <p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -176,7 +185,10 @@ iface wlan0 inet dhcp
 </div>
 
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -209,7 +221,10 @@ iface wlan0 inet dhcp
 
 <p>Then reboot.</p>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -241,7 +256,10 @@ iface wlan0 inet dhcp
 
 <p>On ArchLinux, you must install package <code class="highlighter-rouge">perl-rename</code> for this utility.</p>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -259,7 +277,10 @@ iface wlan0 inet dhcp
 
 <p>Change timezone: <code class="highlighter-rouge">sudo dpkg-reconfigure tzdata</code></p>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -279,7 +300,10 @@ set shiftwidth=4
 </code></pre>
 </div>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -304,7 +328,10 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 <p>Then save and reboot.</p>
 
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -318,7 +345,10 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 				<div class='post-content'>
 					<p>Open <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code>, then change <code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code> into <code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>.</p>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -332,7 +362,10 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 				<div class='post-content'>
 					<p>Edit <code class="highlighter-rouge">/etc/systemd/login.conf</code> and change the value of <code class="highlighter-rouge">HandleLidSwitch</code> to <code class="highlighter-rouge">ignore</code>.</p>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -352,7 +385,10 @@ done;
 </code></pre>
 </div>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -371,7 +407,10 @@ done;
 </code></pre>
 </div>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -388,7 +427,10 @@ EXTENSION="${FILENAME##*.}";
 </code></pre>
 </div>
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -405,7 +447,10 @@ EXTENSION="${FILENAME##*.}";
 </div>
 
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -424,7 +469,10 @@ EXTENSION="${FILENAME##*.}";
 </div>
 
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -443,7 +491,10 @@ EXTENSION="${FILENAME##*.}";
 </div>
 
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -470,7 +521,10 @@ EXTENSION="${FILENAME##*.}";
 <p>This function returns <code class="highlighter-rouge">mobile</code> for mobile browsers, <code class="highlighter-rouge">pad</code> for tablet browsers. <code class="highlighter-rouge">undefined</code> for PC browsers or browsers of other type.</p>
 
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -490,7 +544,10 @@ EXTENSION="${FILENAME##*.}";
 </div>
 
 
-					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
 				</div>
 				<hr/>
 			
@@ -516,7 +573,7 @@ menu_bg.onclick = function(){
 var post_content_all = document.querySelectorAll('.post-content');
 for (var i = 0; i < post_content_all.length; i++) {
 	var post_content = post_content_all[i];
-	if (post_content.offsetHeight > 100) {
+	if (post_content.offsetHeight > 150) {
 		post_content.classList.add('post-content-long');
 	}
 }
