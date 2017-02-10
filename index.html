@@ -77,7 +77,8 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><h3 id="preparation">Preparation</h3>
+				<div class='post-content'>
+					<h3 id="preparation">Preparation</h3>
 
 <p>Use <code class="highlighter-rouge">ifconfig -a</code> to show all the network interfaces available.</p>
 
@@ -122,7 +123,9 @@ iface wlan0 inet dhcp
 </div>
 
 <p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/record_sound.en.html"><h2>Record System Output Sound In Linux</h2></a>
@@ -132,7 +135,8 @@ iface wlan0 inet dhcp
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>When pulseaudio is used as the sound server of the system, there is a simple way to record the output sound to file on the command line using <code class="highlighter-rouge">pacat</code> command.</p>
+				<div class='post-content'>
+					<p>When pulseaudio is used as the sound server of the system, there is a simple way to record the output sound to file on the command line using <code class="highlighter-rouge">pacat</code> command.</p>
 
 <h3 id="step-1-find-out-the-correct-device">Step 1: Find out the correct device</h3>
 
@@ -171,7 +175,9 @@ iface wlan0 inet dhcp
 </code></pre>
 </div>
 
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/ralink_wifi_fix.en.html"><h2>Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu</h2></a>
@@ -181,7 +187,8 @@ iface wlan0 inet dhcp
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>When using Ralink Wifi controller on Asus laptop, you may found that Wifi gets unavailable after installing Debian/Ubuntu. When running command <code class="highlighter-rouge">sudo rfkill list all</code> in terminal, you’ll get the following output:</p>
+				<div class='post-content'>
+					<p>When using Ralink Wifi controller on Asus laptop, you may found that Wifi gets unavailable after installing Debian/Ubuntu. When running command <code class="highlighter-rouge">sudo rfkill list all</code> in terminal, you’ll get the following output:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>0: phy0: Wireless LAN
 	Soft blocked: no
@@ -201,7 +208,9 @@ iface wlan0 inet dhcp
 </div>
 
 <p>Then reboot.</p>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/perl_rename.en.html"><h2>Batch Renaming Using Perl's Rename Utility</h2></a>
@@ -211,7 +220,8 @@ iface wlan0 inet dhcp
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
-				<div class='post-content'><p>Remove <code class="highlighter-rouge">.bak</code> extension:</p>
+				<div class='post-content'>
+					<p>Remove <code class="highlighter-rouge">.bak</code> extension:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.bak$//' *
 </code></pre>
@@ -230,7 +240,9 @@ iface wlan0 inet dhcp
 </div>
 
 <p>On ArchLinux, you must install package <code class="highlighter-rouge">perl-rename</code> for this utility.</p>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/change_time.en.html"><h2>Change Date/Time/Timezone Under Linux</h2></a>
@@ -240,12 +252,15 @@ iface wlan0 inet dhcp
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>Change date: <code class="highlighter-rouge">date -s MM/DD/YYYY</code></p>
+				<div class='post-content'>
+					<p>Change date: <code class="highlighter-rouge">date -s MM/DD/YYYY</code></p>
 
 <p>Change time: <code class="highlighter-rouge">date -s hh:mm:ss</code></p>
 
 <p>Change timezone: <code class="highlighter-rouge">sudo dpkg-reconfigure tzdata</code></p>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/vim_tabsize.en.html"><h2>Adjust Tab Size For VIM</h2></a>
@@ -255,14 +270,17 @@ iface wlan0 inet dhcp
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>Add the following lines to <code class="highlighter-rouge">/etc/vim/vimrc</code>:</p>
+				<div class='post-content'>
+					<p>Add the following lines to <code class="highlighter-rouge">/etc/vim/vimrc</code>:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 </code></pre>
 </div>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/console_autologin.en.html"><h2>Configure autologin for Linux console using systemd</h2></a>
@@ -272,7 +290,8 @@ set shiftwidth=4
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>Firstly, Create directory <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code> if not exist.</p>
+				<div class='post-content'>
+					<p>Firstly, Create directory <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code> if not exist.</p>
 
 <p>Then create file <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/autologin.conf</code> with the following content:</p>
 
@@ -284,7 +303,9 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 
 <p>Then save and reboot.</p>
 
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/alsa_44100hz.en.html"><h2>Improve Sound Quality for ALSA</h2></a>
@@ -294,8 +315,11 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>Open <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code>, then change <code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code> into <code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>.</p>
-</div>
+				<div class='post-content'>
+					<p>Open <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code>, then change <code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code> into <code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>.</p>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/handlelidswitch.en.html"><h2>Keep Laptop Running When Closing Lid</h2></a>
@@ -305,8 +329,11 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>Edit <code class="highlighter-rouge">/etc/systemd/login.conf</code> and change the value of <code class="highlighter-rouge">HandleLidSwitch</code> to <code class="highlighter-rouge">ignore</code>.</p>
-</div>
+				<div class='post-content'>
+					<p>Edit <code class="highlighter-rouge">/etc/systemd/login.conf</code> and change the value of <code class="highlighter-rouge">HandleLidSwitch</code> to <code class="highlighter-rouge">ignore</code>.</p>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/enum_args.en.html"><h2>Enumerate command line arguments with space characters</h2></a>
@@ -316,14 +343,17 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
-				<div class='post-content'><div class="highlighter-rouge"><pre class="highlight"><code>while [ -n "${1}" ]; do
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>while [ -n "${1}" ]; do
 	FILENAME="${1}";
 	#Do some works on "${FILENAME}"
 	shift 1;
 done;
 </code></pre>
 </div>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/enum_lines.en.html"><h2>Enumerate records separated by newlines</h2></a>
@@ -333,13 +363,16 @@ done;
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
-				<div class='post-content'><div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
 for LINE in `ls`; do
 	#Do some works on "${LINE}"
 done;
 </code></pre>
 </div>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/filename_parse.en.html"><h2>Extract basename and extension of a filename under bash shell</h2></a>
@@ -349,11 +382,14 @@ done;
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
-				<div class='post-content'><div class="highlighter-rouge"><pre class="highlight"><code>BASENAME="${FILENAME%.*}";
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>BASENAME="${FILENAME%.*}";
 EXTENSION="${FILENAME##*.}";
 </code></pre>
 </div>
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/html5_video_conv.en.html"><h2>Convert video into HTML5 compatible format</h2></a>
@@ -363,11 +399,14 @@ EXTENSION="${FILENAME##*.}";
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
-				<div class='post-content'><div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -i INPUT_FILE -c:v libx264 -crf 18 -c:a aac -q:a 100 -strict experimental OUTPUT.mp4
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -i INPUT_FILE -c:v libx264 -crf 18 -c:a aac -q:a 100 -strict experimental OUTPUT.mp4
 </code></pre>
 </div>
 
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/crontab_reboot.en.html"><h2>Run program at startup via crontab</h2></a>
@@ -377,13 +416,16 @@ EXTENSION="${FILENAME##*.}";
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
-				<div class='post-content'><p>Add the following content to <code class="highlighter-rouge">/etc/crontab</code>:</p>
+				<div class='post-content'>
+					<p>Add the following content to <code class="highlighter-rouge">/etc/crontab</code>:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>@reboot    username    /path/to/script arguments
 </code></pre>
 </div>
 
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/address_bar_color.en.html"><h2>Chrome for Android: Change address bar color</h2></a>
@@ -393,13 +435,16 @@ EXTENSION="${FILENAME##*.}";
 					<span class='tag' tag='HTML'>HTML</span>
 					
 				</div>
-				<div class='post-content'><p>Add the following meta tag into HTML to change address bar color in Chrome for Android.</p>
+				<div class='post-content'>
+					<p>Add the following meta tag into HTML to change address bar color in Chrome for Android.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&lt;meta name="theme-color" content="#db5945"/&gt;
 </code></pre>
 </div>
 
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/browser_type.en.html"><h2>Get browser type based on User Agent</h2></a>
@@ -409,7 +454,8 @@ EXTENSION="${FILENAME##*.}";
 					<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 					
 				</div>
-				<div class='post-content'><div class="highlighter-rouge"><pre class="highlight"><code>function deviceType() {
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>function deviceType() {
 	var ua = window.navigator.userAgent;
 	if (/iphone|android.*mobile/i.test(ua)) {
 		return 'mobile';
@@ -423,7 +469,9 @@ EXTENSION="${FILENAME##*.}";
 
 <p>This function returns <code class="highlighter-rouge">mobile</code> for mobile browsers, <code class="highlighter-rouge">pad</code> for tablet browsers. <code class="highlighter-rouge">undefined</code> for PC browsers or browsers of other type.</p>
 
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 				<a href="/htmlspecialchars.en.html"><h2>Implement htmlspecialchars() in JavaScript</h2></a>
@@ -433,14 +481,17 @@ EXTENSION="${FILENAME##*.}";
 					<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 					
 				</div>
-				<div class='post-content'><div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
 	var M={'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#039;'};
 	return s.replace(/[&amp;&lt;&gt;"']/g,function(m){return M[m]});
 }
 </code></pre>
 </div>
 
-</div>
+
+					<div class='fold-control'><span class='hint-expand'>Expand<span></div>
+				</div>
 				<hr/>
 			
 			</div>
@@ -460,6 +511,21 @@ document.getElementById('menu_btn').onclick = function(){
 }
 menu_bg.onclick = function(){
 	main_menu.classList.remove('menu-display');
+}
+
+var post_content_all = document.querySelectorAll('.post-content');
+for (var i = 0; i < post_content_all.length; i++) {
+	var post_content = post_content_all[i];
+	if (post_content.offsetHeight > 100) {
+		post_content.classList.add('post-content-long');
+	}
+}
+
+var fold_control_all = document.querySelectorAll('.fold-control');
+for (var i = 0; i < fold_control_all.length; i++) {
+	fold_control_all[i].onclick = function(e){
+		this.parentNode.classList.remove('post-content-long');
+	}
 }
 	</script>
 </html>
