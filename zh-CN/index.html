@@ -48,6 +48,36 @@
 		<div class='main-content'>
 			<div>
 			
+				<a href="/zh-CN/qpython_webapp.html"><h2>使用QPython测试WebView</h2></a>
+				<div class='tag-area'>
+					
+					标签：
+					<span class='tag' tag='Android'>Android</span><span class='tag' tag='Python'>Python</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>新建一个Python脚本，代码如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#qpy:3
+#qpy:webapp:Title
+#qpy://127.0.0.1:8080
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">#qpy:webapp:Title</code>用于设置WebView的标题。</p>
+
+<p><code class="highlighter-rouge">#qpy://127.0.0.1:8080</code>用于设置WebView中打开的URL。</p>
+
+<p>在上述代码末尾添加<code class="highlighter-rouge">#qpy:fullscreen</code>可以使WebView以全屏方式打开。</p>
+
+
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/zh-CN/wifi_configuration.html"><h2>Linux命令行下配置Wifi</h2></a>
 				<div class='tag-area'>
 					
@@ -526,6 +556,8 @@ EXTENSION="${FILENAME##*.}";
 		</div>
 	</body>
 	<script type='text/javascript'>
+var POST_MAX_HEIGHT = 150;
+
 document.getElementById('select_lang_english').onclick = function(){
 	Cookies.set('language_preferred', 'en');
 }
@@ -544,7 +576,7 @@ menu_bg.onclick = function(){
 var post_content_all = document.querySelectorAll('.post-content');
 for (var i = 0; i < post_content_all.length; i++) {
 	var post_content = post_content_all[i];
-	if (post_content.offsetHeight > 150) {
+	if (post_content.offsetHeight > POST_MAX_HEIGHT) {
 		post_content.classList.add('post-content-long');
 	}
 }

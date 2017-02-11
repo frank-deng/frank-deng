@@ -76,6 +76,36 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		<div class='main-content'>
 			<div>
 			
+				<a href="/qpython_webapp.en.html"><h2>Use QPython to test WebView</h2></a>
+				<div class='tag-area'>
+					
+					Tags: 
+					<span class='tag' tag='Android'>Android</span><span class='tag' tag='Python'>Python</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>Create a python script with the following code:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#qpy:3
+#qpy:webapp:Title
+#qpy://127.0.0.1:8080
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">#qpy:webapp:Title</code> specifies the title of the WebView.</p>
+
+<p><code class="highlighter-rouge">#qpy://127.0.0.1:8080</code> specifies the URL launched in the WebView.</p>
+
+<p>Append <code class="highlighter-rouge">#qpy:fullscreen</code> to the code above will enable fullscreen mode for the WebView.</p>
+
+
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/wifi_configuration.en.html"><h2>Wifi Configuration Under Linux Command Line</h2></a>
 				<div class='tag-area'>
 					
@@ -555,6 +585,8 @@ EXTENSION="${FILENAME##*.}";
 		</div>
 	</body>
 	<script type='text/javascript'>
+var POST_MAX_HEIGHT = 150;
+
 document.getElementById('select_lang_english').onclick = function(){
 	Cookies.set('language_preferred', 'en');
 }
@@ -573,7 +605,7 @@ menu_bg.onclick = function(){
 var post_content_all = document.querySelectorAll('.post-content');
 for (var i = 0; i < post_content_all.length; i++) {
 	var post_content = post_content_all[i];
-	if (post_content.offsetHeight > 150) {
+	if (post_content.offsetHeight > POST_MAX_HEIGHT) {
 		post_content.classList.add('post-content-long');
 	}
 }
