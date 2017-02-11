@@ -42,17 +42,15 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 	</g>
 </svg>
 
-		<div class='menu-wrapper' id='main_menu'>
-	<div id='menu_bg'></div>
-	<div class='menu-wrapper-inner'>
-		<ul class='menu'>
+		<div id='main_menu'>
+	<div class='wrapper'>
+		<ul id='main_menu_body'>
 			<li class='separator'>选择语言<br/>Select Language</li>
 			<li><a id='select_lang_english' href='/'>English</a></li>
 			<li><a id='select_lang_chinese' href='/zh-CN/'>中文</a></li>
 			<li class='separator'>More</li>
 			<li><a href='/tetris.html'>Tetris</a></li>
 			<li><a href='/2048.html'>2048</a></li>
-			<li><a href='/gambler_ruin.html'>Gambler's Ruin</a></li>
 			<li><a href='https://github.com/frank-deng/'>View Me On Github</a></li>
 		</ul>
 	</div>
@@ -587,20 +585,26 @@ EXTENSION="${FILENAME##*.}";
 	<script type='text/javascript'>
 var POST_MAX_HEIGHT = 150;
 
-document.getElementById('select_lang_english').onclick = function(){
+document.getElementById('select_lang_english').addEventListener('click', function(){
 	Cookies.set('language_preferred', 'en');
-}
-document.getElementById('select_lang_chinese').onclick = function(){
+});
+document.getElementById('select_lang_chinese').addEventListener('click', function(){
 	Cookies.set('language_preferred', 'zh');
-}
+});
+
 var main_menu = document.getElementById('main_menu');
-var menu_bg = document.getElementById('menu_bg');
-document.getElementById('menu_btn').onclick = function(){
-	main_menu.classList.toggle('menu-display');
-}
-menu_bg.onclick = function(){
+document.body.addEventListener('click', function(event){
 	main_menu.classList.remove('menu-display');
-}
+});
+document.getElementById('menu_btn').addEventListener('click', function(event){
+	event.stopPropagation();
+	main_menu.classList.toggle('menu-display');
+	return false;
+});
+document.getElementById('main_menu_body').addEventListener('click', function(event){
+	event.stopPropagation();
+	return false;
+});
 
 var post_content_all = document.querySelectorAll('.post-content');
 for (var i = 0; i < post_content_all.length; i++) {
@@ -608,13 +612,9 @@ for (var i = 0; i < post_content_all.length; i++) {
 	if (post_content.offsetHeight > POST_MAX_HEIGHT) {
 		post_content.classList.add('post-content-long');
 	}
-}
-
-var fold_control_all = document.querySelectorAll('.fold-control');
-for (var i = 0; i < fold_control_all.length; i++) {
-	fold_control_all[i].onclick = function(e){
+	post_content.querySelector('.fold-control').addEventListener('click', function(){
 		this.parentNode.classList.remove('post-content-long');
-	}
+	});
 }
 	</script>
 </html>
