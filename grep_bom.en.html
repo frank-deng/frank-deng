@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>How to find out text files with BOM header - Frank's Notes</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Notes</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>How to find out text files with BOM header</h2>
+			<p>Use <code class="highlighter-rouge">grep</code> command under bash shell to find out all the files with BOM header in a folder:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' .
+</code></pre>
+</div>
+
+<p>Exclude files with given extension (Useful to skip binary files and large files):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude=*.bin .
+</code></pre>
+</div>
+
+<p>Exclude <code class="highlighter-rouge">.svn</code> directory:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude-dir=.svn .
+</code></pre>
+</div>
+
+		</div>
+	</body>
+</html>
+

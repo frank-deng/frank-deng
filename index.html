@@ -74,6 +74,39 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		<div class='main-content'>
 			<div>
 			
+				<a href="/grep_bom.en.html"><h2>How to find out text files with BOM header</h2></a>
+				<div class='tag-area'>
+					
+					Tags: 
+					<span class='tag' tag='Shell'>Shell</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>Use <code class="highlighter-rouge">grep</code> command under bash shell to find out all the files with BOM header in a folder:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' .
+</code></pre>
+</div>
+
+<p>Exclude files with given extension (Useful to skip binary files and large files):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude=*.bin .
+</code></pre>
+</div>
+
+<p>Exclude <code class="highlighter-rouge">.svn</code> directory:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude-dir=.svn .
+</code></pre>
+</div>
+
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/qpython_webapp.en.html"><h2>Use QPython to test WebView</h2></a>
 				<div class='tag-area'>
 					

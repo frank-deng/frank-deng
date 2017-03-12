@@ -46,6 +46,39 @@
 		<div class='main-content'>
 			<div>
 			
+				<a href="/zh-CN/grep_bom.html"><h2>如何找出带BOM头的文本文件</h2></a>
+				<div class='tag-area'>
+					
+					标签：
+					<span class='tag' tag='Shell'>Shell</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>使用如下命令，在bash shell中使用<code class="highlighter-rouge">grep</code>命令找出带BOM头的文本文件：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' .
+</code></pre>
+</div>
+
+<p>排除特定扩展名的文件（可用于跳过二进制文件和大文件）：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude=*.bin .
+</code></pre>
+</div>
+
+<p>排除<code class="highlighter-rouge">.svn</code>目录：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude-dir=.svn .
+</code></pre>
+</div>
+
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/zh-CN/qpython_webapp.html"><h2>使用QPython测试WebView</h2></a>
 				<div class='tag-area'>
 					
