@@ -17,21 +17,29 @@
 		</div>
 		<div class='main-content'>
 			<h2>How to find out text files with BOM header</h2>
-			<p>Use <code class="highlighter-rouge">grep</code> command under bash shell to find out all the files with BOM header in a folder:</p>
+			<p>Use <code class="highlighter-rouge">find</code> command and <code class="highlighter-rouge">file</code> command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' .
+<div class="highlighter-rouge"><pre class="highlight"><code>find . -type f -exec file {} \; | grep BOM
+</code></pre>
+</div>
+
+<p>Use <code class="highlighter-rouge">grep</code> command under bash shell:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' .
 </code></pre>
 </div>
 
 <p>Exclude files with given extension (Useful to skip binary files and large files):</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude=*.bin .
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude=*.bin --exclude=*.dat .
+find . -type f -not \( -ipath '*.bin' -o -ipath '*.dat' \) -exec file {} \; | grep BOM
 </code></pre>
 </div>
 
 <p>Exclude <code class="highlighter-rouge">.svn</code> directory:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep -rl $'^\xEF\xBB\xBF' --exclude-dir=.svn .
+<div class="highlighter-rouge"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude-dir=.svn .
+find . -type f -not \( -ipath '*.svn*' \) -exec file {} \; | grep BOM
 </code></pre>
 </div>
 
