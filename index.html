@@ -75,6 +75,32 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		<div class='main-content'>
 			<div>
 			
+				<a href="/pdo-mysql-utf8.en.html"><h2>How to solve the PDO-MySQL's garbled data problem</h2></a>
+				<div class='tag-area'>
+					
+					Tags: 
+					<span class='tag' tag='PHP'>PHP</span><span class='tag' tag='MySQL'>MySQL</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>Use the following DSN to initialize PDO-MySQL connection:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$dsn='mysql:dbname=sausagedb;host=127.0.0.1;charset=utf8'
+$dbconn = new PDO($dsn, $user, $password);
+</code></pre>
+</div>
+
+<p>The DSN above contains <code class="highlighter-rouge">charset=utf8</code>, which specifies UTF-8 as the character set used for MySQL.</p>
+
+<p>Without specifing character set for database connection, you will find the data inserted into the MySQL table garbled, even if the MySQL table’s character set is UTF-8.</p>
+
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/grep_bom.en.html"><h2>How to find out text files with BOM header</h2></a>
 				<div class='tag-area'>
 					

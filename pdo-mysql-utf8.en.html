@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>How to solve the PDO-MySQL's garbled data problem - Frank's Notes</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Notes</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>How to solve the PDO-MySQL's garbled data problem</h2>
+			<p>Use the following DSN to initialize PDO-MySQL connection:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$dsn='mysql:dbname=sausagedb;host=127.0.0.1;charset=utf8'
+$dbconn = new PDO($dsn, $user, $password);
+</code></pre>
+</div>
+
+<p>The DSN above contains <code class="highlighter-rouge">charset=utf8</code>, which specifies UTF-8 as the character set used for MySQL.</p>
+
+<p>Without specifing character set for database connection, you will find the data inserted into the MySQL table garbled, even if the MySQL table’s character set is UTF-8.</p>
+
+		</div>
+	</body>
+</html>
+

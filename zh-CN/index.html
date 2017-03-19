@@ -47,6 +47,32 @@
 		<div class='main-content'>
 			<div>
 			
+				<a href="/zh-CN/pdo-mysql-utf8.html"><h2>如何解决PDO-MySQL的乱码问题</h2></a>
+				<div class='tag-area'>
+					
+					标签：
+					<span class='tag' tag='PHP'>PHP</span><span class='tag' tag='MySQL'>MySQL</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>使用如下DSN初始化PDO-MySQL连接：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$dsn='mysql:dbname=sausagedb;host=127.0.0.1;charset=utf8'
+$dbconn = new PDO($dsn, $user, $password);
+</code></pre>
+</div>
+
+<p>上面的DSN中包含<code class="highlighter-rouge">charset=utf8</code>，用于指定MySQL所使用的字符集为UTF-8。</p>
+
+<p>如果连接数据库时不设置字符集，即使MySQL表的字符集是UTF-8，插入到MySQL表中的内容也将变为乱码。</p>
+
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/zh-CN/grep_bom.html"><h2>如何找出带BOM头的文本文件</h2></a>
 				<div class='tag-area'>
 					
