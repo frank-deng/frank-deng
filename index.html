@@ -75,6 +75,40 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		<div class='main-content'>
 			<div>
 			
+				<a href="/python-getch.en.html"><h2>Implement getch() in Python</h2></a>
+				<div class='tag-area'>
+					
+					Tags: 
+					<span class='tag' tag='Python'>Python</span>
+					
+				</div>
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>try:
+	import msvcrt;
+	def getch():
+		return msvcrt.getch();
+except ImportError:
+	import tty, sys, termios;
+	def getch():
+		fd = sys.stdin.fileno();
+		old_settings = termios.tcgetattr(fd);
+		try:
+			tty.setraw(sys.stdin.fileno());
+			ch = sys.stdin.read(1);
+		finally:
+			termios.tcsetattr(fd, termios.TCSADRAIN, old_settings);
+		return ch;
+</code></pre>
+</div>
+
+
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/pdo-mysql-utf8.en.html"><h2>How to solve the PDO-MySQL's garbled data problem</h2></a>
 				<div class='tag-area'>
 					

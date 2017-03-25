@@ -47,6 +47,40 @@
 		<div class='main-content'>
 			<div>
 			
+				<a href="/zh-CN/python-getch.html"><h2>Python实现getch()</h2></a>
+				<div class='tag-area'>
+					
+					标签：
+					<span class='tag' tag='Python'>Python</span>
+					
+				</div>
+				<div class='post-content'>
+					<div class="highlighter-rouge"><pre class="highlight"><code>try:
+	import msvcrt;
+	def getch():
+		return msvcrt.getch();
+except ImportError:
+	import tty, sys, termios;
+	def getch():
+		fd = sys.stdin.fileno();
+		old_settings = termios.tcgetattr(fd);
+		try:
+			tty.setraw(sys.stdin.fileno());
+			ch = sys.stdin.read(1);
+		finally:
+			termios.tcsetattr(fd, termios.TCSADRAIN, old_settings);
+		return ch;
+</code></pre>
+</div>
+
+
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/zh-CN/pdo-mysql-utf8.html"><h2>如何解决PDO-MySQL的乱码问题</h2></a>
 				<div class='tag-area'>
 					
