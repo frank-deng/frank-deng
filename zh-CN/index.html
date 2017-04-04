@@ -47,6 +47,66 @@
 		<div class='main-content'>
 			<div>
 			
+				<a href="/zh-CN/python-kbhit.html"><h2>Python实现kbhit()</h2></a>
+				<div class='tag-area'>
+					
+					标签：
+					<span class='tag' tag='Python'>Python</span><span class='tag' tag='Linux'>Linux</span>
+					
+				</div>
+				<div class='post-content'>
+					<h3 id="kbhitpy"><code class="highlighter-rouge">kbhit.py</code>中的内容</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import sys, termios;
+from select import select;
+
+# save the terminal settings
+fd = sys.stdin.fileno();
+new_term = termios.tcgetattr(fd);
+old_term = termios.tcgetattr(fd);
+
+# new terminal setting unbuffered
+new_term[3] = (new_term[3] &amp; ~termios.ICANON &amp; ~termios.ECHO);
+
+def init():
+    termios.tcsetattr(fd, termios.TCSAFLUSH, new_term);
+
+def restore():
+    termios.tcsetattr(fd, termios.TCSAFLUSH, old_term);
+
+def getch():
+    return sys.stdin.read(1);
+
+def kbhit():
+    dr,dw,de = select([sys.stdin], [], [], 0);
+    return len(dr)&gt;0;
+</code></pre>
+</div>
+
+<h3 id="section">使用方法</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import kbhit, time;
+kbhit.init();
+
+running = True;
+while running:
+    if kbhit.kbhit():
+    	ch = kbhit.getch();
+    	if 'q' == ch:
+    		running = False;
+    time.sleep(0.1);
+
+kbhit.restore();
+</code></pre>
+</div>
+
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/zh-CN/python-getch.html"><h2>Python实现getch()</h2></a>
 				<div class='tag-area'>
 					
