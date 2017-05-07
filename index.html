@@ -75,6 +75,39 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		<div class='main-content'>
 			<div>
 			
+				<a href="/linux-serial-console.en.html"><h2>Enable Serial Console for Linux</h2></a>
+				<div class='tag-area'>
+					
+					Tags: 
+					<span class='tag' tag='Linux'>Linux</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>Temporarily enable serial console on <code class="highlighter-rouge">/dev/ttyS0</code> (Disabled after reboot):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl start getty@ttyS0.service
+</code></pre>
+</div>
+
+<p>Permanently enable serial console on <code class="highlighter-rouge">/dev/ttyS0</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl enable serial-getty@ttyS0.service
+</code></pre>
+</div>
+
+<p>Check whether serial console is enabled on <code class="highlighter-rouge">/dev/ttyS0</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl status serial-getty@ttyS0.service
+</code></pre>
+</div>
+
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/python-kbhit.en.html"><h2>Implement kbhit() in Python</h2></a>
 				<div class='tag-area'>
 					

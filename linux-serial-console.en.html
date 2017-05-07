@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>Enable Serial Console for Linux - Frank's Notes</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/'>Frank's Notes</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>Enable Serial Console for Linux</h2>
+			<p>Temporarily enable serial console on <code class="highlighter-rouge">/dev/ttyS0</code> (Disabled after reboot):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl start getty@ttyS0.service
+</code></pre>
+</div>
+
+<p>Permanently enable serial console on <code class="highlighter-rouge">/dev/ttyS0</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl enable serial-getty@ttyS0.service
+</code></pre>
+</div>
+
+<p>Check whether serial console is enabled on <code class="highlighter-rouge">/dev/ttyS0</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>systemctl status serial-getty@ttyS0.service
+</code></pre>
+</div>
+
+		</div>
+	</body>
+</html>
+
