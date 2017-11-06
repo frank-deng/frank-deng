@@ -47,6 +47,32 @@
 		<div class='main-content'>
 			<div>
 			
+				<a href="/zh-CN/js-catch-syntax-error.html"><h2>如何在浏览器中捕获JS的语法错误</h2></a>
+				<div class='tag-area'>
+					
+					标签：
+					<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
+					
+				</div>
+				<div class='post-content'>
+					<p>在<code class="highlighter-rouge">&lt;head&gt;</code>标签中添加以下代码：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script type='text/javascript'&gt;
+    window.addEventListener('error',function(e){
+        alert(e.filename+'\nLine '+e.lineno+'\n'+e.message);
+    });
+&lt;/script&gt;
+</code></pre>
+</div>
+
+
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/zh-CN/jekyll-termux.html"><h2>Termux下安装Jekyll</h2></a>
 				<div class='tag-area'>
 					
