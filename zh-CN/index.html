@@ -47,6 +47,30 @@
 		<div class='main-content'>
 			<div>
 			
+				<a href="/zh-CN/mysql-grant.html"><h2>如何解决赋予/收回用户权限时发生Access Denied的情况</h2></a>
+				<div class='tag-area'>
+					
+					标签：
+					<span class='tag' tag='MySQL'>MySQL</span>
+					
+				</div>
+				<div class='post-content'>
+					<ol>
+  <li>停止MySQL服务。</li>
+  <li>使用命令<code class="highlighter-rouge">mysqld_safe --skip-grant-table</code>启动MySQL数据库服务。</li>
+  <li>进行用户权限的赋予、收回操作。</li>
+  <li>将第2步启动的<code class="highlighter-rouge">mysqld_safe</code>进程杀掉。</li>
+  <li>重启MySQL服务。</li>
+</ol>
+
+
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/zh-CN/js-catch-syntax-error.html"><h2>如何在浏览器中捕获JS的语法错误</h2></a>
 				<div class='tag-area'>
 					

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>如何解决赋予/收回用户权限时发生Access Denied的情况 - Frank的笔记</title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='/zh-CN/'>Frank的笔记</a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>如何解决赋予/收回用户权限时发生Access Denied的情况</h2>
+			<ol>
+  <li>停止MySQL服务。</li>
+  <li>使用命令<code class="highlighter-rouge">mysqld_safe --skip-grant-table</code>启动MySQL数据库服务。</li>
+  <li>进行用户权限的赋予、收回操作。</li>
+  <li>将第2步启动的<code class="highlighter-rouge">mysqld_safe</code>进程杀掉。</li>
+  <li>重启MySQL服务。</li>
+</ol>
+
+
+		</div>
+	</body>
+</html>
+

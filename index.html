@@ -75,6 +75,30 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		<div class='main-content'>
 			<div>
 			
+				<a href="/mysql-grant.en.html"><h2>How to deal with Access Denied problem when granting/revoking privileges</h2></a>
+				<div class='tag-area'>
+					
+					Tags: 
+					<span class='tag' tag='MySQL'>MySQL</span>
+					
+				</div>
+				<div class='post-content'>
+					<ol>
+  <li>Shutdown MySQL server.</li>
+  <li>Run MySQL server with command <code class="highlighter-rouge">mysqld_safe --skip-grant-table</code>.</li>
+  <li>Execute SQL statements for granting/revoking privileges.</li>
+  <li>Kill the <code class="highlighter-rouge">mysqld_safe</code> process started at step 2.</li>
+  <li>Restart MySQL server.</li>
+</ol>
+
+
+					<div class='fold-control'>
+						<span class='hint-expand'>Expand</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			
 				<a href="/js-catch-syntax-error.en.html"><h2>Catching Syntax Error Within Browser</h2></a>
 				<div class='tag-area'>
 					
