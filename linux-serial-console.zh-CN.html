@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>启用Linux的串口终端 - </title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='//'></a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>启用Linux的串口终端</h2>
+			<p>临时为<code class="highlighter-rouge">/dev/ttyS0</code>启用串口登录（重启后失效）：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl start getty@ttyS0.service
+</code></pre></div></div>
+
+<p>永久为<code class="highlighter-rouge">/dev/ttyS0</code>启用串口登录：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable serial-getty@ttyS0.service
+</code></pre></div></div>
+
+<p>查看<code class="highlighter-rouge">/dev/ttyS0</code>的串口登录功能是否启用：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status serial-getty@ttyS0.service
+</code></pre></div></div>
+
+		</div>
+	</body>
+</html>
+

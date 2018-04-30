@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>将视频转换成兼容HTML5的格式 - </title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='//'></a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>将视频转换成兼容HTML5的格式</h2>
+			<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i INPUT_FILE -c:v libx264 -crf 18 -c:a aac -q:a 100 -strict experimental OUTPUT.mp4
+</code></pre></div></div>
+
+
+		</div>
+	</body>
+</html>
+

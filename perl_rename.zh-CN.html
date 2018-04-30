@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>如何使用Perl的rename工具进行批量重命名 - </title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='//'></a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>如何使用Perl的rename工具进行批量重命名</h2>
+			<p>去除<code class="highlighter-rouge">.bak</code>扩展名：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prename 's/\.bak$//' *
+</code></pre></div></div>
+
+<p>将文件名转换成小写：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prename 'y/A-Z/a-z/' *
+</code></pre></div></div>
+
+<p>为<code class="highlighter-rouge">.txt</code>文件加前缀：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
+</code></pre></div></div>
+
+<p>ArchLinux上需要安装<code class="highlighter-rouge">perl-rename</code>包来获得该工具。</p>
+
+		</div>
+	</body>
+</html>
+

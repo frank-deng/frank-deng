@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>使用crontab实现开机自动运行脚本 - </title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='//'></a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>使用crontab实现开机自动运行脚本</h2>
+			<p>将以下内容加入到<code class="highlighter-rouge">/etc/crontab</code>中：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@reboot    username    /path/to/script arguments
+</code></pre></div></div>
+
+
+		</div>
+	</body>
+</html>
+

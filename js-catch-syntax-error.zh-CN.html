@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>如何在浏览器中捕获JS的语法错误 - </title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='//'></a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>如何在浏览器中捕获JS的语法错误</h2>
+			<p>在<code class="highlighter-rouge">&lt;head&gt;</code>标签中添加以下代码：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript'&gt;
+    window.addEventListener('error',function(e){
+        alert(e.filename+'\nLine '+e.lineno+'\n'+e.message);
+    });
+&lt;/script&gt;
+</code></pre></div></div>
+
+
+		</div>
+	</body>
+</html>
+

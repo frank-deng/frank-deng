@@ -2,39 +2,9 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'>
-		<title>Frank's Notes</title>
+		<title>Frank的笔记</title>
 		<link rel='stylesheet' type='text/css' href='/css/index.css'/>
 		<link rel="icon" type="image/png" href="/images/favicon.png"/>
-		<script type='text/javascript' src='/js/js.cookie.min.js'></script>
-
-		<script type='text/javascript'>
-var getLocale = function(availLang){
-	var userLang;
-	if (navigator.languages) {
-		for(var i=0; i<navigator.languages.length; i++){
-			userLang = navigator.languages[i].slice(0,2);
-			if (availLang.indexOf(userLang) >= 0) {
-				return userLang;
-			}
-		}
-		return 'en';
-	} else {
-		if (navigator.language) {
-			userLang = navigator.language.slice(0,2);
-		} else if (navigator.userLanguage) {
-			userLang = navigator.userLanguage.slice(0,2);
-		} else if (navigator.browserLanguage) {
-			userLang = navigator.browserLanguage.slice(0,2);
-		}
-		return availLang.indexOf(userLang) >= 0 ? userLang : 'en';
-	}
-}
-var lang = Cookies.get('language_preferred');
-if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
-	window.location = '/zh-CN/';
-}
-		</script>
-
 	</head>
 	<body>
 		<svg display="none" width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -46,12 +16,6 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 		<div id='main_menu'>
 	<div class='wrapper'>
 		<ul id='main_menu_body'>
-			<li class='separator'>选择语言<br/>Select Language</li>
-			<li><a id='select_lang_english' href='/'>English</a></li>
-			<li><a id='select_lang_chinese' href='/zh-CN/'>中文</a></li>
-			<li class='separator'>More</li>
-			<li><a href='/tetris.html'>Tetris</a></li>
-			<li><a href='/2048.html'>2048</a></li>
 			<li><a href='https://github.com/frank-deng/'>View Me On Github</a></li>
 		</ul>
 	</div>
@@ -66,741 +30,612 @@ if ('zh' === lang || (undefined === lang && 'zh' === getLocale(['zh', 'en']))) {
 						<div class='bar bar3'></div>
 					</div>
 				</div>
-				<h1>
-<a class='site-title' href='/'>Frank's Notes</a>
 
-</h1>
+				<h1><a class='site-title' href='/'>Frank的笔记</a></h1>
 			</div>
 		</div>
 		<div class='main-content'>
 			<div>
 			
-				<a href="/mysql-grant.en.html"><h2>How to deal with Access Denied problem when granting/revoking privileges</h2></a>
+				<a href="/mysql-grant.zh-CN.html"><h2>如何解决赋予/收回用户权限时发生Access Denied的情况</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='MySQL'>MySQL</span>
 					
 				</div>
 				<div class='post-content'>
 					<ol>
-  <li>Shutdown MySQL server.</li>
-  <li>Run MySQL server with command <code class="highlighter-rouge">mysqld_safe --skip-grant-table</code>.</li>
-  <li>Execute SQL statements for granting/revoking privileges.</li>
-  <li>Kill the <code class="highlighter-rouge">mysqld_safe</code> process started at step 2.</li>
-  <li>Restart MySQL server.</li>
+  <li>停止MySQL服务。</li>
+  <li>使用命令<code class="highlighter-rouge">mysqld_safe --skip-grant-table</code>启动MySQL数据库服务。</li>
+  <li>进行用户权限的赋予、收回操作。</li>
+  <li>将第2步启动的<code class="highlighter-rouge">mysqld_safe</code>进程杀掉。</li>
+  <li>重启MySQL服务。</li>
 </ol>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/js-catch-syntax-error.en.html"><h2>Catching Syntax Error Within Browser</h2></a>
+				<a href="/js-catch-syntax-error.zh-CN.html"><h2>如何在浏览器中捕获JS的语法错误</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Add the following code into <code class="highlighter-rouge">&lt;head&gt;</code> tag:</p>
+					<p>在<code class="highlighter-rouge">&lt;head&gt;</code>标签中添加以下代码：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;script type='text/javascript'&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript'&gt;
     window.addEventListener('error',function(e){
         alert(e.filename+'\nLine '+e.lineno+'\n'+e.message);
     });
 &lt;/script&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/jekyll-termux.en.html"><h2>Install Jekyll under Termux</h2></a>
+				<a href="/jekyll-termux.zh-CN.html"><h2>Termux下安装Jekyll</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span><span class='tag' tag='Termux'>Termux</span>
 					
 				</div>
 				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>apt update &amp;&amp; apt install libffi-dev clang ruby ruby-dev make
+					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update &amp;&amp; apt install libffi-dev clang ruby ruby-dev make
 gem install jekyll
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/linux-serial-console.en.html"><h2>Enable Serial Console for Linux</h2></a>
+				<a href="/linux-serial-console.zh-CN.html"><h2>启用Linux的串口终端</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Temporarily enable serial console on <code class="highlighter-rouge">/dev/ttyS0</code> (Disabled after reboot):</p>
+					<p>临时为<code class="highlighter-rouge">/dev/ttyS0</code>启用串口登录（重启后失效）：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>systemctl start getty@ttyS0.service
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl start getty@ttyS0.service
+</code></pre></div></div>
 
-<p>Permanently enable serial console on <code class="highlighter-rouge">/dev/ttyS0</code>:</p>
+<p>永久为<code class="highlighter-rouge">/dev/ttyS0</code>启用串口登录：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>systemctl enable serial-getty@ttyS0.service
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable serial-getty@ttyS0.service
+</code></pre></div></div>
 
-<p>Check whether serial console is enabled on <code class="highlighter-rouge">/dev/ttyS0</code>:</p>
+<p>查看<code class="highlighter-rouge">/dev/ttyS0</code>的串口登录功能是否启用：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>systemctl status serial-getty@ttyS0.service
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status serial-getty@ttyS0.service
+</code></pre></div></div>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/python-kbhit.en.html"><h2>Implement kbhit() in Python</h2></a>
+				<a href="/pdo-mysql-utf8.zh-CN.html"><h2>如何解决PDO-MySQL的乱码问题</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
-					<span class='tag' tag='Python'>Python</span><span class='tag' tag='Linux'>Linux</span>
-					
-				</div>
-				<div class='post-content'>
-					<h3 id="content-of-kbhitpy">Content of <code class="highlighter-rouge">kbhit.py</code></h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>import sys, termios;
-from select import select;
-
-# save the terminal settings
-fd = sys.stdin.fileno();
-new_term = termios.tcgetattr(fd);
-old_term = termios.tcgetattr(fd);
-
-# new terminal setting unbuffered
-new_term[3] = (new_term[3] &amp; ~termios.ICANON &amp; ~termios.ECHO);
-
-def init():
-    termios.tcsetattr(fd, termios.TCSAFLUSH, new_term);
-
-def restore():
-    termios.tcsetattr(fd, termios.TCSAFLUSH, old_term);
-
-def getch():
-    return sys.stdin.read(1);
-
-def kbhit():
-    dr,dw,de = select([sys.stdin], [], [], 0);
-    return len(dr)&gt;0;
-</code></pre>
-</div>
-
-<h3 id="usage">Usage</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>import kbhit, time;
-kbhit.init();
-
-running = True;
-while running:
-    if kbhit.kbhit():
-    	ch = kbhit.getch();
-    	if 'q' == ch:
-    		running = False;
-    time.sleep(0.1);
-
-kbhit.restore();
-</code></pre>
-</div>
-
-					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
-						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
-					</div>
-				</div>
-				<hr/>
-			
-				<a href="/python-getch.en.html"><h2>Implement getch() in Python</h2></a>
-				<div class='tag-area'>
-					
-					Tags: 
-					<span class='tag' tag='Python'>Python</span>
-					
-				</div>
-				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>try:
-	import msvcrt;
-	def getch():
-		return msvcrt.getch();
-except ImportError:
-	import tty, sys, termios;
-	def getch():
-		fd = sys.stdin.fileno();
-		old_settings = termios.tcgetattr(fd);
-		try:
-			tty.setraw(sys.stdin.fileno());
-			ch = sys.stdin.read(1);
-		finally:
-			termios.tcsetattr(fd, termios.TCSADRAIN, old_settings);
-		return ch;
-</code></pre>
-</div>
-
-
-					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
-						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
-					</div>
-				</div>
-				<hr/>
-			
-				<a href="/pdo-mysql-utf8.en.html"><h2>How to solve the PDO-MySQL's garbled data problem</h2></a>
-				<div class='tag-area'>
-					
-					Tags: 
+					标签：
 					<span class='tag' tag='PHP'>PHP</span><span class='tag' tag='MySQL'>MySQL</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Use the following DSN to initialize PDO-MySQL connection:</p>
+					<p>使用如下DSN初始化PDO-MySQL连接：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$dsn='mysql:dbname=sausagedb;host=127.0.0.1;charset=utf8'
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$dsn='mysql:dbname=sausagedb;host=127.0.0.1;charset=utf8'
 $dbconn = new PDO($dsn, $user, $password);
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>The DSN above contains <code class="highlighter-rouge">charset=utf8</code>, which specifies UTF-8 as the character set used for MySQL.</p>
+<p>上面的DSN中包含<code class="highlighter-rouge">charset=utf8</code>，用于指定MySQL所使用的字符集为UTF-8。</p>
 
-<p>Without specifing character set for database connection, you will find the data inserted into the MySQL table garbled, even if the MySQL table’s character set is UTF-8.</p>
+<p>如果连接数据库时不设置字符集，即使MySQL表的字符集是UTF-8，插入到MySQL表中的内容也将变为乱码。</p>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/grep_bom.en.html"><h2>How to find out text files with BOM header</h2></a>
+				<a href="/grep_bom.zh-CN.html"><h2>如何找出带BOM头的文本文件</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Use <code class="highlighter-rouge">find</code> command and <code class="highlighter-rouge">file</code> command:</p>
+					<p>使用<code class="highlighter-rouge">find</code>命令和<code class="highlighter-rouge">file</code>命令：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>find . -type f -exec file {} \; | grep BOM
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find . -type f -exec file {} \; | grep BOM
+</code></pre></div></div>
 
-<p>Use <code class="highlighter-rouge">grep</code> command under bash shell:</p>
+<p>在bash shell中使用<code class="highlighter-rouge">grep</code>命令：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' .
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' .
+</code></pre></div></div>
 
-<p>Exclude files with given extension (Useful to skip binary files and large files):</p>
+<p>排除特定扩展名的文件（可用于跳过二进制文件和大文件）：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude=*.bin --exclude=*.dat .
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude=*.bin --exclude=*.dat .
 find . -type f -not \( -ipath '*.bin' -o -ipath '*.dat' \) -exec file {} \; | grep BOM
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>Exclude <code class="highlighter-rouge">.svn</code> directory:</p>
+<p>排除<code class="highlighter-rouge">.svn</code>目录：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude-dir=.svn .
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude-dir=.svn .
 find . -type f -not \( -ipath '*.svn*' \) -exec file {} \; | grep BOM
-</code></pre>
-</div>
+</code></pre></div></div>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/qpython_webapp.en.html"><h2>Use QPython to test WebView</h2></a>
+				<a href="/qpython_webapp.zh-CN.html"><h2>使用QPython测试WebView</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Android'>Android</span><span class='tag' tag='Python'>Python</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Create a python script with the following code:</p>
+					<p>新建一个Python脚本，代码如下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>#qpy:3
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#qpy:3
 #qpy:webapp:Title
 #qpy://127.0.0.1:8080
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">#qpy:webapp:Title</code> specifies the title of the WebView.</p>
+<p><code class="highlighter-rouge">#qpy:webapp:Title</code>用于设置WebView的标题。</p>
 
-<p><code class="highlighter-rouge">#qpy://127.0.0.1:8080</code> specifies the URL launched in the WebView.</p>
+<p><code class="highlighter-rouge">#qpy://127.0.0.1:8080</code>用于设置WebView中打开的URL。</p>
 
-<p>Append <code class="highlighter-rouge">#qpy:fullscreen</code> to the code above will enable fullscreen mode for the WebView.</p>
+<p>在上述代码末尾添加<code class="highlighter-rouge">#qpy:fullscreen</code>可以使WebView以全屏方式打开。</p>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/wifi_configuration.en.html"><h2>Wifi Configuration Under Linux Command Line</h2></a>
+				<a href="/wifi_configuration.zh-CN.html"><h2>Linux命令行下配置Wifi</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<h3 id="preparation">Preparation</h3>
+					<p>###前期准备</p>
 
-<p>Use <code class="highlighter-rouge">ifconfig -a</code> to show all the network interfaces available.</p>
+<p>使用<code class="highlighter-rouge">ifconfig -a</code>命令获取所有可用的网络设备。</p>
 
-<h3 id="solution-1-connect-to-one-ap-only">Solution 1 (Connect to one AP only)</h3>
+<p>###方案1（只需连1个路由器）</p>
 
-<p>Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code>:</p>
+<p>将以下配置加入到<code class="highlighter-rouge">/etc/network/interfaces</code>中：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto wlan0
 iface wlan0 inet dhcp
 	wpa-ssid "WLAN_SSID"
 	wpa-psk "12345678"
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
+<p>其中<code class="highlighter-rouge">wlan0</code>需要换成需要使用的Wifi设备。</p>
 
-<h3 id="solution-2-connect-to-different-aps-based-on-signal-strength">Solution 2 (Connect to different APs based on signal strength)</h3>
+<p>###方案2（根据信号强度连接不同路由器）</p>
 
-<p><strong>Step 1:</strong> Create <code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code> with following configuration:</p>
+<p><strong>第1步：</strong>创建<code class="highlighter-rouge">/etc/network/wpa_supplicant.conf</code>，并添加以下配置：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>network={
-	ssid="WLAN_AP_1"
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>network={
+	ssid="WLAN_SSID_1"
 	key_mgmt=WPA-PSK
 	psk="WLAN_AP_PSK_1"
 	priority=1
 }
 network={
-	ssid="WLAN_AP_2"
+	ssid="WLAN_SSID_2"
 	key_mgmt=WPA-PSK
 	psk="WLAN_AP_PSK_2"
 	priority=2
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p><strong>Step 2:</strong> Add the following configuration to <code class="highlighter-rouge">/etc/network/interfaces</code></p>
+<p><strong>第2步：</strong>将以下配置加入到<code class="highlighter-rouge">/etc/network/interfaces</code>中：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>auto wlan0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto wlan0
 iface wlan0 inet dhcp
 	wpa-conf /etc/network/wpa_supplicant.conf
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">wlan0</code> should be replaced with the Wifi device in use.</p>
+<p>其中<code class="highlighter-rouge">wlan0</code>需要换成需要使用的Wifi设备。</p>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/record_sound.en.html"><h2>Record System Output Sound In Linux</h2></a>
+				<a href="/record_sound.zh-CN.html"><h2>Linux命令行下捕获系统声音</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>When pulseaudio is used as the sound server of the system, there is a simple way to record the output sound to file on the command line using <code class="highlighter-rouge">pacat</code> command.</p>
+					<p>当pulseaudio被用于管理系统声音时，可以在命令行环境下使用<code class="highlighter-rouge">pacat</code>命令捕获系统声音。</p>
 
-<h3 id="step-1-find-out-the-correct-device">Step 1: Find out the correct device</h3>
+<p>###步骤1：找到用于捕获系统声音的设备</p>
 
-<p>In order to find the correct device, you should run this command:</p>
+<p>使用以下命令找到用于捕获系统声音的设备：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pacmd list | grep "\.monitor"
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacmd list | grep "\.monitor"
+</code></pre></div></div>
 
-<p>When you see something like this:</p>
+<p>当看到如下输出时：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	name: &lt;alsa_output.pci-0000_00_1b.0.analog-stereo.monitor&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	name: &lt;alsa_output.pci-0000_00_1b.0.analog-stereo.monitor&gt;
 	alsa_output.pci-0000_00_1b.0.analog-stereo.monitor/#0: Monitor of Built-in Audio Analog Stereo
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>and the soundcard corresponds to the one you want to monitor, you know which device name to use. Here it is:</p>
+<p>就可以找到用于捕获系统声音的设备了。在上述输出内容中，可以找到设备名如下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>alsa_output.pci-0000_00_1b.0.analog-stereo.monitor
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alsa_output.pci-0000_00_1b.0.analog-stereo.monitor
+</code></pre></div></div>
 
-<h3 id="step-2-start-recording-system-output-sound">Step 2: Start recording system output sound</h3>
+<p>###步骤2：开始捕获系统声音</p>
 
-<p>Here are examples of how to record system output sound to a <code class="highlighter-rouge">.wav</code> file with CD audio quality.</p>
+<p>以下例子描述了如何将系统声音拷贝到<code class="highlighter-rouge">.wav</code>文件中，并使用CD音质。</p>
 
-<p>Command using <code class="highlighter-rouge">sox</code>:</p>
+<p>使用<code class="highlighter-rouge">sox</code>的命令:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_00_1b.0.analog-stereo.monitor | sox -t raw -r 44100 -s -L -b 16 -c 2 - output.wav
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_00_1b.0.analog-stereo.monitor | sox -t raw -r 44100 -s -L -b 16 -c 2 - output.wav
+</code></pre></div></div>
 
-<p>Command using <code class="highlighter-rouge">ffmpeg</code>:</p>
+<p>使用<code class="highlighter-rouge">ffmpeg</code>的命令:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_00_1b.0.analog-stereo.monitor | ffmpeg -f s16le -ar 44.1k -ac 2 -i pipe:0 record.wav
-</code></pre>
-</div>
-
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacat --record -d alsa_output.pci-0000_00_1b.0.analog-stereo.monitor | ffmpeg -f s16le -ar 44.1k -ac 2 -i pipe:0 record.wav
+</code></pre></div></div>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/ralink_wifi_fix.en.html"><h2>Fix Unusable Wifi On Asus Laptop Under Debian/Ubuntu</h2></a>
+				<a href="/ralink_wifi_fix.zh-CN.html"><h2>Debian/Ubuntu下修复华硕笔记本的Wifi</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>When using Ralink Wifi controller on Asus laptop, you may found that Wifi gets unavailable after installing Debian/Ubuntu. When running command <code class="highlighter-rouge">sudo rfkill list all</code> in terminal, you’ll get the following output:</p>
+					<p>如果华硕笔记本上的Wifi模块是Ralink的，安装完Debian/Ubuntu后会出现Wifi无法使用的情况。同时在终端运行<code class="highlighter-rouge">sudo rfkill list all</code>命令后会有如下输出：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>0: phy0: Wireless LAN
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0: phy0: Wireless LAN
 	Soft blocked: no
 	Hard blocked: yes
 1: asus-wlan: Wireless LAN
 	Soft blocked: no
 	Hard blocked: no
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="how-to-fix-wifi">How to fix Wifi</h3>
+<p>###如何修复Wifi</p>
 
-<p>Create <code class="highlighter-rouge">/etc/modprobe.d/asus.conf</code> with the following configuration:</p>
+<p>创建<code class="highlighter-rouge">/etc/modprobe.d/asus.conf</code>，并在文件中添加如下内容：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>options asus_nb_wmi wapf=4
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>options asus_nb_wmi wapf=4
+</code></pre></div></div>
 
-<p>Then reboot.</p>
+<p>然后重启。</p>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/perl_rename.en.html"><h2>Batch Renaming Using Perl's Rename Utility</h2></a>
+				<a href="/perl_rename.zh-CN.html"><h2>如何使用Perl的rename工具进行批量重命名</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Remove <code class="highlighter-rouge">.bak</code> extension:</p>
+					<p>去除<code class="highlighter-rouge">.bak</code>扩展名：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/\.bak$//' *
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prename 's/\.bak$//' *
+</code></pre></div></div>
 
-<p>Convert filenames into lower case:</p>
+<p>将文件名转换成小写：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>prename 'y/A-Z/a-z/' *
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prename 'y/A-Z/a-z/' *
+</code></pre></div></div>
 
-<p>Add prefix for <code class="highlighter-rouge">.txt</code> files:</p>
+<p>为<code class="highlighter-rouge">.txt</code>文件加前缀：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prename 's/(.*).txt$/prefix_$1.txt/' *.txt
+</code></pre></div></div>
 
-<p>On ArchLinux, you must install package <code class="highlighter-rouge">perl-rename</code> for this utility.</p>
+<p>ArchLinux上需要安装<code class="highlighter-rouge">perl-rename</code>包来获得该工具。</p>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/change_time.en.html"><h2>Change Date/Time/Timezone Under Linux</h2></a>
+				<a href="/change_time.zh-CN.html"><h2>Linux下更改日期、时间、时区</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Change date: <code class="highlighter-rouge">date -s MM/DD/YYYY</code></p>
+					<p>更改日期：<code class="highlighter-rouge">date -s MM/DD/YYYY</code></p>
 
-<p>Change time: <code class="highlighter-rouge">date -s hh:mm:ss</code></p>
+<p>更改时间：<code class="highlighter-rouge">date -s hh:mm:ss</code></p>
 
-<p>Change timezone: <code class="highlighter-rouge">sudo dpkg-reconfigure tzdata</code></p>
+<p>更改时区：<code class="highlighter-rouge">sudo dpkg-reconfigure tzdata</code></p>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/vim_tabsize.en.html"><h2>Adjust Tab Size For VIM</h2></a>
+				<a href="/vim_tabsize.zh-CN.html"><h2>调整VIM的制表符宽度</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Add the following lines to <code class="highlighter-rouge">/etc/vim/vimrc</code>:</p>
+					<p>将以下行加入到<code class="highlighter-rouge">/etc/vim/vimrc</code>中：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>set tabstop=4
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-</code></pre>
-</div>
+</code></pre></div></div>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/console_autologin.en.html"><h2>Configure autologin for Linux console using systemd</h2></a>
+				<a href="/console_autologin.zh-CN.html"><h2>为Linux命令行配置自动登录</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Firstly, Create directory <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code> if not exist.</p>
+					<p>新建目录<code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code>（如果该目录不存在）</p>
 
-<p>Then create file <code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/autologin.conf</code> with the following content:</p>
+<p>然后创建文件<code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/autologin.conf</code>，文件内容如下：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>[Service]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Service]
 ExecStart=
 ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>Then save and reboot.</p>
+<p>保存，然后重启。</p>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/alsa_44100hz.en.html"><h2>Improve Sound Quality for ALSA</h2></a>
+				<a href="/alsa_44100hz.zh-CN.html"><h2>提升ALSA播放时的音质</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Open <code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code>, then change <code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code> into <code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>.</p>
+					<p>打开<code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code>，然后将<code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code>更改为<code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>。</p>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/handlelidswitch.en.html"><h2>Keep Laptop Running When Closing Lid</h2></a>
+				<a href="/handlelidswitch.zh-CN.html"><h2>防止笔记本合上后进入休眠状态</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Edit <code class="highlighter-rouge">/etc/systemd/login.conf</code> and change the value of <code class="highlighter-rouge">HandleLidSwitch</code> to <code class="highlighter-rouge">ignore</code>.</p>
+					<p>编辑<code class="highlighter-rouge">/etc/systemd/login.conf</code>，将<code class="highlighter-rouge">HandleLidSwitch</code>的值设为<code class="highlighter-rouge">ignore</code>。</p>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/enum_args.en.html"><h2>Enumerate command line arguments with space characters</h2></a>
+				<a href="/enum_args.zh-CN.html"><h2>Bash Shell遍历带空格的命令行参数</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
 				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>while [ -n "${1}" ]; do
+					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while [ -n "${1}" ]; do
 	FILENAME="${1}";
 	#Do some works on "${FILENAME}"
 	shift 1;
 done;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/enum_lines.en.html"><h2>Enumerate records separated by newlines</h2></a>
+				<a href="/enum_lines.zh-CN.html"><h2>Bash Shell按行遍历标准输出</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
 				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>IFS=$'\n';
+					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IFS=$'\n';
 for LINE in `ls`; do
 	#Do some works on "${LINE}"
 done;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/filename_parse.en.html"><h2>Extract basename and extension of a filename under bash shell</h2></a>
+				<a href="/filename_parse.zh-CN.html"><h2>Bash Shell从给定文件名中获取基本名和扩展名</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
 				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>BASENAME="${FILENAME%.*}";
+					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BASENAME="${FILENAME%.*}";
 EXTENSION="${FILENAME##*.}";
-</code></pre>
-</div>
+</code></pre></div></div>
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/html5_video_conv.en.html"><h2>Convert video into HTML5 compatible format</h2></a>
+				<a href="/html5_video_conv.zh-CN.html"><h2>将视频转换成兼容HTML5的格式</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Shell'>Shell</span>
 					
 				</div>
 				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -i INPUT_FILE -c:v libx264 -crf 18 -c:a aac -q:a 100 -strict experimental OUTPUT.mp4
-</code></pre>
-</div>
+					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -i INPUT_FILE -c:v libx264 -crf 18 -c:a aac -q:a 100 -strict experimental OUTPUT.mp4
+</code></pre></div></div>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/crontab_reboot.en.html"><h2>Run program at startup via crontab</h2></a>
+				<a href="/crontab_reboot.zh-CN.html"><h2>使用crontab实现开机自动运行脚本</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='Linux'>Linux</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Add the following content to <code class="highlighter-rouge">/etc/crontab</code>:</p>
+					<p>将以下内容加入到<code class="highlighter-rouge">/etc/crontab</code>中：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@reboot    username    /path/to/script arguments
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@reboot    username    /path/to/script arguments
+</code></pre></div></div>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/address_bar_color.en.html"><h2>Chrome for Android: Change address bar color</h2></a>
+				<a href="/address_bar_color.zh-CN.html"><h2>Chrome for Android中更改地址栏的颜色</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='HTML'>HTML</span>
 					
 				</div>
 				<div class='post-content'>
-					<p>Add the following meta tag into HTML to change address bar color in Chrome for Android.</p>
+					<p>将以下标签加到HTML的head标签中，就可以改变Chrome for Android的地址栏颜色了。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;meta name="theme-color" content="#db5945"/&gt;
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;meta name="theme-color" content="#db5945"/&gt;
+</code></pre></div></div>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/browser_type.en.html"><h2>Get browser type based on User Agent</h2></a>
+				<a href="/browser_type.zh-CN.html"><h2>通过User Agent获取浏览器类型</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 					
 				</div>
 				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>function deviceType() {
+					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function deviceType() {
 	var ua = window.navigator.userAgent;
 	if (/iphone|android.*mobile/i.test(ua)) {
 		return 'mobile';
@@ -809,37 +644,35 @@ EXTENSION="${FILENAME##*.}";
 	}
 	return undefined;
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>This function returns <code class="highlighter-rouge">mobile</code> for mobile browsers, <code class="highlighter-rouge">pad</code> for tablet browsers. <code class="highlighter-rouge">undefined</code> for PC browsers or browsers of other type.</p>
+<p>手机浏览器返回<code class="highlighter-rouge">mobile</code>，平板浏览器返回<code class="highlighter-rouge">pad</code>，PC浏览器和其它类型的浏览器返回<code class="highlighter-rouge">undefined</code>。</p>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
 				<hr/>
 			
-				<a href="/htmlspecialchars.en.html"><h2>Implement htmlspecialchars() in JavaScript</h2></a>
+				<a href="/htmlspecialchars.zh-CN.html"><h2>htmlspecialchars()的JavaScript实现</h2></a>
 				<div class='tag-area'>
 					
-					Tags: 
+					标签：
 					<span class='tag' tag='HTML'>HTML</span><span class='tag' tag='JavaScript'>JavaScript</span>
 					
 				</div>
 				<div class='post-content'>
-					<div class="highlighter-rouge"><pre class="highlight"><code>function htmlspecialchars(s){
+					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function htmlspecialchars(s){
 	var M={'&amp;':'&amp;amp;','&lt;':'&amp;lt;','&gt;':'&amp;gt;','"':'&amp;quot;',"'":'&amp;#039;'};
 	return s.replace(/[&amp;&lt;&gt;"']/g,function(m){return M[m]});
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 					<div class='fold-control'>
-						<span class='hint-expand'>Expand</span>
+						<span class='hint-expand'>展开</span>
 						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
 					</div>
 				</div>
@@ -850,13 +683,6 @@ EXTENSION="${FILENAME##*.}";
 	</body>
 	<script type='text/javascript'>
 var POST_MAX_HEIGHT = 150;
-
-document.getElementById('select_lang_english').addEventListener('click', function(){
-	Cookies.set('language_preferred', 'en');
-});
-document.getElementById('select_lang_chinese').addEventListener('click', function(){
-	Cookies.set('language_preferred', 'zh');
-});
 
 var main_menu = document.getElementById('main_menu');
 document.body.addEventListener('click', function(event){

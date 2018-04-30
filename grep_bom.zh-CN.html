@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'/>
+		<title>如何找出带BOM头的文本文件 - </title>
+		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+	</head>
+	<body>
+		<div class='header-wrapper'>
+			<div class='header'>
+				
+<a class='site-title' href='//'></a>
+
+
+			</div>
+		</div>
+		<div class='main-content'>
+			<h2>如何找出带BOM头的文本文件</h2>
+			<p>使用<code class="highlighter-rouge">find</code>命令和<code class="highlighter-rouge">file</code>命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find . -type f -exec file {} \; | grep BOM
+</code></pre></div></div>
+
+<p>在bash shell中使用<code class="highlighter-rouge">grep</code>命令：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' .
+</code></pre></div></div>
+
+<p>排除特定扩展名的文件（可用于跳过二进制文件和大文件）：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude=*.bin --exclude=*.dat .
+find . -type f -not \( -ipath '*.bin' -o -ipath '*.dat' \) -exec file {} \; | grep BOM
+</code></pre></div></div>
+
+<p>排除<code class="highlighter-rouge">.svn</code>目录：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rlI $'^\xEF\xBB\xBF' --exclude-dir=.svn .
+find . -type f -not \( -ipath '*.svn*' \) -exec file {} \; | grep BOM
+</code></pre></div></div>
+
+		</div>
+	</body>
+</html>
+
