@@ -1,0 +1,47 @@
+body {
+	font-size: 15px;
+	font-family: "WenQuanYi Micro Hei", "Microsoft YaHei", sans;
+}
+h1 {
+	margin: 12px 0;
+}
+h2 {
+	margin: 10px 0;
+	border-bottom: 1px solid black;
+}
+h3 {
+	margin: 10px 0;
+}
+p {
+	margin: 4px 0;
+	white-space: pre-line;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	table-layout:fixed;
+}
+th, td {
+	white-space: nowrap;
+	vertical-align: top;
+}
+th {
+	text-align: left;
+	padding-right: 5px;
+}
+td {
+	padding-right: 14px;
+}
+.warpline {
+	white-space: normal;
+}
+.maininfo td{
+	padding-right: 40px;
+}
+ul, li{
+	list-style: none;
+	padding: 0;
+}
+.project-experience {
+	page-break-inside: avoid;
+}

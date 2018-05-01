@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="resume-en.xsl"?>
+<resume>
+	<main>
+		<name>Frank Deng</name>
+		<gender>0</gender>
+		<mobile>(+86)13382084679</mobile>
+		<email>13382084679@163.com</email>
+		<englishSkill>CET-6</englishSkill>
+		<direction>Web Front-end</direction>
+		<years>5</years>
+		<homepage>https://frank-deng.github.io/</homepage>
+		<github>https://github.com/frank-deng/</github>
+	</main>
+	<education-experience>
+		<education>
+			<time>
+				<from><year>2009</year><month>9</month></from>
+				<to><year>2013</year><month>6</month></to>
+			</time>
+			<college>Nanjing Agricultural University</college>
+			<major>Computer Science and Technology</major>
+			<degree>Bachelor</degree>
+		</education>
+	</education-experience>
+	<self-assessment><![CDATA[Familiar with the following skills: Web Front-end, JavaScript, vue.js, Python, Linux.
+		Enthusiastic in technology, maintain serveral repositories on GitHub.
+		Have knowledge in WebGL, three.js.
+	]]></self-assessment>
+	<projects>
+		<project>
+			<time>
+				<from><year>2018</year><month>3</month></from>
+				<to><year>2018</year><month>4</month></to>
+			</time>
+			<name>Huawei Club Middleware</name>
+			<desc><![CDATA[Receive logout message from Huawei Account, then send the message to Huawei Club's interface with appropriate format, so as to realize the feature of logging out Huawei Club from Huawei Account.
+				Responsibilities: Develop the required feature, negotiate specs of the interface with third-party developers.
+				]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2018</year><month>2</month></from>
+			</time>
+			<name>Neko Project II Font Editor (GitHub Project)</name>
+			<desc><![CDATA[Font editor for Neko Project II PC98 emulator, use vue.js to handle DOM manipulations. When closing the editor page, the corresponding event will be triggered and save current file into localStorage. When opening the editor page next time, file saved last time will be recovered from localStorage.
+				URL: https://github.com/frank-deng/np2-font-tool]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2017</year><month>12</month></from>
+				<to><year>2018</year><month>2</month></to>
+			</time>
+			<name>Auto Deployment Platform Development</name>
+			<desc><![CDATA[Automatize the procedure of backup code and update code by writing Ansible Playbook YAML script for the Auto Deployment Platform, so as to reduce the errors caused by manual operation.]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2017</year><month>11</month></from>
+			</time>
+			<name>JavaScript Logger (GitHub Project)</name>
+			<desc><![CDATA[Displaying error and log messages on page as well as in the browser's console by overriding browser's built-in console.log(), console.warn(), console.error() functions.
+				URL: https://github.com/frank-deng/js-mobile-logger
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2017</year><month>10</month></from>
+			</time>
+			<name>Kanji Readings (GitHub Project)</name>
+			<desc><![CDATA[A tool for searching reading of Kanjis, use Webpack to build the whole site, use localStorage to cache dictionary file downloaded.
+				URL: https://github.com/frank-deng/kanji-reading
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2017</year><month>5</month></from>
+			</time>
+			<name>expression-calculator (GitHub Project)</name>
+			<desc><![CDATA[A simple expression parser, using LL(1) syntax analyzer, so as to calculate expressions without using eval() and avoid all the security risks caused by eval().
+				URL: https://github.com/frank-deng/expression-calculator
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2017</year><month>1</month></from>
+			</time>
+			<name>24 Game Solver (Github Project)</name>
+			<desc><![CDATA[Enumerate expressions in RPN format then calculate out result. In comparison with ordinary solution, code complexity, calculation load, amount of redundant result are reduced.
+				URL: https://github.com/frank-deng/24game-solver
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2016</year><month>11</month></from>
+			</time>
+			<name>QPython-FileServer (GitHub Project)</name>
+			<desc><![CDATA[A simple HTTP file server based on QPython, uses "bottle" server framework as well as its built-in template engine, so as to enhance the looking of file indexing page on mobile browsers.
+				URL: https://github.com/frank-deng/QPython-FileServer
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2016</year><month>3</month></from>
+				<to><year>2016</year><month>4</month></to>
+			</time>
+			<name>EMUI Official Website</name>
+			<desc><![CDATA[Apply responsive layout to Smartphone Model Selection page, which improves user experence.]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2016</year><month>3</month></from>
+			</time>
+			<name>js-lyrics Tool for LRC file (GitHub Project)
+			</name>
+			<desc><![CDATA[A JavaScript library for parsing LRC file, and select lyric to highlight.
+				URL: https://github.com/frank-deng/js-lyrics
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2015</year><month>5</month></from>
+				<to><year>2018</year><month>4</month></to>
+			</time>
+			<name>Huawei Club</name>
+			<desc><![CDATA[Official Website: https://club.huawei.com
+				Developing and maintaining Huawei Club's web front-end logics, app interface logics, web back-end logics, as well as checking and fixing security problems.
+				Using PHP to develop report generation tool which fills corresponding historical confirmation into the report for each item, then generate the report in Excel format. Which greatly reduces the work load and accelerates the pace of releasing versions.
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2014</year><month>9</month></from>
+				<to><year>2015</year><month>4</month></to>
+			</time>
+			<name>Simco Phase II CEMLI</name>
+			<desc><![CDATA[Synchoronize data between Oracle database and remote system.
+				Responsibilities: Finishing developments and tests of Concurrent Programs according to customer's requirements.
+				]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2014</year><month>8</month></from>
+				<to><year>2014</year><month>12</month></to>
+			</time>
+			<name>Zeek the Geek (GitHub Project)</name>
+			<desc><![CDATA[HTML5 clone of game Zeek the Geek.
+				URL: https://github.com/frank-deng/zeek-the-geek
+			]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2013</year><month>11</month></from>
+				<to><year>2014</year><month>8</month></to>
+			</time>
+			<name>SugarBash</name>
+			<desc><![CDATA[A social media website designed for Women.
+				Responsibilities: Developing web front-end logics, web back-end interface logics, as well as Firefox Addon, Chrome Addon, Safari Addon used for uploading images.
+			]]></desc>
+		</project>
+	</projects>
+	<companies>
+		<company>
+			<name>ChinaSoft International</name>
+			<title>Software Engineer</title>
+			<time>
+				<from><year>2015</year><month>5</month></from>
+				<to><year>2018</year><month>4</month></to>
+			</time>
+			<desc>Developing and maintaining Huawei Club website.</desc>
+		</company>
+		<company>
+			<name>SRS2</name>
+			<title>Technical Consultant</title>
+			<time>
+				<from><year>2013</year><month>7</month></from>
+				<to><year>2015</year><month>4</month></to>
+			</time>
+			<desc>Making developments based on Oracle Database, as well as developing PHP-based online shopping platform.</desc>
+		</company>
+	</companies>
+	<about><![CDATA[This resume uses data in XML format, and uses XSLT template to convert this resume into HTML format, which makes it more convenient to maintain compare to ordinary Microsoft Word one.
+		URL：https://frank-deng.github.io/resume/resume-en.xml
+		You may open the URL above in a browser directly, and use browser's built-in print feature to print this resume. PC-side Chrome, Firefox, Edge brwosers are recommended.
+	]]></about>
+</resume>
+
