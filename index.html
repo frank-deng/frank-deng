@@ -86,56 +86,6 @@
 				</div>
 				<hr/>
 			
-				<a href="/jekyll-termux.zh-CN.html"><h2>Termux下安装Jekyll</h2></a>
-				<div class='tag-area'>
-					
-					标签：
-					<span class='tag' tag='Linux'>Linux</span><span class='tag' tag='Termux'>Termux</span>
-					
-				</div>
-				<div class='post-content'>
-					<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update &amp;&amp; apt install libffi-dev clang ruby ruby-dev make
-gem install jekyll
-</code></pre></div></div>
-
-
-					<div class='fold-control'>
-						<span class='hint-expand'>展开</span>
-						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
-					</div>
-				</div>
-				<hr/>
-			
-				<a href="/linux-serial-console.zh-CN.html"><h2>启用Linux的串口终端</h2></a>
-				<div class='tag-area'>
-					
-					标签：
-					<span class='tag' tag='Linux'>Linux</span>
-					
-				</div>
-				<div class='post-content'>
-					<p>临时为<code class="highlighter-rouge">/dev/ttyS0</code>启用串口登录（重启后失效）：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl start getty@ttyS0.service
-</code></pre></div></div>
-
-<p>永久为<code class="highlighter-rouge">/dev/ttyS0</code>启用串口登录：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable serial-getty@ttyS0.service
-</code></pre></div></div>
-
-<p>查看<code class="highlighter-rouge">/dev/ttyS0</code>的串口登录功能是否启用：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status serial-getty@ttyS0.service
-</code></pre></div></div>
-
-					<div class='fold-control'>
-						<span class='hint-expand'>展开</span>
-						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
-					</div>
-				</div>
-				<hr/>
-			
 				<a href="/pdo-mysql-utf8.zh-CN.html"><h2>如何解决PDO-MySQL的乱码问题</h2></a>
 				<div class='tag-area'>
 					
@@ -443,33 +393,6 @@ set shiftwidth=4
 				</div>
 				<hr/>
 			
-				<a href="/console_autologin.zh-CN.html"><h2>为Linux命令行配置自动登录</h2></a>
-				<div class='tag-area'>
-					
-					标签：
-					<span class='tag' tag='Linux'>Linux</span>
-					
-				</div>
-				<div class='post-content'>
-					<p>新建目录<code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/</code>（如果该目录不存在）</p>
-
-<p>然后创建文件<code class="highlighter-rouge">/etc/systemd/system/getty@tty1.service.d/autologin.conf</code>，文件内容如下：</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Service]
-ExecStart=
-ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
-</code></pre></div></div>
-
-<p>保存，然后重启。</p>
-
-
-					<div class='fold-control'>
-						<span class='hint-expand'>展开</span>
-						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
-					</div>
-				</div>
-				<hr/>
-			
 				<a href="/alsa_44100hz.zh-CN.html"><h2>提升ALSA播放时的音质</h2></a>
 				<div class='tag-area'>
 					
@@ -479,23 +402,6 @@ ExecStart=-/sbin/agetty --autologin username --noclear %I $TERM
 				</div>
 				<div class='post-content'>
 					<p>打开<code class="highlighter-rouge">/usr/share/alsa/alsa.conf</code>，然后将<code class="highlighter-rouge">defaults.pcm.dmix.rate 48000</code>更改为<code class="highlighter-rouge">defaults.pcm.dmix.rate 44100</code>。</p>
-
-					<div class='fold-control'>
-						<span class='hint-expand'>展开</span>
-						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
-					</div>
-				</div>
-				<hr/>
-			
-				<a href="/handlelidswitch.zh-CN.html"><h2>防止笔记本合上后进入休眠状态</h2></a>
-				<div class='tag-area'>
-					
-					标签：
-					<span class='tag' tag='Linux'>Linux</span>
-					
-				</div>
-				<div class='post-content'>
-					<p>编辑<code class="highlighter-rouge">/etc/systemd/login.conf</code>，将<code class="highlighter-rouge">HandleLidSwitch</code>的值设为<code class="highlighter-rouge">ignore</code>。</p>
 
 					<div class='fold-control'>
 						<span class='hint-expand'>展开</span>

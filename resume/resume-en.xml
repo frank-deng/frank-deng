@@ -30,6 +30,14 @@
 	<projects>
 		<project>
 			<time>
+				<from><year>2018</year><month>4</month></from>
+			</time>
+			<name>K-Means Image Processor (GitHub Project)</name>
+			<desc><![CDATA[Use K-Means algorithm to process uploaded image for an artistic effect. All the operations are performed at browser side. HTML5 canvas is used for downscaling image and display the processed image. Image processing work is done at WebWorker side, so as to prevent freezing the browser.
+				URL: https://github.com/frank-deng/kmeans-imageproc/]]></desc>
+		</project>
+		<project>
+			<time>
 				<from><year>2018</year><month>3</month></from>
 				<to><year>2018</year><month>4</month></to>
 			</time>
@@ -130,16 +138,6 @@
 		</project>
 		<project>
 			<time>
-				<from><year>2014</year><month>9</month></from>
-				<to><year>2015</year><month>4</month></to>
-			</time>
-			<name>Simco Phase II CEMLI</name>
-			<desc><![CDATA[Synchoronize data between Oracle database and remote system.
-				Responsibilities: Finishing developments and tests of Concurrent Programs according to customer's requirements.
-				]]></desc>
-		</project>
-		<project>
-			<time>
 				<from><year>2014</year><month>8</month></from>
 				<to><year>2014</year><month>12</month></to>
 			</time>
@@ -165,7 +163,7 @@
 			<title>Software Engineer</title>
 			<time>
 				<from><year>2015</year><month>5</month></from>
-				<to><year>2018</year><month>4</month></to>
+				<to><year>2018</year><month>5</month></to>
 			</time>
 			<desc>Developing and maintaining Huawei Club website.</desc>
 		</company>

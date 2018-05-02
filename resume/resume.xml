@@ -31,6 +31,14 @@
 	<projects>
 		<project>
 			<time>
+				<from><year>2018</year><month>4</month></from>
+			</time>
+			<name>KMeans图像处理工具（GitHub项目）</name>
+			<desc><![CDATA[使用K-Means算法对用户上传的图片进行处理，以达到一种艺术化的效果。全部操作在浏览器端完成。使用HTML5 canvas对源图像进行缩放操作，并将处理后的图像显示在页面上。图像处理过程使用WebWorker完成，以防页面失去响应。
+				URL：https://github.com/frank-deng/kmeans-imageproc/]]></desc>
+		</project>
+		<project>
+			<time>
 				<from><year>2018</year><month>3</month></from>
 				<to><year>2018</year><month>4</month></to>
 			</time>
@@ -129,14 +137,6 @@
 		</project>
 		<project>
 			<time>
-				<from><year>2014</year><month>9</month></from>
-				<to><year>2015</year><month>4</month></to>
-			</time>
-			<name>Simco Phase II CEMLI</name>
-			<desc><![CDATA[主要用于同步Oracle数据库和远端系统。负责根据客户要求完成并发程序的开发与测试。]]></desc>
-		</project>
-		<project>
-			<time>
 				<from><year>2014</year><month>8</month></from>
 				<to><year>2014</year><month>12</month></to>
 			</time>
@@ -162,7 +162,7 @@
 			<title>软件工程师</title>
 			<time>
 				<from><year>2015</year><month>5</month></from>
-				<to><year>2018</year><month>4</month></to>
+				<to><year>2018</year><month>5</month></to>
 			</time>
 			<desc>负责花粉俱乐部网站的开发与维护。</desc>
 		</company>
