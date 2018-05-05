@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
+		<meta charset='UTF-8'>
+		<title>Frank的笔记</title>
+		<link rel='stylesheet' type='text/css' href='/css/index.css'/>
+		<link rel="icon" type="image/png" href="/images/favicon.png"/>
+	</head>
+	<body>
+		{% include icons.svg %}
+		{% include index-menu.html %}
+		<div class='header-wrapper'>
+			<div class='header'>
+				<div class='menu-btn' id='menu_btn'>
+					<div class='menu-btn-bars'>
+						<div class='bar bar1'></div>
+						<div class='bar bar2'></div>
+						<div class='bar bar3'></div>
+					</div>
+				</div>
+
+				<h1><a class='site-title' href='/'>Frank的笔记</a></h1>
+			</div>
+		</div>
+		<div class='main-content'>
+			<div>
+			{% for post in site.posts %}
+				<a href="{{ post.url | prepend: site.baseurl }}"><h2>{{ post.title }}</h2></a>
+				<div class='tag-area'>
+					{% if post.tags %}
+					标签：
+					{% for tag in post.tags %}<span class='tag' tag='{{tag}}'>{{tag}}</span>{% endfor %}
+					{% endif %}
+				</div>
+				<div class='post-content'>
+					{{post.content}}
+					<div class='fold-control'>
+						<span class='hint-expand'>展开</span>
+						<svg class='chevron-down' viewBox="0 0 1792 1792"><use xlink:href='#chevron_down'></use></svg>
+					</div>
+				</div>
+				<hr/>
+			{% endfor %}
+			</div>
+		</div>
+	</body>
+	<script type='text/javascript'>
+var POST_MAX_HEIGHT = 150;
+
+var main_menu = document.getElementById('main_menu');
+document.body.addEventListener('click', function(event){
+	main_menu.classList.remove('menu-display');
+});
+document.getElementById('menu_btn').addEventListener('click', function(event){
+	event.stopPropagation();
+	main_menu.classList.toggle('menu-display');
+	return false;
+});
+document.getElementById('main_menu_body').addEventListener('click', function(event){
+	event.stopPropagation();
+	return false;
+});
+
+var post_content_all = document.querySelectorAll('.post-content');
+for (var i = 0; i < post_content_all.length; i++) {
+	var post_content = post_content_all[i];
+	if (post_content.offsetHeight > POST_MAX_HEIGHT) {
+		post_content.classList.add('post-content-long');
+	}
+	post_content.querySelector('.fold-control').addEventListener('click', function(){
+		this.parentNode.classList.remove('post-content-long');
+	});
+}
+	</script>
+</html>
+

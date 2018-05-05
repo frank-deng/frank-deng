@@ -1,0 +1,5 @@
+{% if page.is_default_language %}
+<a class='site-title' href='/'>{{site.data.i18n[page.language].site_title}}</a>
+{% else %}
+<a class='site-title' href='/{{page.language}}/'>{{site.data.i18n[page.language].site_title}}</a>
+{% endif %}

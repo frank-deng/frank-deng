@@ -1,0 +1,17 @@
+en:
+    site_title: "Frank's Notes"
+    tags: "Tags: "
+    expand: "Expand"
+    retract: "Retract"
+    lang_sel: "选择语言<br/>Select Language"
+    more_work: "More"
+    tetris: "Tetris"
+    g2048: "2048"
+    view_me_on_github: "View Me On Github"
+
+zh-CN:
+    site_title: "Frank的笔记"
+    tags: "标签："
+    expand: "展开"
+    retract: "收起"
+    view_me_on_github: "View Me On Github"
