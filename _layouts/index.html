@@ -2,29 +2,21 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'>
-		<title>Frank的空间</title>
+		<title>{{site.data.main.site_title}}</title>
 		<link rel='stylesheet' type='text/css' href='/css/main.css'/>
-		<link rel='stylesheet' type='text/css' href='/css/index.css'/>
 		<link rel="icon" type="image/png" href="/images/favicon.png"/>
 	</head>
 	<body>
-		{% include index-menu.html %}
 		<div class='header-wrapper'>
 			<div class='header'>
-				<div class='menu-btn' id='menu_btn'>
-					<div class='menu-btn-bars'>
-						<div class='bar bar1'></div>
-						<div class='bar bar2'></div>
-						<div class='bar bar3'></div>
-					</div>
-				</div>
-				{% include header-link.html %}
+				<h1 class='site-title'><a href='/'>{{site.data.main.site_title}}</a></h1>
+				<a class='github-link' href='https://github.com/frank-deng'>View Me on GitHub</a>
 			</div>
 		</div>
 		<ul class='main-content'>
 			{% for post in site.posts %}
-			<li>
-				<a href="{{ post.url | prepend: site.baseurl }}"><p>{{ post.title }}</p>
+			<li class='post-list-item'>
+				<a href="{{ post.url | prepend: site.baseurl }}"><p class='post-title'>{{ post.title }}</p>
 					<div class='tag-area'>
 						{% if post.tags %}
 						标签：
@@ -36,23 +28,5 @@
 			{% endfor %}
 		</ul>
 	</body>
-	<script type='text/javascript'>
-var main_menu = document.getElementById('main_menu');
-document.body.addEventListener('click', function(event){
-	if (main_menu.classList.contains('menu-display')) {
-		event.preventDefault();
-		main_menu.classList.remove('menu-display');
-	}
-});
-document.getElementById('menu_btn').addEventListener('click', function(event){
-	event.stopPropagation();
-	main_menu.classList.toggle('menu-display');
-	return false;
-});
-main_menu.addEventListener('click', function(event){
-	event.stopPropagation();
-	return false;
-});
-	</script>
 </html>
 

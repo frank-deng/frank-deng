@@ -16,14 +16,67 @@ a {
 hr {
 	border: none;
 	border-bottom: 1px solid #ccc;
+	page-break-before: always;
 }
-ul, li{
+ul, ul li{
 	list-style: none;
 	padding: 0;
 }
-p {
-	margin:6px 0 0 0;
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
 }
+h3 {
+  margin: 10px 0;
+}
+ul, ol {
+  padding-left: 24px;
+}
+.expression {
+  display: inline-block;
+}
+code, pre.highlight {
+  background-color: #F9F9F9;
+  border: 1px solid #DDD;
+  border-radius: 2px;
+}
+pre.highlight code {
+  background: none;
+  border: none;
+  border-radius: none;
+}
+code {
+  display: inline-block;
+  font-family: monospace, Courier;
+  padding: 1px 4px;
+  font-size: 80%;
+  vertical-align: middle;
+  margin: 1px;
+}
+pre {
+  padding: 6px;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+}
+table th {
+  text-align: left;
+  padding-right: 10px;
+}
+table td {
+  padding-right: 10px;
+}
+.math {
+  font-family: serif;
+  font-weight: normal;
+  border: none;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
 .header-wrapper {
 	width: 100%;
 	overflow: auto;
@@ -38,12 +91,12 @@ p {
 	line-height: 48px;
 	color: #FFFFFF;
 }
-h1 {
+.site-title {
 	font-weight: normal;
 	display: inline;
 	font-size: 24px;
 }
-h1 a {
+.site-title a {
 	color: #FFFFFF;
 }
 .main-content {
@@ -52,3 +105,31 @@ h1 a {
 	padding: 10px 20px;
 	overflow: auto;
 }
+.post-list-item {
+	margin: 8px 0;
+}
+.post-title {
+	font-size: 20px;
+	margin: 0;
+}
+.tag-area {
+	font-size: 12px;
+	color: #7f8c8d;
+	padding: 3px 0;
+}
+.tag-area .tag {
+	padding: 4px;
+	border-radius: 4px;
+	display: inline-block;
+	margin-right: 4px;
+	background-color: #16A085;
+	color: #ffffff;
+}
+.github-link{
+	font-size: 12px;
+	display: block;
+	float: right;
+	color: #ffffff;
+	text-decoration: underline;
+}
+

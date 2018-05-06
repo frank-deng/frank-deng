@@ -3,18 +3,18 @@
 	<head>
 		<meta name='viewport' id='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'/>
 		<meta charset='UTF-8'/>
-		<title>{{page.title}} - Frank的空间</title>
+		<title>{{page.title}} - {{site.data.main.site_title}}</title>
 		<link rel='stylesheet' type='text/css' href='/css/main.css'/>
-		<link rel='stylesheet' type='text/css' href='/css/post.css'/>
+		<link rel="icon" type="image/png" href="/images/favicon.png"/>
 	</head>
 	<body>
 		<div class='header-wrapper'>
 			<div class='header'>
-				{% include header-link.html %}
+				<p class='site-title'><a href='/'>{{site.data.main.site_title}}</a></p>
 			</div>
 		</div>
 		<div class='main-content'>
-			<h2>{{page.title}}</h2>
+			<h1>{{page.title}}</h1>
 			{{ content }}
 		</div>
 	</body>
