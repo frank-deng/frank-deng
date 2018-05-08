@@ -91,15 +91,6 @@
 		</project>
 		<project>
 			<time>
-				<from><year>2017</year><month>1</month></from>
-			</time>
-			<name>24 Game Solver (Github Project)</name>
-			<desc><![CDATA[Enumerate expressions in RPN format then calculate out result. In comparison with ordinary solution, code complexity, calculation load, amount of redundant result are reduced.
-				URL: https://github.com/frank-deng/24game-solver
-			]]></desc>
-		</project>
-		<project>
-			<time>
 				<from><year>2016</year><month>11</month></from>
 			</time>
 			<name>QPython-FileServer (GitHub Project)</name>
