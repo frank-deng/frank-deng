@@ -103,6 +103,9 @@ ArchLinux上需要安装`perl-rename`包来获得该工具。
 	set tabstop=4
 	set softtabstop=4
 	set shiftwidth=4
+	
+	" 使用空格代替tab字符
+	set expandtab
 
 ---
 

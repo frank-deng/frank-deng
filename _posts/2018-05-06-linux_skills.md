@@ -66,34 +66,12 @@ MySQL如何解决赋予/收回用户权限时发生Access Denied的情况
 
 ---
 
-Debian/Ubuntu下修复华硕笔记本的Wifi
------------------------------------
-
-如果华硕笔记本上的Wifi模块是Ralink的，安装完Debian/Ubuntu后会出现Wifi无法使用的情况。同时在终端运行`sudo rfkill list all`命令后会有如下输出：
-
-	0: phy0: Wireless LAN
-		Soft blocked: no
-		Hard blocked: yes
-	1: asus-wlan: Wireless LAN
-		Soft blocked: no
-		Hard blocked: no
-
-###如何修复Wifi
-
-创建`/etc/modprobe.d/asus.conf`，并在文件中添加如下内容：
-
-	options asus_nb_wmi wapf=4
-
-然后重启。
-
----
-
 Linux命令行下捕获系统声音
 -------------------------
 
 当pulseaudio被用于管理系统声音时，可以在命令行环境下使用`pacat`命令捕获系统声音。
 
-###步骤1：找到用于捕获系统声音的设备
+### 步骤1：找到用于捕获系统声音的设备
 
 使用以下命令找到用于捕获系统声音的设备：
 
@@ -108,7 +86,7 @@ Linux命令行下捕获系统声音
 
 	alsa_output.pci-0000_00_1b.0.analog-stereo.monitor
 
-###步骤2：开始捕获系统声音
+### 步骤2：开始捕获系统声音
 
 以下例子描述了如何将系统声音拷贝到`.wav`文件中，并使用CD音质。
 
@@ -125,11 +103,11 @@ Linux命令行下捕获系统声音
 Linux命令行下配置Wifi
 ---------------------
 
-###前期准备
+### 前期准备
 
 使用`ifconfig -a`命令获取所有可用的网络设备。
 
-###方案1（只需连1个路由器）
+### 方案1（只需连1个路由器）
 
 将以下配置加入到`/etc/network/interfaces`中：
 
@@ -140,7 +118,7 @@ Linux命令行下配置Wifi
 
 其中`wlan0`需要换成需要使用的Wifi设备。
 
-###方案2（根据信号强度连接不同路由器）
+### 方案2（根据信号强度连接不同路由器）
 
 **第1步：**创建`/etc/network/wpa_supplicant.conf`，并添加以下配置：
 
@@ -172,6 +150,28 @@ Termux下安装Jekyll
 
 	apt update && apt install libffi-dev clang ruby ruby-dev make
 	gem install jekyll
+
+---
+
+Debian/Ubuntu下修复华硕笔记本的Wifi
+-----------------------------------
+
+如果华硕笔记本上的Wifi模块是Ralink的，安装完Debian/Ubuntu后会出现Wifi无法使用的情况。同时在终端运行`sudo rfkill list all`命令后会有如下输出：
+
+	0: phy0: Wireless LAN
+		Soft blocked: no
+		Hard blocked: yes
+	1: asus-wlan: Wireless LAN
+		Soft blocked: no
+		Hard blocked: no
+
+###如何修复Wifi
+
+创建`/etc/modprobe.d/asus.conf`，并在文件中添加如下内容：
+
+	options asus_nb_wmi wapf=4
+
+然后重启。
 
 ---
 
