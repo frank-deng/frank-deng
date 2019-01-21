@@ -165,7 +165,7 @@ Debian/Ubuntu下修复华硕笔记本的Wifi
 		Soft blocked: no
 		Hard blocked: no
 
-###如何修复Wifi
+### 如何修复Wifi
 
 创建`/etc/modprobe.d/asus.conf`，并在文件中添加如下内容：
 
