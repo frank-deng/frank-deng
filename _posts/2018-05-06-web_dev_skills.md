@@ -91,4 +91,19 @@ Chrome for Android中更改地址栏的颜色
 
 ---
 
+Vue.js加载可递归使用的组件（WebPack方式）
+-----------------------------------------
+
+	export default{
+		...
+		components:{
+			...
+			leaf:()=>import('path/to/leaf.vue'),
+			...
+		},
+		...
+	}
+
+---
+
 

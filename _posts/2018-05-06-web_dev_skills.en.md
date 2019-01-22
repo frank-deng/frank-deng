@@ -82,3 +82,27 @@ Append `#qpy:fullscreen` to the code above will enable fullscreen mode for the W
 
 ---
 
+CSS Style For DOM-Based Tooltip
+-------------------------------
+
+Apply the following style to the DOM element used for tooltip, so that normal mouse operations won't be inteferred:
+
+	pointer-events:none;
+
+---
+
+Vue.js Load Component Which Can Be Used Recursively
+---------------------------------------------------
+
+	export default{
+		...
+		components:{
+			...
+			leaf:()=>import('path/to/leaf.vue'),
+			...
+		},
+		...
+	}
+
+---
+
