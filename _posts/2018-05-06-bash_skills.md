@@ -113,7 +113,7 @@ ArchLinux上需要安装`perl-rename`包来获得该工具。
 使用gzip备份文件，并为备份文件名添加日期后缀
 --------------------------------------
 
-	gzip -kfS ".$(date '+%Y%m%d_%H%M').gz"
+	gzip -kS ".$(date '+%Y%m%d_%H%M').gz" backup_file
 
 ---
 
