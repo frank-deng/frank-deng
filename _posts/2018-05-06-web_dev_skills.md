@@ -6,8 +6,8 @@ tags: [HTML, JavaScript]
 
 ---
 
-htmlspecialchars()`的JavaScript实现
------------------------------------
+`htmlspecialchars()`的JavaScript实现
+------------------------------------
 
 	function htmlspecialchars(s){
 		var M={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'};
