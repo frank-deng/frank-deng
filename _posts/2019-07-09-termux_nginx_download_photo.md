@@ -4,9 +4,6 @@ title: 如何用termux和nginx从手机上下载照片到电脑
 tags: [Linux, Shell, Termux]
 ---
 
-如何用termux和nginx从手机上下载照片到电脑
-======================================
-
 手机端准备
 ----------
 
