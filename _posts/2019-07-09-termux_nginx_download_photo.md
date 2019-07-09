@@ -1,3 +1,9 @@
+---
+layout: post
+title: 如何用termux和nginx从手机上下载照片到电脑
+tags: [Linux, Shell, Termux]
+---
+
 如何用termux和nginx从手机上下载照片到电脑
 ======================================
 
@@ -41,5 +47,5 @@ nginx配置
 
 使用以下命令进行下载：
 
-	wget -r -nH -nc -c -l 0 'http://192.168.1.103:8080/'
+	wget -r -nH -nc -c -l 0 'http://IP地址:8080/'
 
