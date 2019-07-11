@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Republish] How JavaScript Timers Work
+title: "[Republish] How JavaScript Timers Work"
 tags: [HTML, JavaScript]
 ---
 
