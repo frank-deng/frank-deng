@@ -31,11 +31,59 @@
 	<projects>
 		<project>
 			<time>
-				<from><year>2018</year><month>4</month></from>
+				<from><year>2019</year><month>8</month></from>
+				<to><year>2019</year><month>7</month></to>
 			</time>
-			<name>KMeans图像处理工具（GitHub项目）</name>
-			<desc><![CDATA[使用K-Means算法对用户上传的图片进行处理，以达到一种艺术化的效果。全部操作在浏览器端完成。使用HTML5 canvas对源图像进行缩放操作，并将处理后的图像显示在页面上。图像处理过程使用WebWorker完成，以防页面失去响应。
-				URL：https://github.com/frank-deng/kmeans-imageproc/]]></desc>
+			<name>人才管理模块</name>
+      <desc><![CDATA[查询并维护组织信息和人才信息。
+        负责该功能所有前端页面的开发，包括各个配置页面，组织信息查看和维护页面，人才信息查看和维护页面。
+        使用vue.js + Element UI进行前端开发，在引入Element UI时使用scss以方便更改Element UI的主题色为橙色。
+        查询条件中使用定制的穿梭框组件，以在浏览器端直接处理超过10000条数据，以及拖动选择操作。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2019</year><month>7</month></from>
+				<to><year>2019</year><month>6</month></to>
+			</time>
+			<name>八维画像</name>
+      <desc><![CDATA[根据各部门销售方面的表现打分，并根据得分生成各部门单独的画像。
+        负责该功能所有前端页面的开发，包括打分、画像查看等页面。
+        使用vue.js + Element UI进行前端开发，并使用vuex进行状态管理。
+        使用ECharts绘制雷达图，条形图则使用HTML5 canvas手工绘制。
+        实现了根据给定宽度对单行文字进行换行处理，然后绘制到HTML5 canvas的功能。
+        实现了对表格中的数据进行拖动排序的功能。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2019</year><month>6</month></from>
+				<to><year>2019</year><month>4</month></to>
+			</time>
+			<name>财务画像</name>
+      <desc><![CDATA[根据各部门财务方面的表现打分，并根据得分生成所有部门的总体画像和各部门单独的画像。
+        负责该功能所有前端页面的开发，包括总体画像、部门画像页面、加分申报页面、评分页面、画像配置页面等页面。
+        使用vue.js + Element UI进行前端开发，在引入Element UI时使用scss以方便更改Element UI的主题色为橙色。
+        总体画像使用HTML Canvas手工绘制，使用ECharts绘制部门画像中的雷达图。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2019</year><month>2</month></from>
+				<to><year>2019</year><month>4</month></to>
+			</time>
+			<name>财务培训平台</name>
+      <desc><![CDATA[有权限的员工可在该平台上进行课程线上报名操作，并下载课程相关材料，浏览相关讲师并进行点赞、发送邮件操作。
+        负责搭建整个前端架构，开发所有通用vue组件，以及财务培训平台所有页面的开发，包括课程列表页面、讲师列表页面、培训资源页面。
+        使用vue.js + Element UI进行前端开发，在引入Element UI时使用scss以方便更改Element UI的主题色为橙色。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2018</year><month>5</month></from>
+				<to><year>2019</year><month>1</month></to>
+			</time>
+			<name>iSee平台</name>
+      <desc><![CDATA[内部员工使用的人工识别单据的平台。
+        负责部分通用vue组件的开发，部分基表维护用页面的开发，以及单据信息填写页面部分功能的开发，并处理和其它前端开发的vue组件的联动功能。
+        使用vue.js + Element UI进行前端开发
+        使用nodejs开发专用的后台服务器，并将前端ajax请求的IP和端口号改为该服务器的IP和端口号，可以将请求重定向到其他后端开发的PC上，方便调试后端；或针对部分请求路径返回预先准备好的数据，以加快开发和定位问题的速度。]]></desc>
 		</project>
 		<project>
 			<time>
@@ -48,28 +96,11 @@
 		</project>
 		<project>
 			<time>
-				<from><year>2018</year><month>2</month></from>
-			</time>
-			<name>Neko Project II字库编辑器（GitHub项目）</name>
-			<desc><![CDATA[Neko Project II PC98模拟器配套的字库编辑器，使用vue.js处理DOM相关的操作。当关闭页面时捕获相关事件，然后使用localStorage存储当前正在编辑的文件，在下次打开页面时将之前编辑的文件从localStorage中恢复出来继续编辑。
-				URL：https://github.com/frank-deng/np2-font-tool]]></desc>
-		</project>
-		<project>
-			<time>
 				<from><year>2017</year><month>12</month></from>
 				<to><year>2018</year><month>2</month></to>
 			</time>
 			<name>自动部署平台开发</name>
 			<desc><![CDATA[通过为自动化部署平台编写Ansible Playbook YAML脚本，将原来需要手工操作的备份代码，更新代码的过程自动完成。减少了工作量和出错机率。]]></desc>
-		</project>
-		<project>
-			<time>
-				<from><year>2017</year><month>11</month></from>
-			</time>
-			<name>JavaScript Logger（GitHub项目）</name>
-			<desc><![CDATA[通过改写浏览器原有的console.log()、console.warn()、console.error()函数，实现将错误信息输出到页面中的DOM元素的功能。
-				URL：https://github.com/frank-deng/js-mobile-logger
-			]]></desc>
 		</project>
 		<project>
 			<time>
