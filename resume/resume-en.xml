@@ -30,11 +30,59 @@
 	<projects>
 		<project>
 			<time>
-				<from><year>2018</year><month>4</month></from>
+				<from><year>2019</year><month>8</month></from>
+				<to><year>2019</year><month>7</month></to>
 			</time>
-			<name>K-Means Image Processor (GitHub Project)</name>
-			<desc><![CDATA[Use K-Means algorithm to process uploaded image for an artistic effect. All the operations are performed at browser side. HTML5 canvas is used for downscaling image and display the processed image. Image processing work is done at WebWorker side, so as to prevent freezing the browser.
-				URL: https://github.com/frank-deng/kmeans-imageproc/]]></desc>
+			<name>人才管理模块</name>
+      <desc><![CDATA[查询并维护组织信息和人才信息。
+        负责该功能所有前端页面的开发，包括各个配置页面，组织信息查看和维护页面，人才信息查看和维护页面。
+        使用vue.js + Element UI进行前端开发，在引入Element UI时使用scss以方便更改Element UI的主题色为橙色。
+        查询条件中使用定制的穿梭框组件，以在浏览器端直接处理超过10000条数据，以及拖动选择操作。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2019</year><month>7</month></from>
+				<to><year>2019</year><month>6</month></to>
+			</time>
+			<name>八维画像</name>
+      <desc><![CDATA[根据各部门销售方面的表现打分，并根据得分生成各部门单独的画像。
+        负责该功能所有前端页面的开发，包括打分、画像查看等页面。
+        使用vue.js + Element UI进行前端开发，并使用vuex进行状态管理。
+        使用ECharts绘制雷达图，条形图则使用HTML5 canvas手工绘制。
+        实现了根据给定宽度对单行文字进行换行处理，然后绘制到HTML5 canvas的功能。
+        实现了对表格中的数据进行拖动排序的功能。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2019</year><month>6</month></from>
+				<to><year>2019</year><month>4</month></to>
+			</time>
+			<name>财务画像</name>
+      <desc><![CDATA[根据各部门财务方面的表现打分，并根据得分生成所有部门的总体画像和各部门单独的画像。
+        负责该功能所有前端页面的开发，包括总体画像、部门画像页面、加分申报页面、评分页面、画像配置页面等页面。
+        使用vue.js + Element UI进行前端开发，在引入Element UI时使用scss以方便更改Element UI的主题色为橙色。
+        总体画像使用HTML Canvas手工绘制，使用ECharts绘制部门画像中的雷达图。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2019</year><month>2</month></from>
+				<to><year>2019</year><month>4</month></to>
+			</time>
+			<name>财务培训平台</name>
+      <desc><![CDATA[有权限的员工可在该平台上进行课程线上报名操作，并下载课程相关材料，浏览相关讲师并进行点赞、发送邮件操作。
+        负责搭建整个前端架构，开发所有通用vue组件，以及财务培训平台所有页面的开发，包括课程列表页面、讲师列表页面、培训资源页面。
+        使用vue.js + Element UI进行前端开发，在引入Element UI时使用scss以方便更改Element UI的主题色为橙色。]]></desc>
+		</project>
+		<project>
+			<time>
+				<from><year>2018</year><month>5</month></from>
+				<to><year>2019</year><month>1</month></to>
+			</time>
+			<name>iSee Platform</name>
+      <desc><![CDATA[内部员工使用的人工识别单据的平台。
+        负责部分通用vue组件的开发，部分基表维护用页面的开发，以及单据信息填写页面部分功能的开发，并处理和其它前端开发的vue组件的联动功能。
+        使用vue.js + Element UI进行前端开发
+        使用nodejs开发专用的后台服务器，并将前端ajax请求的IP和端口号改为该服务器的IP和端口号，可以将请求重定向到其他后端开发的PC上，方便调试后端；或针对部分请求路径返回预先准备好的数据，以加快开发和定位问题的速度。]]></desc>
 		</project>
 		<project>
 			<time>
@@ -48,28 +96,11 @@
 		</project>
 		<project>
 			<time>
-				<from><year>2018</year><month>2</month></from>
-			</time>
-			<name>Neko Project II Font Editor (GitHub Project)</name>
-			<desc><![CDATA[Font editor for Neko Project II PC98 emulator, use vue.js to handle DOM manipulations. When closing the editor page, the corresponding event will be triggered and save current file into localStorage. When opening the editor page next time, file saved last time will be recovered from localStorage.
-				URL: https://github.com/frank-deng/np2-font-tool]]></desc>
-		</project>
-		<project>
-			<time>
 				<from><year>2017</year><month>12</month></from>
 				<to><year>2018</year><month>2</month></to>
 			</time>
 			<name>Auto Deployment Platform Development</name>
 			<desc><![CDATA[Automatize the procedure of backup code and update code by writing Ansible Playbook YAML script for the Auto Deployment Platform, so as to reduce the errors caused by manual operation.]]></desc>
-		</project>
-		<project>
-			<time>
-				<from><year>2017</year><month>11</month></from>
-			</time>
-			<name>JavaScript Logger (GitHub Project)</name>
-			<desc><![CDATA[Displaying error and log messages on page as well as in the browser's console by overriding browser's built-in console.log(), console.warn(), console.error() functions.
-				URL: https://github.com/frank-deng/js-mobile-logger
-			]]></desc>
 		</project>
 		<project>
 			<time>
@@ -87,15 +118,6 @@
 			<name>expression-calculator (GitHub Project)</name>
 			<desc><![CDATA[A simple expression parser, using LL(1) syntax analyzer, so as to calculate expressions without using eval() and avoid all the security risks caused by eval().
 				URL: https://github.com/frank-deng/expression-calculator
-			]]></desc>
-		</project>
-		<project>
-			<time>
-				<from><year>2016</year><month>11</month></from>
-			</time>
-			<name>QPython-FileServer (GitHub Project)</name>
-			<desc><![CDATA[A simple HTTP file server based on QPython, uses "bottle" server framework as well as its built-in template engine, so as to enhance the looking of file indexing page on mobile browsers.
-				URL: https://github.com/frank-deng/QPython-FileServer
 			]]></desc>
 		</project>
 		<project>
@@ -149,6 +171,15 @@
 		</project>
 	</projects>
 	<companies>
+		<company>
+			<name>iSoftStone</name>
+			<title>Software Engineer</title>
+			<time>
+				<from><year>2018</year><month>5</month></from>
+				<to><year>2019</year><month>8</month></to>
+			</time>
+			<desc>Developing and maintaining Huawei Club website.</desc>
+		</company>
 		<company>
 			<name>ChinaSoft International</name>
 			<title>Software Engineer</title>
