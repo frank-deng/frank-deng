@@ -153,3 +153,15 @@ Install Jekyll under Termux
 
 ---
 
+Connect To Bluetooth Earphone Via Command Line
+----------------------------------------------
+
+1. Install softwares required: `sudo apt-get install bluez bluez-tools rfkill pulseaudio pulseaudio-module-bluetooth pavucontrol`.
+2. Restart computer, then use `bluetoothctl` command to enter bluez console.
+3. Switch bluetooth earphone into pairing mode to make it discoverable, the use `scan on` command to search for bluetooth devices.
+4. Use `devices` command to find out the address of the bluetooth earphone.
+5. Use `pair 00:00:00:00:00:00` command to pair the bluetooth earphone. Replace `00:00:00:00:00:00` with the approprate bluetooth address of the bluetooth earphone.
+6. Use `pair 00:00:00:00:00:00` command to connect the bluetooth earphone. Replace `00:00:00:00:00:00` with the approprate bluetooth address of the bluetooth earphone.
+7. Use `pavucontrol` command to open Pulseaudio control panel, then change the output device to the bluetooth earphone.
+
+

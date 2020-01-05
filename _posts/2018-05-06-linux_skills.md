@@ -153,3 +153,15 @@ Termux下安装Jekyll
 
 ---
 
+使用命令行连接蓝牙耳机
+----------------------
+
+1. 使用以下命令安装所需软件`sudo apt-get install bluez bluez-tools rfkill pulseaudio pulseaudio-module-bluetooth pavucontrol`。
+2. 重启电脑，然后输入命令`bluetoothctl`进入bluez控制台。
+3. 将蓝牙耳机调整到配对模式，使之可被搜索到，然后在电脑上使用`scan on`命令搜索设备。
+4. 使用`devices`命令找到蓝牙耳机对应的蓝牙地址
+5. 使用`pair 00:00:00:00:00:00`命令与蓝牙耳机配对，需要把命令中的`00:00:00:00:00:00`换成蓝牙耳机对应的蓝牙地址。
+6. 使用`connect 00:00:00:00:00:00`命令与蓝牙耳机连接，需要把命令中的`00:00:00:00:00:00`换成蓝牙耳机对应的蓝牙地址。
+7. 使用`pavucontrol`命令打开Pulseaudio控制台，将输出设备设置成蓝牙耳机即可。
+
+
