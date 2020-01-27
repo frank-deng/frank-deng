@@ -163,5 +163,5 @@ Connect To Bluetooth Earphone Via Command Line
 5. Use `pair 00:00:00:00:00:00` command to pair the bluetooth earphone. Replace `00:00:00:00:00:00` with the approprate bluetooth address of the bluetooth earphone.
 6. Use `pair 00:00:00:00:00:00` command to connect the bluetooth earphone. Replace `00:00:00:00:00:00` with the approprate bluetooth address of the bluetooth earphone.
 7. Use `pavucontrol` command to open Pulseaudio control panel, then change the output device to the bluetooth earphone.
-
+8. If you always failed to connect to bluetooth earphones, try to use `pactl load-module module-bluetooth-discover` command to reload PulseAudio's bluetooth module.
 
