@@ -165,4 +165,14 @@ Termux下安装Jekyll
 7. 使用`pavucontrol`命令打开Pulseaudio控制台，将输出设备设置成蓝牙耳机即可。
 8. 如果连接蓝牙耳机一直失败，可尝试使用`pactl load-module module-bluetooth-discover`命令加载PulseAudio的蓝牙模块以修复问题。
 
+使用命令行挂载/卸载Android手机的MTP功能
+---------------------------------------
+
+挂载MTP：
+
+	jmtpfs /mnt
+
+卸载MTP：
+
+	fusermount -u /mnt
 
