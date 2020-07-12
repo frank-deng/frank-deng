@@ -27,10 +27,12 @@ nginx配置
 	    }
 	}
 
+---
+
 电脑端准备
 ----------
 
-电脑上需要有wget，Windows版可以从http://www.gnu.org/software/wget/下载，然后解压。Linux一般自带该工具，无需另外安装。
+电脑上需要有wget，Windows版可以从[http://www.gnu.org/software/wget/](http://www.gnu.org/software/wget/)下载，然后解压。Linux一般自带该工具，无需另外安装。
 
 连接
 ----
@@ -38,6 +40,8 @@ nginx配置
 1. 确保手机和电脑连接的是同一wifi。
 2. 在手机的WLAN设置中打开WLAN高级设置，找到当前手机在局域网里的IP地址。或在手机的设置功能中搜索“IP地址”亦可。
 3. 在电脑端的浏览器里输入`http://IP地址:8080/`，如果看到以下页面，就说明连接成功了。
+
+![termux-nginx-autoindex.png](images/termux-nginx-autoindex.png)
 
 将照片下载到电脑
 ----------------

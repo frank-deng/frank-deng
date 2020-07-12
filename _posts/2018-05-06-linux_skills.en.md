@@ -165,3 +165,16 @@ Connect To Bluetooth Earphone Via Command Line
 7. Use `pavucontrol` command to open Pulseaudio control panel, then change the output device to the bluetooth earphone.
 8. If you always failed to connect to bluetooth earphones, try to use `pactl load-module module-bluetooth-discover` command to reload PulseAudio's bluetooth module.
 
+---
+
+Mount/unmount MTP devices via command line
+------------------------------------------
+
+Mount MTP：
+
+	jmtpfs /mnt
+
+Unmount MTP：
+
+	fusermount -u /mnt
+

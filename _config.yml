@@ -16,4 +16,4 @@ sass:
     sass_dir: _sass
     style: compressed
 
-language: 'zh-CN'
+#encoding: 'GB2312'
