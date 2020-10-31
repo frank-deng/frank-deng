@@ -121,9 +121,6 @@
 				</tr>
 			</xsl:for-each>
 		</table>
-
-		<h2>其它</h2>
-		<p><xsl:value-of select='resume/about'/></p>
 	</body>
 </html>
 </xsl:template>

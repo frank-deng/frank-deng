@@ -23,12 +23,24 @@
 			<degree>本科</degree>
 		</education>
 	</education-experience>
-	<self-assessment><![CDATA[熟练掌握技能：Web前端、JavaScript、vue.js、Python、Linux。
+	<self-assessment><![CDATA[能熟练使用vue.js进行前端开发，能熟练使用JavaScript开发前端模块或后端工具以提高工作效率。
+    能熟练地根据需求和vue.js的特点对所涉及的模块进行划分，以降低开发成本和维护成本。
 		能快速理解英文文档，并熟练撰写英文文档。
 		热爱技术，业余时间在GitHub上维护多个项目。
 		对WebGL、three.js有一定了解。
 	]]></self-assessment>
 	<projects>
+		<project>
+			<time>
+				<from><year>2020</year><month>8</month></from>
+				<to><year>2020</year><month>4</month></to>
+			</time>
+			<name>智慧经分——文件库</name>
+      <desc><![CDATA[对各部门上传的文件按专业公司、文件类别等要素进行归类；
+        配有文件库首页，用来显示公司或文件类别对应的最新上传的文件，用户可自行配置要显示的文件类别和公司。
+        负责该功能所有前端页面的开发，包括文件上传页面、文件列表页面、文件库首页等页面。
+        定制的列表框组件使用了局部显示的策略，成功实现在浏览器端直接在列表中处理超过10000条数据。]]></desc>
+		</project>
 		<project>
 			<time>
 				<from><year>2019</year><month>8</month></from>
@@ -44,7 +56,7 @@
 				<from><year>2019</year><month>7</month></from>
 				<to><year>2019</year><month>6</month></to>
 			</time>
-			<name>八维画像</name>
+			<name>智慧经分——八维画像</name>
       <desc><![CDATA[根据各部门销售方面的表现打分，并根据得分生成各部门单独的画像。
         负责该功能所有前端页面的开发，包括打分、画像查看等页面。
         使用vue.js + Element UI进行前端开发；使用vuex进行状态管理；使用ECharts绘制雷达图；条形图则使用HTML5 canvas手工绘制。
@@ -76,33 +88,17 @@
 			</time>
 			<name>iSee平台</name>
       <desc><![CDATA[内部员工使用的人工识别单据的平台。
-        负责部分通用vue组件的开发，部分基表维护用页面的开发，以及单据信息填写页面部分功能的开发，并处理和其它前端开发的vue组件的联动功能。
+        负责部分通用vue组件的开发，部分基表维护用页面的开发，以及单据信息填写页面部分功能的开发，并处理和其它vue组件的联动功能。
         使用vue.js + Element UI进行前端开发
         使用nodejs开发专用的后台服务器，并将前端ajax请求的IP和端口号改为该服务器的IP和端口号，可以将请求重定向到其他后端开发的PC上，方便调试后端；或针对部分请求路径返回预先准备好的数据，以加快开发和定位问题的速度。]]></desc>
-		</project>
-		<project>
-			<time>
-				<from><year>2018</year><month>3</month></from>
-				<to><year>2018</year><month>4</month></to>
-			</time>
-			<name>花粉中间件</name>
-			<desc><![CDATA[接收华为账号发来的登出消息，然后将获取的信息加工成花粉俱乐部登出接口使用的格式并发送至该接口，实现花粉俱乐部的自动登出功能。
-负责相关功能的开发，并和第三方协调接口使用的参数。]]></desc>
-		</project>
-		<project>
-			<time>
-				<from><year>2017</year><month>12</month></from>
-				<to><year>2018</year><month>2</month></to>
-			</time>
-			<name>自动部署平台开发</name>
-			<desc><![CDATA[通过为自动化部署平台编写Ansible Playbook YAML脚本，将原来需要手工操作的备份代码，更新代码的过程自动完成。减少了工作量和出错机率。]]></desc>
 		</project>
 		<project>
 			<time>
 				<from><year>2017</year><month>10</month></from>
 			</time>
 			<name>日文汉字读音查询工具（GitHub项目）</name>
-			<desc><![CDATA[用来查询日文汉字读音的工具，使用Webpack进行构建，使用localStorage对字典文件进行缓存。
+      <desc><![CDATA[用来查询日文汉字读音的工具，使用Webpack进行构建，使用localStorage对字典文件进行缓存；
+        汉字的Unicode值使用Base62编码储存，汉字的日文读音信息使用基于Ascii字符的专用编码进行压缩，缩小了数据文件的大小，加快了加载速度。
 				URL：https://github.com/frank-deng/kanji-reading
 			]]></desc>
 		</project>
@@ -114,14 +110,6 @@
 			<desc><![CDATA[使用LL(1)语法分析器实现的表达式计算器，可以代替eval()实现相关功能以防止引入相关的安全风险。
 				URL：https://github.com/frank-deng/expression-calculator
 			]]></desc>
-		</project>
-		<project>
-			<time>
-				<from><year>2016</year><month>3</month></from>
-				<to><year>2016</year><month>4</month></to>
-			</time>
-			<name>EMUI官网</name>
-			<desc><![CDATA[对机型选择页面进行改进，使得页面可以根据浏览器窗口宽度自动调整布局，增强了用户体验。]]></desc>
 		</project>
 		<project>
 			<time>
@@ -151,16 +139,6 @@
 			<name>Zeek the Geek 食人花小游戏（GitHub项目）</name>
 			<desc><![CDATA[HTML5版的Zeek the Geek食人花小游戏。
 				URL：https://github.com/frank-deng/zeek-the-geek
-			]]></desc>
-		</project>
-		<project>
-			<time>
-				<from><year>2013</year><month>11</month></from>
-				<to><year>2014</year><month>8</month></to>
-			</time>
-			<name>SugarBash</name>
-			<desc><![CDATA[面向女性的社交/电子商务网站。
-				负责开发PC用前端页面、部份后端接口，以及网站的FireFox插件、Chrome插件、Safari插件。
 			]]></desc>
 		</project>
 	</projects>
@@ -193,8 +171,4 @@
 			<desc>以Oracle数据库开发为主，兼做电子商务网站项目。</desc>
 		</company>
 	</companies>
-	<about><![CDATA[本简历使用XML格式的数据，并使用XSLT模板将简历加工成HTML格式，与传统word简历相比，更便于维护。
-		URL：https://frank-deng.github.io/resume/resume.xml
-		可以在浏览器中直接打开该URL，并直接使用浏览器提供的打印功能打印简历。推荐使用PC端的Chrome、Firefox、Edge浏览器打开。
-	]]></about>
 </resume>
