@@ -25,6 +25,8 @@ tags: [HTML, JavaScript, React.js]
 
 以下是一个简单的对话框组件的代码：
 
+	import {Component} from 'react';
+	import ReactDOM from 'react-dom';
 	export default class Dialog extends Component{
 		//Modal容器对应的DOM
 		container=null;
